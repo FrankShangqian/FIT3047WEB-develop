@@ -46,7 +46,7 @@ echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css")
             </tbody>
         </table>
     </div>
-    <div class="paginator">
+    <div class="dataTable_paginator paging_simple_numbers" id = 'dataTable_paginator'>
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
