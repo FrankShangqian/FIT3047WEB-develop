@@ -14,11 +14,11 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('order_id') ?></th>
-                    <th><?= $this->Paginator->sort('order_date') ?></th>
-                    <th><?= $this->Paginator->sort('order_total') ?></th>
-                    <th><?= $this->Paginator->sort('order_status') ?></th>
-                    <th><?= $this->Paginator->sort('order_item') ?></th>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('date') ?></th>
+                    <th><?= $this->Paginator->sort('total') ?></th>
+                    <th><?= $this->Paginator->sort('status') ?></th>
+                    <th><?= $this->Paginator->sort('item') ?></th>
                     <th><?= $this->Paginator->sort('customer_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
