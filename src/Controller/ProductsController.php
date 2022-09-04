@@ -101,4 +101,10 @@ class ProductsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function pdf($id = null)
+    {
+        header("Location:pdf.php");
+    }
 }
+
