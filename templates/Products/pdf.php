@@ -1,77 +1,59 @@
 <?php
-$PAGE_ID = "pdf";
-$PAGE_HEADER = "Print Client Contact List";
-$db_host = "localhost";
-$db_username = "fit2104";
-$db_passwd = "fit2104";
-$db_name = "fit2104_A2";
-$dsn = "mysql:host=$db_host;dbname=$db_name";
-$dbh = new PDO($dsn, $db_username, $db_passwd);
+//Add script to read MySQL data and export to excel
+include("read_and_export.php");
 
-require_once __DIR__ . '/vendor/autoload.php';
+?>
 
-use Mpdf\Mpdf;
+<!DOCTYPE html>
+<html>
+<head>
+<title>Export MySQL Data to Excel using PHP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+ src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
 
-// Modified from https://github.com/mpdf/mpdf-examples/blob/master/example34_invoice_example.php
-$stmt = $dbh->prepare("SELECT * FROM `client`");
-$data = array();
-$content= '';
+<body>
 
+<div class="container">
+<center><br/><br/><h2
+ style='color:green'>Items Table Information</h2></center>
+<div class="col-sm-12">
+<div>
+<form action="#" method="post">
+<button type="submit" id="export" name="export"
+ value="Export to excel" class="btn btn-success">Export To Excel</button>
+</form>
+</div>
+</div>
+<br/>
+<table id="" class="table table-striped table-bordered">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Type</th>
+<th>Brand</th>
+<th>Price</th>
+</tr>
+<tbody>
+<?php foreach($items as $item) { ?>
+<tr>
+<td><?php echo $item ['id']; ?></td>
+<td><?php echo $item ['name']; ?></td>
+<td><?php echo $item ['type']; ?></td>
+<td><?php echo $item ['brand']; ?></td>
+<td>$<?php echo $item ['price']; ?></td>
+</tr>
+<?php } ?>
+</tbody>
+</table>
+</div>
 
-$content = ' <h3>Client Contact</h3>
-            <table>
-                     <tr>
-                        <th style="width: 50%;">ID</th>
-                        <th style="width: 50%">First Name</th>
-                        <th style="width: 50%">Last Name</th>
-                        <th style="width: 50%">Address</th>
-                        <th style="width: 50%">Phone Number</th>
-                        <th style="width: 50%">Email Address</th>
-                    </tr>';
-if($stmt->execute()&& $stmt->rowCount()>0){
-    while ($row = $stmt -> fetchObject()){
-        $content .= '<tr>
-            <td style="padding:2px;font-size: 5px; text-align: center;">'.$row -> client_id.'</td>
-            <td style="padding:2px;font-size: 5px; text-align: center;">'.$row  -> client_firstname.'</td>
-            <td style="padding:2px;font-size: 5px; text-align: center;">'.$row  -> client_surname.'</td>
-            <td style="padding:2px;font-size: 5px;  text-align: center;">'.$row -> client_address.'</td>
-            <td style="padding:2px;font-size: 5px;  text-align: center;">'.$row -> client_phone.'</td>
-            <td style="padding:2px;font-size: 5px;  text-align: center;">'.$row -> client_email.'</td>
-            </tr>';
-
-    }
-}
-$content .=  '</table>';
-
-try {
-    // Setup mPDF parameters
-    $mpdf = new Mpdf([
-        'margin_left' => 10,
-        'margin_right' => 10,
-        'margin_top' => 15,
-        'margin_bottom' => 25,
-        'margin_header' => 10,
-        'margin_footer' => 10
-    ]);
-    $mpdf->SetProtection(['print']);
-
-    $mpdf->SetTitle("Resonant World Pty Ltd. - Client Contacts");
-    $mpdf->SetAuthor("Resonant World Pty Ltd.");
-
-    $mpdf->WriteHTML($content);
-
-    $mpdf->SetDisplayMode('fullpage');
-    $mpdf->list_indent_first_level = 0;
-
-    //call watermark content and image
-    $mpdf->SetWatermarkText('Resonant World');
-    $mpdf->showWatermarkText = true;
-    $mpdf->watermarkTextAlpha = 0.1;
-
-    //output in browser
-    $mpdf->Output();
-
-} catch (\Mpdf\MpdfException $e) {
-    var_dump($e);
-}
-
+</body>
+</html>

@@ -1,10 +1,11 @@
 <?php
-$query = "SELECT product_name, product_quantity, stock_alert FROM Product WHERE product_quantity<stock_alert"
-query($query);
+$link = mysqli_connect('localhost', 'jincakeproj', 'jincakeproj', 'jincakeproj');
+$query = ("SELECT product_name, product_quantity, stock_alert FROM Product WHERE product_quantity<stock_alert");
+
 $items = array();
 
 //Store table records into an array
-while( $row = $result->fetch_assoc() ) {
+while( $row = mysqli_query($link, $query)) {
     $items[] = $row;
 }
 //Check the export button is pressed or not
