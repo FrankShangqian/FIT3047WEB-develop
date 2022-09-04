@@ -1,8 +1,11 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Order[]|\Cake\Collection\CollectionInterface $orders
+ * @var \App\Model\Entity\Customer[]|\Cake\Collection\CollectionInterface $customers
  */
+echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
+echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
+echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
 ?>
 <div class="orders index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -42,14 +45,9 @@
             </tbody>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+          });
+    </script>
 </div>

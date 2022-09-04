@@ -18,11 +18,7 @@ class InvoicesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Orders'],
-        ];
-        $invoices = $this->paginate($this->Invoices);
-
+        $invoices = ($this->Invoices->find());
         $this->set(compact('invoices'));
     }
 

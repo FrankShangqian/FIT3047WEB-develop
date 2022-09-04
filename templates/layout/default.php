@@ -17,7 +17,7 @@
     <?= $this->Html->css('sb-admin-2.min.css') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    <script src="vendor/jquery/jquery.min.js"></script>
 
 </head>
 
@@ -288,7 +288,7 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
+
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
@@ -296,7 +296,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
-
+<?= $this->fetch('script') ?>
 </body>
 
 </html>
