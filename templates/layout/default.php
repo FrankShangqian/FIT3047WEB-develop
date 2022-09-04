@@ -17,8 +17,7 @@
     <?= $this->Html->css('sb-admin-2.min.css') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <script src="vendor/jquery/jquery.min.js"></script>
-
+    <?= $this->Html->script('/vendor/jquery/jquery.min.js') ?>
 </head>
 
 <body id="page-top">
@@ -42,9 +41,9 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<?= $this->Url->build(['controller'=> 'Pages','action'=>'display','home']) ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Home</span></a>
         </li>
 
         <!-- Divider -->
@@ -52,85 +51,74 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Interface
+            Functions
         </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- Nav Item Orders -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
+                aria-expanded="true" aria-controls="collapseOrders">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <span>Orders</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseOrders" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    <h6 class="collapse-header">Orders functions:</h6>
+                    <a class="collapse-item" href="<?= $this->Url->build('/orders') ?>">List</a>
+                    <a class="collapse-item" href="<?= $this->Url->build('/orders/add') ?>">New Orders</a>
                 </div>
             </div>
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
+        <!-- Nav Item Customers -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomers"
+                aria-expanded="true" aria-controls="collapseCustomers">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <span>Customers</span>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            <div id="collapseCustomers" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <h6 class="collapse-header">Customers functions:</h6>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Customers') ?>">List</a>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Customers/add') ?>">New Customers</a>
                 </div>
             </div>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- Nav Item Invoices -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInvoices"
+                aria-expanded="true" aria-controls="collapseInvoices">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <span>Invoices</span>
             </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div id="collapseInvoices" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="login.html">Login</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
+                    <h6 class="collapse-header">Invoices functions:</h6>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Invoices') ?>">List</a>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Invoices/add') ?>">New Invoices</a>
                 </div>
             </div>
         </li>
 
-        <!-- Nav Item - Charts -->
+        <!-- Nav Item Products -->
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span></a>
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
+                aria-expanded="true" aria-controls="collapseProducts">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <span>Products</span>
+            </a>
+            <div id="collapseProducts" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Products functions:</h6>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Products') ?>">List</a>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Products/add') ?>">New Products</a>
+                </div>
+            </div>
         </li>
 
         <!-- Divider -->
@@ -157,20 +145,6 @@
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>
-
-                <!-- Topbar Search -->
-                <form
-                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -205,8 +179,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                            <img class="img-profile rounded-circle"
-                                 src="img/undraw_profile.svg">
+                            <?=$this->Html->image('undraw_profile.svg', ['class' => 'img-profile rounded-circle']) ?>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -269,7 +242,7 @@
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -288,14 +261,13 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<?= $this->Html->script('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<?= $this->Html->script('/vendor/jquery-easing/jquery.easing.min.js') ?>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<?= $this->Html->script('sb-admin-2.min.js') ?>
 <?= $this->fetch('script') ?>
 </body>
 
