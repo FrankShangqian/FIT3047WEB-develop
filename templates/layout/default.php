@@ -97,7 +97,7 @@
             <div id="collapseInvoices" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Invoices function:</h6>
+                    <h6 class="collapse-header">Invoices functions:</h6>
                     <a class="collapse-item" href="<?= $this->Url->build('/Invoices') ?>">List</a>
                     <a class="collapse-item" href="<?= $this->Url->build('/Invoices/add') ?>">New Invoices</a>
                 </div>
@@ -114,7 +114,7 @@
             <div id="collapseProducts" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Products function:</h6>
+                    <h6 class="collapse-header">Products functions:</h6>
                     <a class="collapse-item" href="<?= $this->Url->build('/Products') ?>">List</a>
                     <a class="collapse-item" href="<?= $this->Url->build('/Products/add') ?>">New Products</a>
                 </div>
