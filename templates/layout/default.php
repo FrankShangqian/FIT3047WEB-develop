@@ -17,8 +17,7 @@
     <?= $this->Html->css('sb-admin-2.min.css') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <script src="vendor/jquery/jquery.min.js"></script>
-
+    <?= $this->Html->script('/vendor/jquery/jquery.min.js') ?>
 </head>
 
 <body id="page-top">
@@ -58,8 +57,8 @@
         <!-- Nav Item Orders -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
-               aria-expanded="true" aria-controls="collapseOrders">
-                <i class="fas fa-fw fa-cog"></i>
+                aria-expanded="true" aria-controls="collapseOrders">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
                 <span>Orders</span>
             </a>
             <div id="collapseOrders" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -74,8 +73,8 @@
         <!-- Nav Item Customers -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomers"
-               aria-expanded="true" aria-controls="collapseCustomers">
-                <i class="fas fa-fw fa-wrench"></i>
+                aria-expanded="true" aria-controls="collapseCustomers">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
                 <span>Customers</span>
             </a>
             <div id="collapseCustomers" class="collapse" aria-labelledby="headingUtilities"
@@ -91,12 +90,12 @@
         <!-- Nav Item Invoices -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInvoices"
-               aria-expanded="true" aria-controls="collapseInvoices">
-                <i class="fas fa-fw fa-wrench"></i>
+                aria-expanded="true" aria-controls="collapseInvoices">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
                 <span>Invoices</span>
             </a>
             <div id="collapseInvoices" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Invoices function:</h6>
                     <a class="collapse-item" href="<?= $this->Url->build('/Invoices') ?>">List</a>
@@ -108,12 +107,12 @@
         <!-- Nav Item Products -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
-               aria-expanded="true" aria-controls="collapseProducts">
-                <i class="fas fa-fw fa-wrench"></i>
+                aria-expanded="true" aria-controls="collapseProducts">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
                 <span>Products</span>
             </a>
             <div id="collapseProducts" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Products function:</h6>
                     <a class="collapse-item" href="<?= $this->Url->build('/Products') ?>">List</a>
@@ -180,8 +179,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                            <img class="img-profile rounded-circle"
-                                 src="img/undraw_profile.svg">
+                            <? = $this->Html->image('undraw_profile.svg', ['class' => 'img-profile rounded-circle']); ?>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -244,7 +242,7 @@
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -263,14 +261,13 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<?= $this->Html->script('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<?= $this->Html->script('/vendor/jquery-easing/jquery.easing.min.js') ?>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<?= $this->Html->script('sb-admin-2.min.js') ?>
 <?= $this->fetch('script') ?>
 </body>
 

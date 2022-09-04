@@ -4,6 +4,9 @@
  * @var \App\Model\Entity\Order $order
  * @var \Cake\Collection\CollectionInterface|string[] $customers
  */
+ echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
+ echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
+ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
 ?>
 <head>
 
