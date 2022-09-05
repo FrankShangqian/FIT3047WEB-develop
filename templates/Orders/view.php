@@ -16,6 +16,8 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
             <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
+
+
     </aside>
     <div class="column-responsive column-80">
         <div class="orders view content">
@@ -43,9 +45,10 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                 </tr>
                 <tr>
                     <th><?= __('Order Status') ?></th>
-                    <td><?= $order->order_status ? __('Yes') : __('No'); ?></td>
+                    <td><?= $order->order_status ? __('Processing') : __('Shipped'); ?></td>
                 </tr>
             </table>
         </div>
     </div>
 </div>
+

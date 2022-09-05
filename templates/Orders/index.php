@@ -20,7 +20,7 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('date') ?></th>
                     <th><?= $this->Paginator->sort('total') ?></th>
-                    <th><?= $this->Paginator->sort('status') ?></th>
+                    <th><?= $this->Paginator->sort('order status') ?></th>
                     <th><?= $this->Paginator->sort('item') ?></th>
                     <th><?= $this->Paginator->sort('customer_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -32,7 +32,7 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                     <td><?= $this->Number->format($order->order_id) ?></td>
                     <td><?= h($order->order_date) ?></td>
                     <td><?= $this->Number->format($order->order_total) ?></td>
-                    <td><?= h($order->order_status) ?></td>
+                    <td><?= h($order->order_status ? 'Processing' : 'Shipped' ) ?></td>
                     <td><?= $this->Number->format($order->order_item) ?></td>
                     <td><?= $order->has('customer') ? $this->Html->link($order->customer->customer_id, ['controller' => 'Customers', 'action' => 'view', $order->customer->customer_id]) : '' ?></td>
                     <td class="actions">
