@@ -25,14 +25,10 @@
                 <?php
                     echo $this->Form->control('order_date');
                     echo $this->Form->control('order_total');
-                    ?>
-                <div class="row">
-                    <label for="order_status">Update Order Status</label><br>
-                    <select name="order_status" id="order_status">
-                        <option value="1">Processing</option>
-                        <option value="0">Shipped</option>
-                    </select>
-                </div>
+                    echo $this->Form->select('order_status', [
+                        '1' => 'Processing',
+                        '0' => 'Shipped']);
+                ?>
                 <?php
 
                     echo $this->Form->control('order_item');

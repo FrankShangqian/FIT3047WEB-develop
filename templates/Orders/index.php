@@ -1,6 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Order $orders
  * @var \App\Model\Entity\Customer[]|\Cake\Collection\CollectionInterface $customers
  */
 echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
@@ -34,7 +35,7 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                     <td><?= $this->Number->format($order->order_total) ?></td>
                     <td><?= h($order->order_status ? 'Processing' : 'Shipped' ) ?></td>
                     <td><?= $this->Number->format($order->order_item) ?></td>
-                    <td><?= $order->has('customer') ? $this->Html->link($order->customer->customer_id, ['controller' => 'Customers', 'action' => 'view', $order->customer->customer_id]) : '' ?></td>
+                    <td><?= $order -> has('customer') ? $this->Html->link($order->customer->customer_id, ['controller' => 'Customers', 'action' => 'view', $order->customer->customer_id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $order->order_id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->order_id]) ?>

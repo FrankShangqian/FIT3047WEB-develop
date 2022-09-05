@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Order $order
  */
- echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
+echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
 echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
 echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
 ?>
@@ -15,12 +15,8 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
             <?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->order_id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->order_id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-            <form method="post">
-                <input type="submit" formmethod="get" formaction="email" value="Send Invoice">
-            </form>
+            <?= $this->Html->link(__('Send Invoice'),['action' => 'email'], ['class' => 'side-nav-item']);?>
         </div>
-
-
 
 
     </aside>
