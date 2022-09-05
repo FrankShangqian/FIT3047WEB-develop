@@ -15,7 +15,12 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
             <?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->order_id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->order_id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <form method="post">
+                <input type="submit" formmethod="get" formaction="email" value="Send Invoice">
+            </form>
         </div>
+
+
 
 
     </aside>
