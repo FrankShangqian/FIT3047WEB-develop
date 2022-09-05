@@ -35,7 +35,7 @@ CREATE TABLE `customers` (
   `customer_city` varchar(255) NOT NULL,
   `customer_phonenumber` varchar(20) NOT NULL,
   `customer_email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Dumping data for table `customers`
@@ -152,7 +152,7 @@ INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_address`, `cu
 CREATE TABLE `invoices` (
   `invoice_id` int NOT NULL,
   `order_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Dumping data for table `invoices`
@@ -174,7 +174,7 @@ CREATE TABLE `orders` (
   `order_status` tinyint(1) NOT NULL,
   `order_item` int NOT NULL,
   `customer_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Dumping data for table `orders`
@@ -195,7 +195,7 @@ CREATE TABLE `products` (
   `product_quantity` int NOT NULL,
   `product_price` decimal(9,2) NOT NULL,
   `stock_alert` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Dumping data for table `products`
