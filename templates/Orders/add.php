@@ -19,8 +19,15 @@ $this->Form->setTemplates($formTemplate);
 <?= $this->Form->create($order) ?>
     <?php
         echo $this->Form->control('order_date');
-        echo $this->Form->control('order_total');
-        echo $this->Form->control('order_status');
+        echo $this->Form->control('order_total');?>
+        <div class="row">
+                    <label for="order_status">Update Order Status</label><br>
+                    <select name="order_status" id="order_status">
+                        <option value="1">Processing</option>
+                        <option value="0">Shipped</option>
+                    </select>
+                </div>
+    <?php
         echo $this->Form->control('order_item');
         echo $this->Form->control('customer_id', ['options' => $customers]);
     ?>

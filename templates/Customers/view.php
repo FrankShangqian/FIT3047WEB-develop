@@ -38,6 +38,7 @@
                     <th><?= __('Customer Email') ?></th>
                     <td><?= h($customer->customer_email) ?></td>
                 </tr>
+
                 <tr>
                     <th><?= __('Customer Id') ?></th>
                     <td><?= $this->Number->format($customer->customer_id) ?></td>
@@ -50,3 +51,5 @@
         </div>
     </div>
 </div>
+<?= $this->Html->link(__('Send Invoice'), ['action' => 'email'], ['class' => 'side-nav-item'])?>
+

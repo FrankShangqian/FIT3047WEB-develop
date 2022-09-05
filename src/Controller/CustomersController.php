@@ -39,6 +39,8 @@ class CustomersController extends AppController
         $this->set(compact('customer'));
     }
 
+
+
     /**
      * Add method
      *
@@ -102,4 +104,6 @@ class CustomersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
 }
