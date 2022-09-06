@@ -29,11 +29,10 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= $this->Url->build('/') ?>">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= $this->Url->build('/admin') ?>">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3"> Aromy <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3"> Aromy</div>
         </a>
 
         <!-- Divider -->
@@ -41,7 +40,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="<?= $this->Url->build(['controller'=> 'Pages','action'=>'display','home']) ?>">
+            <a class="nav-link" href="<?= $this->Url->build('/admin') ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Home</span></a>
         </li>

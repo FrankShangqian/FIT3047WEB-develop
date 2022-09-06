@@ -17,19 +17,20 @@ $this->Form->setTemplates($formTemplate);
 ?>
 
 <h1 class="h3 mb-2 text-gray-800">Add New Order</h1>
-<?= $this->Form->create($order) ?>
-    <?php
-        echo $this->Form->control('order_date');
-        echo $this->Form->control('order_total');?>
-        <th>Order Status:</th>
-     <?php   echo $this->Form->select('order_status', [
-            '1' => 'Processing',
-            '0' => 'Shipped'
-    ]);?>
-
-    <?php
-        echo $this->Form->control('order_item');
-        echo $this->Form->control('customer_id', ['options' => $customers]);
-    ?>
+<div class="form-group">
+    <?= $this->Form->create($order) ?>
+        <?php
+            echo $this->Form->control('order_date');
+            echo $this->Form->control('order_total');?>
+            <th>Order Status:</th>
+        <?php   echo $this->Form->select('order_status', [
+                '1' => 'Processing',
+                '0' => 'Shipped'
+        ]);?>
+        <?php
+            echo $this->Form->control('order_item');
+            echo $this->Form->control('customer_id', ['options' => $customers]);
+        ?>
+</div>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>

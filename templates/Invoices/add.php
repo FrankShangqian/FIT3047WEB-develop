@@ -16,9 +16,11 @@ $this->Form->setTemplates($formTemplate);
 ?>
 
 <h1 class="h3 mb-2 text-gray-800">Add New Invoice</h1>
-<?= $this->Form->create($invoice) ?>
-    <?php
-    echo $this->Form->control('order_id', ['options' => $orders]);
-    ?>
+<div class="form-group">
+    <?= $this->Form->create($invoice) ?>
+        <?php
+        echo $this->Form->control('order_id', ['options' => $orders]);
+        ?>
+</div>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>
