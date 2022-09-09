@@ -1,52 +1,41 @@
 <?php
-session_start();
-$db_host = "localhost";
-$db_username = "team110";
-$db_passwd = "team110";
-$db_name = "team110";
-$dsn = "mysql:host=$db_host;dbname=$db_name";
-$dbh = new PDO($dsn, $db_username, $db_passwd);
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Product $product
+ */
+echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
+echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
+echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
 ?>
-<!DOCTYPE html>
-<html>
-    <header>
-        <ul>
+<div class="row">
+    <aside class="column">
+        <div class="side-nav">
             <a href="<?= $this->Url->build(['action' => 'index'])?>">Back</a>
-        </ul>
-    </header>
-    <?php
-    $reorder = "SELECT * FROM `products` WHERE `product_quantity` < `stock_alert`";
-    ?>
-    <div class="container-fluid">
-        <h1>Reorder Stock List</h1>
-        <form method="post">
-            <div class="table-responsive">
-                <?php $stocks = $dbh->prepare($reorder);
-                if ($stocks->execute()&& $stocks->rowCount()>0): ?>
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>Available Quantity</th>
-                        <th>Stock Reorder Quantity</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php while ($list = $stocks->fetchObject()):
-                    ?>
-                        <tr>
-                            <td><?= $list->product_id?></td>
-                            <td><?= $list->product_name?></td>
-                            <td><?= $list->product_quantity?></td>
-                            <td><?= $list->stock_alert?></td>
-                        </tr>
-                    <?php endwhile; ?>
-                    </tbody>
-                </table>
-                <?php else: ?>
-                    <p class="mb-4">There's no reorder required.</p>
-                <?php endif; ?>
-
-
-</html>
+        </div>
+    </aside>
+<body>
+    <h1>Reorder Stock List</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th><?= $this->Paginator->sort('id') ?></th>
+                <th><?= $this->Paginator->sort('name') ?></th>
+                <th><?= $this->Paginator->sort('quantity') ?></th>
+                <th><?= $this->Paginator->sort('stock_alert') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <td><?= $this->Number->format($product->product_id) ?></td>
+                    <td><?= h($product->product_name) ?></td>
+                    <td><?= $this->Number->format($product->product_quantity) ?></td>
+                    <td><?= $this->Number->format($product->stock_alert) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</div>

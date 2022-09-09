@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Order Entity
  *
  * @property int $order_id
- * @property \Cake\I18n\FrozenTime $order_date
+ * @property \Cake\I18n\FrozenDate $order_date
  * @property string $order_total
  * @property bool $order_status
  * @property int $order_item

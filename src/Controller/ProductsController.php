@@ -22,6 +22,15 @@ class ProductsController extends AppController
         $this->set(compact('products'));
     }
 
+    public function pdf()
+    {
+        $products = $this->Products->find('all',[
+            'conditions' => ['Products.product_quantity < Products.stock_alert'],
+        ]);
+        $this->set(compact('products'));
+
+    }
+
     /**
      * View method
      *
@@ -102,9 +111,6 @@ class ProductsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function pdf($id = null)
-    {
-        header("Location:pdf.php");
-    }
+
 }
 

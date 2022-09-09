@@ -18,7 +18,11 @@ class OrdersController extends AppController
      */
     public function index()
     {
-        $orders = ($this->Orders->find());
+        $this->paginate = [
+            'contain' => ['Customers'],
+        ];
+        $orders = $this->paginate($this->Orders);
+
         $this->set(compact('orders'));
     }
 

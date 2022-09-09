@@ -58,9 +58,9 @@ class OrdersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->dateTime('order_date')
+            ->date('order_date')
             ->requirePresence('order_date', 'create')
-            ->notEmptyDateTime('order_date');
+            ->notEmptyDate('order_date');
 
         $validator
             ->decimal('order_total')
