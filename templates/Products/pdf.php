@@ -7,10 +7,11 @@ echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
 echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
 echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
 ?>
-<div class="row">
+<div class="products index content">
     <aside class="column">
-        <div class="side-nav">
-            <a href="<?= $this->Url->build(['action' => 'index'])?>">Back</a>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <a href="<?= $this->Url->build(['action' => 'index'])?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1"><i
+                class="fas fa-plus fa-sm text-white-50"></i> Back</a>
         </div>
     </aside>
 <body>

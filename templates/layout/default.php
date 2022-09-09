@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?= $this->Html->charset() ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,7 +41,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <a class="nav-link" href="<?= $this->Url->build('/admin') ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fa-solid fa-house"></i>
                 <span>Home</span></a>
         </li>
 
@@ -261,6 +261,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <?= $this->Html->script('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Core plugin JavaScript-->
 <?= $this->Html->script('/vendor/jquery-easing/jquery.easing.min.js') ?>
