@@ -19,7 +19,8 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 <div class="row">
-    <div class="column-responsive column-80">
+    <div class="container">
+        <div class="col-md-9">
         <div class="orders form content">
             <?= $this->Form->create($order) ?>
             <fieldset>
@@ -40,4 +41,5 @@ $this->Form->setTemplates($formTemplate);
             <?= $this->Form->end() ?>
         </div>
     </div>
+</div>
 </div>

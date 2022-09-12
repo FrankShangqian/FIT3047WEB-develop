@@ -19,7 +19,7 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 <div class="products index content">
-    <aside class="column">
+    <div class="col-md-1">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <a href="<?= $this->Url->build(['action' => 'index'])?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Back</a>

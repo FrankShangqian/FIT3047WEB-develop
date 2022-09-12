@@ -19,7 +19,7 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 <div class="row">
-    <aside class="column">
+    <div class="col-md-1">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->order_id], ['class' => 'side-nav-item']) ?>
@@ -30,8 +30,9 @@ $this->Form->setTemplates($formTemplate);
         </div>
 
 
-    </aside>
-    <div class="column-responsive column-80">
+    </div>
+    <div class="container">
+        <div class="col-md-9">
         <div class="orders view content">
             <h3><?= h($order->order_id) ?></h3>
             <table>
@@ -63,4 +64,4 @@ $this->Form->setTemplates($formTemplate);
         </div>
     </div>
 </div>
-
+</div>

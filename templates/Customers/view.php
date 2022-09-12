@@ -19,7 +19,7 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 <div class="row">
-    <aside class="column">
+    <div class="col-md-1">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('Edit Customer'), ['action' => 'edit', $customer->customer_id], ['class' => 'side-nav-item']) ?>
@@ -27,41 +27,42 @@ $this->Form->setTemplates($formTemplate);
             <?= $this->Html->link(__('List Customers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Customer'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="customers view content">
-            <h3><?= h($customer->customer_id) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Customer Name') ?></th>
-                    <td><?= h($customer->customer_name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Customer Address') ?></th>
-                    <td><?= h($customer->customer_address) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Customer City') ?></th>
-                    <td><?= h($customer->customer_city) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Customer Phonenumber') ?></th>
-                    <td><?= h($customer->customer_phonenumber) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Customer Email') ?></th>
-                    <td><?= h($customer->customer_email) ?></td>
-                </tr>
-
-                <tr>
-                    <th><?= __('Customer Id') ?></th>
-                    <td><?= $this->Number->format($customer->customer_id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Customer Postcode') ?></th>
-                    <td><?= $this->Number->format($customer->customer_postcode) ?></td>
-                </tr>
-            </table>
+    </div>
+    <div class="container">
+        <div class="col-md-9">
+            <div class="customers view content">
+                <h3><?= h($customer->customer_id) ?></h3>
+                <table>
+                    <tr>
+                        <th><?= __('Name') ?></th>
+                        <td><?= h($customer->customer_name) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Address') ?></th>
+                        <td><?= h($customer->customer_address) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('City') ?></th>
+                        <td><?= h($customer->customer_city) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Email') ?></th>
+                        <td><?= h($customer->customer_email) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('ID') ?></th>
+                        <td><?= $this->Number->format($customer->customer_id) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Postcode') ?></th>
+                        <td><?= $this->Number->format($customer->customer_postcode) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Phone Number') ?></th>
+                        <td><?= $this->Number->format($customer->customer_phonenumber) ?></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

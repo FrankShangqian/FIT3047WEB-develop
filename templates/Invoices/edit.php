@@ -20,7 +20,7 @@ $this->Form->setTemplates($formTemplate);
 ?>
 
 <div class="row">
-    <aside class="column">
+    <div class="col-md-1">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
@@ -30,18 +30,20 @@ $this->Form->setTemplates($formTemplate);
             ) ?>
             <?= $this->Html->link(__('List Invoices'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="invoices form content">
-            <?= $this->Form->create($invoice) ?>
-            <fieldset>
-                <legend><?= __('Edit Invoice') ?></legend>
-                <?php
-                    echo $this->Form->control('order_id', ['options' => $orders]);
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
+    </div>
+    <div class="container">
+        <div class="col-md-9">
+            <div class="invoices form content">
+                <?= $this->Form->create($invoice) ?>
+                <fieldset>
+                    <legend><?= __('Edit Invoice') ?></legend>
+                    <?php
+                        echo $this->Form->control('order_id', ['options' => $orders]);
+                    ?>
+                </fieldset>
+                <?= $this->Form->button(__('Submit')) ?>
+                <?= $this->Form->end() ?>
+            </div>
         </div>
     </div>
 </div>

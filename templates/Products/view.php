@@ -19,7 +19,7 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 <div class="row">
-    <aside class="column">
+    <div class="col-md-1">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->product_id], ['class' => 'side-nav-item']) ?>
@@ -27,32 +27,34 @@ $this->Form->setTemplates($formTemplate);
             <?= $this->Html->link(__('List Products'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Product'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="products view content">
-            <h3><?= h($product->product_id) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Product Name') ?></th>
-                    <td><?= h($product->product_name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Product Id') ?></th>
-                    <td><?= $this->Number->format($product->product_id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Product Quantity') ?></th>
-                    <td><?= $this->Number->format($product->product_quantity) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Product Price') ?></th>
-                    <td><?= $this->Number->format($product->product_price) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Stock Alert') ?></th>
-                    <td><?= $this->Number->format($product->stock_alert) ?></td>
-                </tr>
-            </table>
+    </div>
+    <div class="container">
+        <div class="col-md-9">
+            <div class="products view content">
+                <h3><?= h($product->product_id) ?></h3>
+                <table>
+                    <tr>
+                        <th><?= __('Product Name') ?></th>
+                        <td><?= h($product->product_name) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Product Id') ?></th>
+                        <td><?= $this->Number->format($product->product_id) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Product Quantity') ?></th>
+                        <td><?= $this->Number->format($product->product_quantity) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Product Price') ?></th>
+                        <td><?= $this->Number->format($product->product_price) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Stock Alert') ?></th>
+                        <td><?= $this->Number->format($product->stock_alert) ?></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

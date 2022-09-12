@@ -19,7 +19,7 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 <div class="row">
-    <aside class="column">
+    <div class="col-md-1 gx-5">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('Edit Invoice'), ['action' => 'edit', $invoice->invoice_id], ['class' => 'side-nav-item']) ?>
@@ -27,20 +27,25 @@ $this->Form->setTemplates($formTemplate);
             <?= $this->Html->link(__('List Invoices'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Invoice'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="invoices view content">
-            <h3><?= h($invoice->invoice_id) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Order') ?></th>
-                    <td><?= $invoice->has('order') ? $this->Html->link($invoice->order->order_id, ['controller' => 'Orders', 'action' => 'view', $invoice->order->order_id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Invoice Id') ?></th>
-                    <td><?= $this->Number->format($invoice->invoice_id) ?></td>
-                </tr>
-            </table>
+    </div>
+    <div class="container">
+            <div class="container">
+                <div class="col-md-9">
+                    <div class="invoices view content">
+                        <h3><?= h($invoice->invoice_id) ?></h3>
+                        <table>
+                            <tr>
+                                <th><?= __('Order') ?></th>
+                                <td><?= $invoice->has('order') ? $this->Html->link($invoice->order->order_id, ['controller' => 'Orders', 'action' => 'view', $invoice->order->order_id]) : '' ?></td>
+                            </tr>
+                            <tr>
+                                <th><?= __('Invoice Id') ?></th>
+                                <td><?= $this->Number->format($invoice->invoice_id) ?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
