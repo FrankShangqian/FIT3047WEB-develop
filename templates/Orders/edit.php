@@ -37,7 +37,7 @@ $this->Form->setTemplates($formTemplate);
                     echo $this->Form->control('customer_id', ['options' => $customers]);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

@@ -43,7 +43,7 @@ $this->Form->setTemplates($formTemplate);
                         echo $this->Form->control('stock_alert');
                     ?>
                 </fieldset>
-                <?= $this->Form->button(__('Submit')) ?>
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>

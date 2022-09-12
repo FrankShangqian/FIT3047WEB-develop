@@ -26,5 +26,5 @@ $this->Form->setTemplates($formTemplate);
         echo $this->Form->control('order_id', ['options' => $orders]);
         ?>
 </div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>

@@ -26,6 +26,6 @@ $this->Form->setTemplates($formTemplate);
                 echo $this->Form->control('customer_email');
             ?>
     </div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>
 
