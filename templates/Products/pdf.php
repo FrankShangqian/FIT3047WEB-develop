@@ -25,6 +25,7 @@ $this->Form->setTemplates($formTemplate);
                 class="fas fa-plus fa-sm text-white-50"></i> Back</a>
         </div>
     </aside>
+</div>
 <body>
     <h1>Reorder Stock List</h1>
     <div class="table-responsive">
