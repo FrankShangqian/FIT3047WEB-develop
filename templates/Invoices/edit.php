@@ -28,7 +28,9 @@ $this->Form->setTemplates($formTemplate);
                 ['action' => 'delete', $invoice->invoice_id],
                 ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->invoice_id), 'class' => 'side-nav-item']
             ) ?>
+            <div>
             <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            </div>
         </div>
     </div>
     <div class="container">

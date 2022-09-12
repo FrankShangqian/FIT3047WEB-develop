@@ -19,23 +19,42 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Edit Customer</h1>
+
+
 <div class="row">
-    <div class="form-group">
-        <?= $this->Form->create($customer) ?>
-        <fieldset>
-            <?php
-                echo $this->Form->control('customer_name');
-                echo $this->Form->control('customer_address');
-                echo $this->Form->control('customer_postcode');
-                echo $this->Form->control('customer_city');
-                echo $this->Form->control('customer_phonenumber');
-                echo $this->Form->control('customer_email');
-            ?>
-        </fieldset>
+    <div class="col-md-1 container-fluid">
+        <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
+            <div>
+            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $customer->customer_id], ['confirm' => __('Are you sure you want to delete # {0}?', $customer->customer_id), 'class' => 'side-nav-item']) ?>
+            </div>
+            <div>
+            <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            </div>
+            <?= $this->Html->link(__('New'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-9">
+            <div class="customers form content">
+                <h1 class="h3 mb-2 text-gray-800">Edit Customer</h1>
+                <?= $this->Form->create($customer) ?>
+                <fieldset>
+                    <?php
+                        echo $this->Form->control('customer_name');
+                        echo $this->Form->control('customer_address');
+                        echo $this->Form->control('customer_postcode');
+                        echo $this->Form->control('customer_city');
+                        echo $this->Form->control('customer_phonenumber');
+                        echo $this->Form->control('customer_email');
+                    ?>
+                </fieldset>
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->end() ?>
+            </div>
+        </div>
     </div>
 </div>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
-        <?= $this->Form->end() ?>
+
 
 
