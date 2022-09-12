@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?= $this->Html->charset() ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +42,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <a class="nav-link" href="<?= $this->Url->build('/admin') ?>">
-                <i class="fa-solid fa-house"></i>
+                <i class="fa fa-home"></i>
                 <span>Home</span></a>
         </li>
 
@@ -57,7 +58,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
                 aria-expanded="true" aria-controls="collapseOrders">
-                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <i class="fa fa-file"></i>
                 <span>Orders</span>
             </a>
             <div id="collapseOrders" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -73,7 +74,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomers"
                 aria-expanded="true" aria-controls="collapseCustomers">
-                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <i class="fa fa-user"></i>
                 <span>Customers</span>
             </a>
             <div id="collapseCustomers" class="collapse" aria-labelledby="headingUtilities"
@@ -90,7 +91,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInvoices"
                 aria-expanded="true" aria-controls="collapseInvoices">
-                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <i class="fa fa-envelope"></i>
                 <span>Invoices</span>
             </a>
             <div id="collapseInvoices" class="collapse" aria-labelledby="headingUtilities"
@@ -107,7 +108,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
                 aria-expanded="true" aria-controls="collapseProducts">
-                <i class="fas fa-plus fa-sm text-white-50"></i>
+                <i class="fa fa-cube"></i>
                 <span>Products</span>
             </a>
             <div id="collapseProducts" class="collapse" aria-labelledby="headingUtilities"
