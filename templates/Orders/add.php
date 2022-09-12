@@ -44,5 +44,5 @@ $this->Form->setTemplates($formTemplate);
         </div>
     </div>
 </div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>

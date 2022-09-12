@@ -20,7 +20,7 @@ $this->Form->setTemplates($formTemplate);
 ?>
 
 <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-1 container-fluid">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
@@ -28,7 +28,7 @@ $this->Form->setTemplates($formTemplate);
                 ['action' => 'delete', $invoice->invoice_id],
                 ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->invoice_id), 'class' => 'side-nav-item']
             ) ?>
-            <?= $this->Html->link(__('List Invoices'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </div>
     <div class="container">
