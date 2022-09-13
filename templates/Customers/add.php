@@ -15,17 +15,17 @@ $this->Form->setTemplates($formTemplate);
 ?>
 
 <h1 class="h3 mb-2 text-gray-800">Add New Customer</h1>
-<div class="form-group">
-    <?= $this->Form->create($customer) ?>
-        <?php
-            echo $this->Form->control('customer_name');
-            echo $this->Form->control('customer_address');
-            echo $this->Form->control('customer_postcode');
-            echo $this->Form->control('customer_city');
-            echo $this->Form->control('customer_phonenumber');
-            echo $this->Form->control('customer_email');
-        ?>
-</div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <div class="form-group">
+        <?= $this->Form->create($customer) ?>
+            <?php
+                echo $this->Form->control('customer_name');
+                echo $this->Form->control('customer_address');
+                echo $this->Form->control('customer_postcode');
+                echo $this->Form->control('customer_city');
+                echo $this->Form->control('customer_phonenumber');
+                echo $this->Form->control('customer_email');
+            ?>
+    </div>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>
 

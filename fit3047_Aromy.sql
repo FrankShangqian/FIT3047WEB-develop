@@ -33,7 +33,7 @@ CREATE TABLE `customers` (
   `customer_address` varchar(255) NOT NULL,
   `customer_postcode` int NOT NULL,
   `customer_city` varchar(255) NOT NULL,
-  `customer_phonenumber` varchar(20) NOT NULL,
+  `customer_phonenumber` 	bigint(20) NOT NULL,
   `customer_email` varchar(255) NOT NULL
 ) ;
 
@@ -169,7 +169,7 @@ INSERT INTO `invoices` (`invoice_id`, `order_id`) VALUES
 
 CREATE TABLE `orders` (
   `order_id` int NOT NULL,
-  `order_date` datetime NOT NULL,
+  `order_date` date NOT NULL,
   `order_total` decimal(9,2) NOT NULL,
   `order_status` tinyint(1) NOT NULL,
   `order_item` int NOT NULL,
@@ -313,15 +313,15 @@ ALTER TABLE `products`
 -- Constraints for table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`order_item`) REFERENCES `products` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`order_total`) REFERENCES `products` (`product_price`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`order_item`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`order_total`) REFERENCES `products` (`product_price`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

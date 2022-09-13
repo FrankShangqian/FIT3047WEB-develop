@@ -1,8 +1,12 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Invoice $invoice
- * @var \Cake\Collection\CollectionInterface|string[] $orders
+ * @var \App\Model\Entity\Order $order
+ * @var \Cake\Collection\CollectionInterface|string[] $customers
+ * @var \Cake\Collection\CollectionInterface|string[] $products
+echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
+echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
+echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
  */
 $formTemplate = [
     'inputContainer' => '<div class="input {{type}}{{required}}">{{content}}</div>',
@@ -22,5 +26,5 @@ $this->Form->setTemplates($formTemplate);
         echo $this->Form->control('order_id', ['options' => $orders]);
         ?>
 </div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>

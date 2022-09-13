@@ -1,19 +1,30 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Customer[]|\Cake\Collection\CollectionInterface $customers
- */
+ * @var \App\Model\Entity\Order $order
+ * @var \Cake\Collection\CollectionInterface|string[] $customers
+ * @var \Cake\Collection\CollectionInterface|string[] $products
 echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
 echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
 echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
+ */
+$formTemplate = [
+    'inputContainer' => '<div class="input {{type}}{{required}}">{{content}}</div>',
+    'label' => '<label{{attrs}} class="form-label">{{text}}</label>',
+    'input' => '<input type="{{type}}" name="{{name}}" class="form-control" {{attrs}}/>',
+    'textarea' => '<textarea name="{{name}}" class="form-control" {{attrs}}>{{value}}</textarea>',
+    'nestingLabel' => '{{hidden}}<label class="form-check-label" {{attrs}}>{{input}}{{text}}</label>',
+    'checkbox' => '<input type="checkbox" name="{{name}}" value="{{value}} class="form-check-input""{{attrs}}>'
+];
+$this->Form->setTemplates($formTemplate);
 ?>
+
 <div class="customers index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= __('Customers') ?></h1>
         <a href="<?= $this->Url->build(['action' => 'add'])?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> New Customer</a>
     </div>
-
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
