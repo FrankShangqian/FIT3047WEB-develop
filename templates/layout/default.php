@@ -121,6 +121,23 @@
             </div>
         </li>
 
+        <!-- Nav Item Email Enquiry -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEnquiry"
+               aria-expanded="true" aria-controls="collapseEnquiry">
+                <i class="fa fa-cube"></i>
+                <span>Enquiry</span>
+            </a>
+            <div id="collapseEnquiry" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Enquiry functions:</h6>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Enquiries') ?>">List</a>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Enquiries/add') ?>">New Enquiries</a>
+                </div>
+            </div>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
