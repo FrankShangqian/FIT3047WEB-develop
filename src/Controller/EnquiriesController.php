@@ -51,39 +51,41 @@ class EnquiriesController extends AppController
         $enquiry = $this->Enquiries->newEmptyEntity();
         if ($this->request->is('post')) {
             $enquiry = $this->Enquiries->patchEntity($enquiry, $this->request->getData());
-            //Send email
-            $mailer = new Mailer('default');
-            //set up email parameters
-            $mailer
-                ->setEmailFormat('html')
-                ->setTo(Configure::read('EnquiryMail.to'))
-                ->setFrom(Configure::read('EnquiryMail.from'))
-                ->viewBuilder()
-                ->setTemplate('enquiry');
+            if ($enquiry = $this->Enquiries->save($enquiry)) {
+                //Send email
+                $mailer = new Mailer('default');
+                //set up email parameters
+                $mailer
+                    ->setEmailFormat('html')
+                    ->setTo(Configure::read('EnquiryMail.to'))
+                    ->setFrom(Configure::read('EnquiryMail.from'))
+                    ->viewBuilder()
+                    ->setTemplate('enquiry');
                 //->setLayout('fancy');
-            //send date the email template
-            $mailer->setViewVars([
-                'content' => $enquiry->body,
-                'full_name'=>$enquiry->full_name,
-                'email'=>$enquiry->email,
-                'created'=>$enquiry->created,
-                'id'=>$enquiry->id
+                //send date the email template
+                $mailer->setViewVars([
+                    'content' => $enquiry->body,
+                    'full_name'=>$enquiry->full_name,
+                    'email'=>$enquiry->email,
+                    'created'=>$enquiry->created,
+                    'id'=>$enquiry->id
                 ]);
-            //send email
-            $email_result=$mailer->deliver();
-
-            debug($email_result);
-            exit;
+                //send email
+                $email_result=$mailer->deliver();
 
 
-            if ($this->Enquiries->save($enquiry)) {
-                //sent email
 
-                $this->Flash->success(__('The enquiry has been saved.'));
-
+                if($email_result){
+                    $enquiry ->email_sent=($email_result) ? true : false;
+                    $this->Enquiries->save($enquiry);
+                    $this->Flash->success(__('The enquiry has been saved and sent via email.'));
+                }else{
+                    $this->Flash->error(__('Email failed to send. Please check the enquiry in the system later.'));
+                }
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The enquiry could not be saved. Please, try again.'));
+
         }
         $this->set(compact('enquiry'));
     }
