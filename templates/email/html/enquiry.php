@@ -376,7 +376,7 @@ endforeach;
                                     <td>
                                         <p>Hi,</p>
                                         <p>There is a new enquiry submitted on your website.</p>
-                                        <p><b>Full name:</b> <?= h($full_name) ?></p>
+                                        <p><b>Full name:</b> <?= h($fullname) ?></p>
                                         <p><b>Email address:</b> <?= h($email) ?></p>
                                         <p><b>Date:</b> <?= h($created) ?></p>
                                         <p><b>Content:</b></p>
