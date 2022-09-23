@@ -59,7 +59,10 @@ class EnquiriesController extends AppController
                     ->setEmailFormat('html')
                     ->setTo(Configure::read('EnquiryMail.to'))
                     ->setFrom(Configure::read('EnquiryMail.from'))
+                    ->setReplyTo($enquiry->email)
+                    ->setSubject('New enquiry from '. h($enquiry->full_name)."<".h($enquiry->email).">")
                     ->viewBuilder()
+                    ->disableAutoLayout()
                     ->setTemplate('enquiry');
                 //->setLayout('fancy');
                 //send date the email template
