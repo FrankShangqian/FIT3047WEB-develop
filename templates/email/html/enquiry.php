@@ -376,11 +376,11 @@ endforeach;
                                     <td>
                                         <p>Hi,</p>
                                         <p>There is a new enquiry submitted on your website.</p>
-                                        <p><b>Full name:</b> <?= h($fullname) ?></p>
+                                        <p><b>Full name:</b> <?= h($full_name) ?></p>
                                         <p><b>Email address:</b> <?= h($email) ?></p>
                                         <p><b>Date:</b> <?= h($created) ?></p>
                                         <p><b>Content:</b></p>
-                                        <p><?= h($body) ?></p>
+                                        <p><?= $body ?></p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                             <tbody>
                                             <tr>
