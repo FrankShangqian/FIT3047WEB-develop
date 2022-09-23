@@ -16,11 +16,11 @@
  */
 
 
-$lines = explode("\n", $content);
+$content = explode("\n", $content);
 $body='';
 
-foreach ($lines as $line) :
-    $body='<p> ' . h($line) . "</p>\n";
+foreach ($content as $line) :
+    $body.= '<p> ' . h($line) . "</p>\n";
 endforeach;
 ?>
 

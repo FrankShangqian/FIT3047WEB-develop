@@ -59,8 +59,8 @@ class EnquiriesController extends AppController
                 ->setTo(Configure::read('EnquiryMail.to'))
                 ->setFrom(Configure::read('EnquiryMail.from'))
                 ->viewBuilder()
-                ->setTemplate('enquiry')
-                ->setLayout('fancy');
+                ->setTemplate('enquiry');
+                //->setLayout('fancy');
             //send date the email template
             $mailer->setViewVars([
                 'content' => $enquiry->body,
@@ -71,6 +71,9 @@ class EnquiriesController extends AppController
                 ]);
             //send email
             $email_result=$mailer->deliver();
+
+            debug($email_result);
+            exit;
 
 
             if ($this->Enquiries->save($enquiry)) {
