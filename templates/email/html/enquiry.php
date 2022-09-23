@@ -380,7 +380,7 @@ endforeach;
                                         <p><b>Email address:</b> <?= h($email) ?></p>
                                         <p><b>Date:</b> <?= h($created) ?></p>
                                         <p><b>Content:</b></p>
-                                        <p><?= $body ?></p>
+                                        <p><?= h($body) ?></p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                             <tbody>
                                             <tr>
