@@ -17,11 +17,11 @@
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
 
-		// For CommonJS and CommonJS-like environments where a proper `window`
+		// For CommonJS and CommonJS-like environments where a proper window
 		// is present, execute the factory and get jQuery.
-		// For environments that do not have a `window` with a `document`
+		// For environments that do not have a window with a document
 		// (such as Node.js), expose a factory as module.exports.
-		// This accentuates the need for the creation of a real `window`.
+		// This accentuates the need for the creation of a real window.
 		// e.g. var jQuery = require("jquery")(window);
 		// See ticket #14549 for more info.
 		module.exports = global.document ?
@@ -305,7 +305,7 @@ jQuery.extend( {
 
 		proto = getProto( obj );
 
-		// Objects with no prototype (e.g., `Object.create( null )`) are plain
+		// Objects with no prototype (e.g., Object.create( null )) are plain
 		if ( !proto ) {
 			return true;
 		}
@@ -525,7 +525,7 @@ function( i, name ) {
 function isArrayLike( obj ) {
 
 	// Support: real iOS 8.2 only (not reproducible in simulator)
-	// `in` check used to prevent JIT error (gh-2145)
+	// in check used to prevent JIT error (gh-2145)
 	// hasOwn isn't used here due to false negatives
 	// regarding Nodelist length in IE
 	var length = !!obj && "length" in obj && obj.length,
@@ -659,7 +659,7 @@ var i,
 			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
 		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
 		// For use in libraries implementing .is()
-		// We use this for POS matching in `select`
+		// We use this for POS matching in select
 		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
 			whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
 	},
@@ -1219,7 +1219,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// qSa(:focus) reports false when true (Chrome 21)
 	// We allow this because of a bug in IE8/9 that throws an error
-	// whenever `document.activeElement` is accessed on an iframe
+	// whenever document.activeElement is accessed on an iframe
 	// So, we allow :focus to pass through QSA all the time to avoid the IE error
 	// See https://bugs.jquery.com/ticket/13378
 	rbuggyQSA = [];
@@ -1265,7 +1265,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: Safari 8+, iOS 8+
 			// https://bugs.webkit.org/show_bug.cgi?id=136851
-			// In-page `selector#id sibling-combinator selector` fails
+			// In-page selector#id sibling-combinator selector fails
 			if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
 				rbuggyQSA.push(".#.+[+~]");
 			}
@@ -1779,10 +1779,10 @@ Expr = Sizzle.selectors = {
 
 						start = [ forward ? parent.firstChild : parent.lastChild ];
 
-						// non-xml :nth-child(...) stores cache data on `parent`
+						// non-xml :nth-child(...) stores cache data on parent
 						if ( forward && useCache ) {
 
-							// Seek `elem` from a previously-cached index
+							// Seek elem from a previously-cached index
 
 							// ...in a gzip-friendly way
 							node = parent;
@@ -1800,10 +1800,10 @@ Expr = Sizzle.selectors = {
 
 							while ( (node = ++nodeIndex && node && node[ dir ] ||
 
-								// Fallback to seeking `elem` from the start
+								// Fallback to seeking elem from the start
 								(diff = nodeIndex = 0) || start.pop()) ) {
 
-								// When found, cache indexes on `parent` and break
+								// When found, cache indexes on parent and break
 								if ( node.nodeType === 1 && ++diff && node === elem ) {
 									uniqueCache[ type ] = [ dirruns, nodeIndex, diff ];
 									break;
@@ -1830,7 +1830,7 @@ Expr = Sizzle.selectors = {
 							// xml :nth-child(...)
 							// or :nth-last-child(...) or :nth(-last)?-of-type(...)
 							if ( diff === false ) {
-								// Use the same loop as above to seek `elem` from the start
+								// Use the same loop as above to seek elem from the start
 								while ( (node = ++nodeIndex && node && node[ dir ] ||
 									(diff = nodeIndex = 0) || start.pop()) ) {
 
@@ -1920,7 +1920,7 @@ Expr = Sizzle.selectors = {
 						unmatched = matcher( seed, null, xml, [] ),
 						i = seed.length;
 
-					// Match elements unmatched by `matcher`
+					// Match elements unmatched by matcher
 					while ( i-- ) {
 						if ( (elem = unmatched[i]) ) {
 							seed[i] = !(matches[i] = elem);
@@ -2434,7 +2434,7 @@ function matcherFromTokens( tokens ) {
 				return setMatcher(
 					i > 1 && elementMatcher( matchers ),
 					i > 1 && toSelector(
-						// If the preceding token was a descendant combinator, insert an implicit any-element `*`
+						// If the preceding token was a descendant combinator, insert an implicit any-element *
 						tokens.slice( 0, i - 1 ).concat({ value: tokens[ i - 2 ].type === " " ? "*" : "" })
 					).replace( rtrim, "$1" ),
 					matcher,
@@ -2505,16 +2505,16 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				}
 			}
 
-			// `i` is now the count of elements visited above, and adding it to `matchedCount`
+			// i is now the count of elements visited above, and adding it to matchedCount
 			// makes the latter nonnegative.
 			matchedCount += i;
 
 			// Apply set filters to unmatched elements
-			// NOTE: This can be skipped if there are no unmatched elements (i.e., `matchedCount`
-			// equals `i`), unless we didn't visit _any_ elements in the above loop because we have
+			// NOTE: This can be skipped if there are no unmatched elements (i.e., matchedCount
+			// equals i), unless we didn't visit _any_ elements in the above loop because we have
 			// no element matchers and no seed.
-			// Incrementing an initially-string "0" `i` allows `i` to remain a string only in that
-			// case, which will result in a "00" `matchedCount` that differs from `i` but is also
+			// Incrementing an initially-string "0" i allows i to remain a string only in that
+			// case, which will result in a "00" matchedCount that differs from i but is also
 			// numerically zero.
 			if ( bySet && i !== matchedCount ) {
 				j = 0;
@@ -2660,7 +2660,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	}
 
 	// Compile and execute a filtering function if one is not provided
-	// Provide `match` to avoid retokenization if we modified the selector above
+	// Provide match to avoid retokenization if we modified the selector above
 	( compiled || compile( selector, match ) )(
 		seed,
 		context,
@@ -3513,7 +3513,7 @@ jQuery.extend( {
 									// Support: Promises/A+ sections 2.3.3.1, 3.5
 									// https://promisesaplus.com/#point-54
 									// https://promisesaplus.com/#point-75
-									// Retrieve `then` only once
+									// Retrieve then only once
 									then = returned &&
 
 										// Support: Promises/A+ section 2.3.4
@@ -4204,8 +4204,8 @@ jQuery.fn.extend( {
 
 			// The calling jQuery object (element matches) is not empty
 			// (and therefore has an element appears at this[ 0 ]) and the
-			// `value` parameter was not undefined. An empty jQuery object
-			// will result in `undefined` for elem = this[ 0 ] which will
+			// value parameter was not undefined. An empty jQuery object
+			// will result in undefined for elem = this[ 0 ] which will
 			// throw an exception if an attempt to read a data cache is made.
 			if ( elem && value === undefined ) {
 
@@ -4742,7 +4742,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	// Support: Android 4.0 - 4.3 only
 	// Check state lost if the name is set (#11217)
 	// Support: Windows Web Apps (WWA)
-	// `name` and `type` must use .setAttribute for WWA (#14901)
+	// name and type must use .setAttribute for WWA (#14901)
 	input.setAttribute( "type", "radio" );
 	input.setAttribute( "checked", "checked" );
 	input.setAttribute( "name", "t" );
@@ -6790,7 +6790,7 @@ function defaultPrefilter( elem, props, opts ) {
 				dataShow = dataPriv.access( elem, "fxshow", { display: restoreDisplay } );
 			}
 
-			// Store hidden/visible for toggle so `.stop().toggle()` "reverses"
+			// Store hidden/visible for toggle so .stop().toggle() "reverses"
 			if ( toggle ) {
 				dataShow.hidden = !hidden;
 			}
@@ -6881,7 +6881,7 @@ function Animation( elem, properties, options ) {
 				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
 
 				// Support: Android 2.3 only
-				// Archaic crash bug won't allow us to use `1 - ( 0.5 || 0 )` (#12497)
+				// Archaic crash bug won't allow us to use 1 - ( 0.5 || 0 ) (#12497)
 				temp = remaining / animation.duration || 0,
 				percent = 1 - temp,
 				index = 0,
@@ -7688,7 +7688,7 @@ jQuery.fn.extend( {
 					dataPriv.set( this, "__className__", className );
 				}
 
-				// If the element has a class name or if we're passed `false`,
+				// If the element has a class name or if we're passed false,
 				// then remove the whole classname (if there was one, the above saved it).
 				// Otherwise bring back whatever was previously saved (if anything),
 				// falling back to the empty string if nothing was stored.
@@ -8040,7 +8040,7 @@ jQuery.extend( jQuery.event, {
 	},
 
 	// Piggyback on a donor event to simulate a different one
-	// Used only for `focus(in | out)` events
+	// Used only for focus(in | out) events
 	simulate: function( type, elem, event ) {
 		var e = jQuery.extend(
 			new jQuery.Event(),
@@ -15200,8 +15200,8 @@ $.extend( $.fn, {
 
 					// Insert a hidden input as a replacement for the missing submit button
 					// The hidden input is inserted in two cases:
-					//   - A user defined a `submitHandler`
-					//   - There was a pending request due to `remote` method and `stopRequest()`
+					//   - A user defined a submitHandler
+					//   - There was a pending request due to remote method and stopRequest()
 					//     was called to submit the form in case it's valid
 					if ( validator.submitButton && ( validator.settings.submitHandler || validator.formSubmitted ) ) {
 						hidden = $( "<input type='hidden'/>" )
@@ -15887,7 +15887,7 @@ $.extend( $.validator, {
 
 			// If normalizer is defined, then call it to retreive the changed value instead
 			// of using the real one.
-			// Note that `this` in the normalizer is `element`.
+			// Note that this in the normalizer is element.
 			if ( normalizer ) {
 				val = normalizer.call( element, val );
 
@@ -16157,7 +16157,7 @@ $.extend( $.validator, {
 		// meta-characters that should be escaped in order to be used with JQuery
 		// as a literal part of a name/id or any selector.
 		escapeCssMeta: function( string ) {
-			return string.replace( /([\\!"#$%&'()*+,./:;<=>?@\[\]^`{|}~])/g, "\\$1" );
+			return string.replace( /([\\!"#$%&'()*+,./:;<=>?@\[\]^{|}~])/g, "\\$1" );
 		},
 
 		idOrName: function( element ) {
@@ -16237,7 +16237,7 @@ $.extend( $.validator, {
 				$( this.currentForm ).submit();
 
 				// Remove the hidden input that was used as a replacement for the
-				// missing submit button. The hidden input is added by `handle()`
+				// missing submit button. The hidden input is added by handle()
 				// to ensure that the value of the used submit button is passed on
 				// for scripted submits triggered by this method
 				if ( this.submitButton ) {
@@ -16509,7 +16509,7 @@ $.extend( $.validator, {
 			// Retrieved 2014-01-14
 			// If you have a problem with this implementation, report a bug against the above spec
 			// Or use custom methods to implement your own email validation
-			return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( value );
+			return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( value );
 		},
 
 		// https://jqueryvalidation.org/url-method/
@@ -21476,7 +21476,7 @@ jQuery.fn.vectorMap('addMap', 'world_en', {"width":950,"height":550,"paths":{"id
   NProgress.status = null;
 
   /**
-   * Sets the progress bar status, where `n` is a number from `0.0` to `1.0`.
+   * Sets the progress bar status, where n is a number from 0.0 to 1.0.
    *
    *     NProgress.set(0.4);
    *     NProgress.set(1.0);
@@ -21558,11 +21558,11 @@ jQuery.fn.vectorMap('addMap', 'world_en', {"width":950,"height":550,"paths":{"id
   /**
    * Hides the progress bar.
    * This is the *sort of* the same as setting the status to 100%, with the
-   * difference being `done()` makes some placebo effect of some realistic motion.
+   * difference being done() makes some placebo effect of some realistic motion.
    *
    *     NProgress.done();
    *
-   * If `true` is passed, it will show the progress bar even if its hidden.
+   * If true is passed, it will show the progress bar even if its hidden.
    *
    *     NProgress.done(true);
    */
@@ -21633,7 +21633,7 @@ jQuery.fn.vectorMap('addMap', 'world_en', {"width":950,"height":550,"paths":{"id
   })();
 
   /**
-   * (Internal) renders the progress bar markup based on the `template`
+   * (Internal) renders the progress bar markup based on the template
    * setting.
    */
 
@@ -21725,8 +21725,8 @@ jQuery.fn.vectorMap('addMap', 'world_en', {"width":950,"height":550,"paths":{"id
   }
 
   /**
-   * (Internal) converts a percentage (`0..1`) to a bar translateX
-   * percentage (`-100%..0%`).
+   * (Internal) converts a percentage (0..1) to a bar translateX
+   * percentage (-100%..0%).
    */
 
   function toBarPerc(n) {
@@ -25749,7 +25749,7 @@ var nativeMap;
 try {
   nativeMap = Map;
 } catch(_) {
-  // maybe a reference error because no `Map`. Give it a dummy value that no
+  // maybe a reference error because no Map. Give it a dummy value that no
   // value will ever be an instanceof.
   nativeMap = function() {};
 }
@@ -25775,17 +25775,17 @@ try {
  * there are no circular references in your object, you can save some CPU time
  * by calling clone(obj, false).
  *
- * Caution: if `circular` is false and `parent` contains circular references,
+ * Caution: if circular is false and parent contains circular references,
  * your program may enter an infinite loop and crash.
  *
- * @param `parent` - the object to be cloned
- * @param `circular` - set to true if the object to be cloned may contain
+ * @param parent - the object to be cloned
+ * @param circular - set to true if the object to be cloned may contain
  *    circular references. (optional - true by default)
- * @param `depth` - set to a number if the object is only to be cloned to
+ * @param depth - set to a number if the object is only to be cloned to
  *    a particular depth. (optional - defaults to Infinity)
- * @param `prototype` - sets the prototype to be used when cloning an object.
+ * @param prototype - sets the prototype to be used when cloning an object.
  *    (optional - defaults to parent prototype).
- * @param `includeNonEnumerable` - set to true if the non-enumerable properties
+ * @param includeNonEnumerable - set to true if the non-enumerable properties
  *    should be cloned as well. Non-enumerable properties on the prototype
  *    chain will be ignored. (optional - false by default)
 */
@@ -30255,8 +30255,8 @@ var has = Object.prototype.hasOwnProperty
   , prefix = '~';
 
 /**
- * Constructor to create a storage for our `EE` objects.
- * An `Events` instance is a plain object whose properties are event names.
+ * Constructor to create a storage for our EE objects.
+ * An Events instance is a plain object whose properties are event names.
  *
  * @constructor
  * @api private
@@ -30264,9 +30264,9 @@ var has = Object.prototype.hasOwnProperty
 function Events() {}
 
 //
-// We try to not inherit from `Object.prototype`. In some engines creating an
-// instance in this way is faster than calling `Object.create(null)` directly.
-// If `Object.create(null)` is not supported we prefix the event names with a
+// We try to not inherit from Object.prototype. In some engines creating an
+// instance in this way is faster than calling Object.create(null) directly.
+// If Object.create(null) is not supported we prefix the event names with a
 // character to make sure that the built-in object properties are not
 // overridden or used as an attack vector.
 //
@@ -30274,7 +30274,7 @@ if (Object.create) {
   Events.prototype = Object.create(null);
 
   //
-  // This hack is needed because the `__proto__` property is still inherited in
+  // This hack is needed because the __proto__ property is still inherited in
   // some old browsers like Android 4, iPhone 5.1, Opera 11 and Safari 5.
   //
   if (!new Events().__proto__) prefix = false;
@@ -30296,8 +30296,8 @@ function EE(fn, context, once) {
 }
 
 /**
- * Minimal `EventEmitter` interface that is molded against the Node.js
- * `EventEmitter` interface.
+ * Minimal EventEmitter interface that is molded against the Node.js
+ * EventEmitter interface.
  *
  * @constructor
  * @api public
@@ -30359,7 +30359,7 @@ EventEmitter.prototype.listeners = function listeners(event, exists) {
  * Calls each of the listeners registered for a given event.
  *
  * @param {String|Symbol} event The event name.
- * @returns {Boolean} `true` if the event had listeners, else `false`.
+ * @returns {Boolean} true if the event had listeners, else false.
  * @api public
  */
 EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
@@ -30420,7 +30420,7 @@ EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
  * @param {String|Symbol} event The event name.
  * @param {Function} fn The listener function.
  * @param {Mixed} [context=this] The context to invoke the listener with.
- * @returns {EventEmitter} `this`.
+ * @returns {EventEmitter} this.
  * @api public
  */
 EventEmitter.prototype.on = function on(event, fn, context) {
@@ -30440,7 +30440,7 @@ EventEmitter.prototype.on = function on(event, fn, context) {
  * @param {String|Symbol} event The event name.
  * @param {Function} fn The listener function.
  * @param {Mixed} [context=this] The context to invoke the listener with.
- * @returns {EventEmitter} `this`.
+ * @returns {EventEmitter} this.
  * @api public
  */
 EventEmitter.prototype.once = function once(event, fn, context) {
@@ -30461,7 +30461,7 @@ EventEmitter.prototype.once = function once(event, fn, context) {
  * @param {Function} fn Only remove the listeners that match this function.
  * @param {Mixed} context Only remove the listeners that have this context.
  * @param {Boolean} once Only remove one-time listeners.
- * @returns {EventEmitter} `this`.
+ * @returns {EventEmitter} this.
  * @api public
  */
 EventEmitter.prototype.removeListener = function removeListener(event, fn, context, once) {
@@ -30511,7 +30511,7 @@ EventEmitter.prototype.removeListener = function removeListener(event, fn, conte
  * Remove all listeners, or those of the specified event.
  *
  * @param {String|Symbol} [event] The event name.
- * @returns {EventEmitter} `this`.
+ * @returns {EventEmitter} this.
  * @api public
  */
 EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
@@ -30550,7 +30550,7 @@ EventEmitter.prototype.setMaxListeners = function setMaxListeners() {
 EventEmitter.prefixed = prefix;
 
 //
-// Allow `EventEmitter` to be imported as module namespace.
+// Allow EventEmitter to be imported as module namespace.
 //
 EventEmitter.EventEmitter = EventEmitter;
 
@@ -33759,7 +33759,7 @@ if (typeof module !== 'undefined' && module.exports) {
 	try {
 		window.addEventListener('test', null, Object.defineProperty({}, 'passive', {
 			get: function () {
-				// `false`, because everything starts to work incorrectly and instead of d'n'd,
+				// false, because everything starts to work incorrectly and instead of d'n'd,
 				// begins the page has scrolled.
 				passiveMode = false;
 				captureMode = {
@@ -33777,7 +33777,7 @@ if (typeof module !== 'undefined' && module.exports) {
 	 */
 	function Sortable(el, options) {
 		if (!(el && el.nodeType && el.nodeType === 1)) {
-			throw 'Sortable: `el` must be HTMLElement, and not ' + {}.toString.call(el);
+			throw 'Sortable: el must be HTMLElement, and not ' + {}.toString.call(el);
 		}
 
 		this.el = el; // root element
@@ -33894,7 +33894,7 @@ if (typeof module !== 'undefined' && module.exports) {
 			}
 
 			if (lastDownEl === target) {
-				// Ignoring duplicate `down`
+				// Ignoring duplicate down
 				return;
 			}
 
@@ -33929,7 +33929,7 @@ if (typeof module !== 'undefined' && module.exports) {
 				return;
 			}
 
-			// Prepare `dragstart`
+			// Prepare dragstart
 			this._prepareDragStart(evt, touch, target, startIndex);
 		},
 
@@ -34237,8 +34237,8 @@ if (typeof module !== 'undefined' && module.exports) {
 
 				_on(document, 'drop', _this);
 
-				// #1143: Бывает элемент с IFrame внутри блокирует `drop`,
-				// поэтому если вызвался `mouseover`, значит надо отменять весь d'n'd.
+				// #1143: Бывает элемент с IFrame внутри блокирует drop,
+				// поэтому если вызвался mouseover, значит надо отменять весь d'n'd.
 				// Breaking Chrome 62+
 				// _on(document, 'mouseover', _this);
 
@@ -34661,7 +34661,7 @@ if (typeof module !== 'undefined' && module.exports) {
 		/**
 		 * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
 		 * @param   {HTMLElement}  el
-		 * @param   {String}       [selector]  default: `options.draggable`
+		 * @param   {String}       [selector]  default: options.draggable
 		 * @returns {HTMLElement|null}
 		 */
 		closest: function (el, selector) {
@@ -36933,7 +36933,7 @@ function tinycolor (color, opts) {
     // Don't let the range of [0,255] come back in [0,1].
     // Potentially lose a little bit of precision here, but will fix issues where
     // .5 gets interpreted as half of the total, instead of half of 1
-    // If it was supposed to be 128, this was already taken care of by `inputToRgb`
+    // If it was supposed to be 128, this was already taken care of by inputToRgb
     if (this._r < 1) { this._r = mathRound(this._r); }
     if (this._g < 1) { this._g = mathRound(this._g); }
     if (this._b < 1) { this._b = mathRound(this._b); }
@@ -37252,10 +37252,10 @@ function inputToRGB(color) {
 // Conversion Functions
 // --------------------
 
-// `rgbToHsl`, `rgbToHsv`, `hslToRgb`, `hsvToRgb` modified from:
+// rgbToHsl, rgbToHsv, hslToRgb, hsvToRgb modified from:
 // <http://mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript>
 
-// `rgbToRgb`
+// rgbToRgb
 // Handle bounds / percentage checking to conform to CSS color spec
 // <http://www.w3.org/TR/css3-color/>
 // *Assumes:* r, g, b in [0, 255] or [0, 1]
@@ -37268,7 +37268,7 @@ function rgbToRgb(r, g, b){
     };
 }
 
-// `rgbToHsl`
+// rgbToHsl
 // Converts an RGB color value to HSL.
 // *Assumes:* r, g, and b are contained in [0, 255] or [0, 1]
 // *Returns:* { h, s, l } in [0,1]
@@ -37299,7 +37299,7 @@ function rgbToHsl(r, g, b) {
     return { h: h, s: s, l: l };
 }
 
-// `hslToRgb`
+// hslToRgb
 // Converts an HSL color value to RGB.
 // *Assumes:* h is contained in [0, 1] or [0, 360] and s and l are contained [0, 1] or [0, 100]
 // *Returns:* { r, g, b } in the set [0, 255]
@@ -37333,7 +37333,7 @@ function hslToRgb(h, s, l) {
     return { r: r * 255, g: g * 255, b: b * 255 };
 }
 
-// `rgbToHsv`
+// rgbToHsv
 // Converts an RGB color value to HSV
 // *Assumes:* r, g, and b are contained in the set [0, 255] or [0, 1]
 // *Returns:* { h, s, v } in [0,1]
@@ -37363,7 +37363,7 @@ function rgbToHsv(r, g, b) {
     return { h: h, s: s, v: v };
 }
 
-// `hsvToRgb`
+// hsvToRgb
 // Converts an HSV color value to RGB.
 // *Assumes:* h is contained in [0, 1] or [0, 360] and s and v are contained in [0, 1] or [0, 100]
 // *Returns:* { r, g, b } in the set [0, 255]
@@ -37386,7 +37386,7 @@ function rgbToHsv(r, g, b) {
     return { r: r * 255, g: g * 255, b: b * 255 };
 }
 
-// `rgbToHex`
+// rgbToHex
 // Converts an RGB color to hex
 // Assumes r, g, and b are contained in the set [0, 255]
 // Returns a 3 or 6 character hex
@@ -37406,7 +37406,7 @@ function rgbToHex(r, g, b, allow3Char) {
     return hex.join("");
 }
 
-// `rgbaToHex`
+// rgbaToHex
 // Converts an RGBA color plus alpha transparency to hex
 // Assumes r, g, b are contained in the set [0, 255] and
 // a in [0, 1]. Returns a 4 or 8 character rgba hex
@@ -37427,7 +37427,7 @@ function rgbaToHex(r, g, b, a, allow4Char) {
     return hex.join("");
 }
 
-// `rgbaToArgbHex`
+// rgbaToArgbHex
 // Converts an RGBA color to an ARGB Hex8 string
 // Rarely used, but required for "toFilter()"
 function rgbaToArgbHex(r, g, b, a) {
@@ -37442,7 +37442,7 @@ function rgbaToArgbHex(r, g, b, a) {
     return hex.join("");
 }
 
-// `equals`
+// equals
 // Can be called with any tinycolor input
 tinycolor.equals = function (color1, color2) {
     if (!color1 || !color2) { return false; }
@@ -37615,7 +37615,7 @@ tinycolor.mix = function(color1, color2, amount) {
 // ---------------------
 // <http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef (WCAG Version 2)
 
-// `contrast`
+// contrast
 // Analyze the 2 colors and returns the color contrast defined by (WCAG Version 2)
 tinycolor.readability = function(color1, color2) {
     var c1 = tinycolor(color1);
@@ -37623,7 +37623,7 @@ tinycolor.readability = function(color1, color2) {
     return (Math.max(c1.getLuminance(),c2.getLuminance())+0.05) / (Math.min(c1.getLuminance(),c2.getLuminance())+0.05);
 };
 
-// `isReadable`
+// isReadable
 // Ensure that foreground and background color combinations meet WCAG2 guidelines.
 // The third argument is an optional Object.
 //      the 'level' property states 'AA' or 'AAA' - if missing or invalid, it defaults to 'AA';
@@ -37656,7 +37656,7 @@ tinycolor.isReadable = function(color1, color2, wcag2) {
 
 };
 
-// `mostReadable`
+// mostReadable
 // Given a base color and a list of possible foreground or background
 // colors for that base, returns the most readable color.
 // Optionally returns Black or White if the most readable color is unreadable.
@@ -37848,14 +37848,14 @@ var names = tinycolor.names = {
     yellowgreen: "9acd32"
 };
 
-// Make it easy to access colors via `hexNames[hex]`
+// Make it easy to access colors via hexNames[hex]
 var hexNames = tinycolor.hexNames = flip(names);
 
 
 // Utilities
 // ---------
 
-// `{ 'name1': 'val1' }` becomes `{ 'val1': 'name1' }`
+// { 'name1': 'val1' } becomes { 'val1': 'name1' }
 function flip(o) {
     var flipped = { };
     for (var i in o) {
@@ -37974,16 +37974,16 @@ var matchers = (function() {
     };
 })();
 
-// `isValidCSSUnit`
+// isValidCSSUnit
 // Take in a single string / number and check to see if it looks like a CSS unit
-// (see `matchers` above for definition).
+// (see matchers above for definition).
 function isValidCSSUnit(color) {
     return !!matchers.CSS_UNIT.exec(color);
 }
 
-// `stringInputToObject`
+// stringInputToObject
 // Permissive string parsing.  Take in a number of formats, and output an object
-// based on detected format.  Returns `{ r, g, b }` or `{ h, s, l }` or `{ h, s, v}`
+// based on detected format.  Returns { r, g, b } or { h, s, l } or { h, s, v}
 function stringInputToObject(color) {
 
     color = color.replace(trimLeft,'').replace(trimRight, '').toLowerCase();
@@ -38124,7 +38124,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *
  */
 
-// The Emitter class provides the ability to call `.on()` on Dropzone to listen
+// The Emitter class provides the ability to call .on() on Dropzone to listen
 // to events.
 // It is strongly based on component's emitter class, and I removed the
 // functionality because of the dependency hell with different frameworks.
@@ -38238,15 +38238,15 @@ var Dropzone = function (_Emitter) {
       this.prototype.defaultOptions = {
         /**
          * Has to be specified on elements other than form (or when the form
-         * doesn't have an `action` attribute). You can also
-         * provide a function that will be called with `files` and
-         * must return the url (since `v3.12.0`)
+         * doesn't have an action attribute). You can also
+         * provide a function that will be called with files and
+         * must return the url (since v3.12.0)
          */
         url: null,
 
         /**
-         * Can be changed to `"put"` if necessary. You can also provide a function
-         * that will be called with `files` and must return the method (since `v3.12.0`).
+         * Can be changed to "put" if necessary. You can also provide a function
+         * that will be called with files and must return the method (since v3.12.0).
          */
         method: "post",
 
@@ -38256,7 +38256,7 @@ var Dropzone = function (_Emitter) {
         withCredentials: false,
 
         /**
-         * The timeout for the XHR requests in milliseconds (since `v4.4.0`).
+         * The timeout for the XHR requests in milliseconds (since v4.4.0).
          */
         timeout: 30000,
 
@@ -38269,34 +38269,34 @@ var Dropzone = function (_Emitter) {
         /**
          * Whether to send multiple files in one request. If
          * this it set to true, then the fallback file input element will
-         * have the `multiple` attribute as well. This option will
-         * also trigger additional events (like `processingmultiple`). See the events
+         * have the multiple attribute as well. This option will
+         * also trigger additional events (like processingmultiple). See the events
          * documentation section for more information.
          */
         uploadMultiple: false,
 
         /**
          * Whether you want files to be uploaded in chunks to your server. This can't be
-         * used in combination with `uploadMultiple`.
+         * used in combination with uploadMultiple.
          *
          * See [chunksUploaded](#config-chunksUploaded) for the callback to finalise an upload.
          */
         chunking: false,
 
         /**
-         * If `chunking` is enabled, this defines whether **every** file should be chunked,
+         * If chunking is enabled, this defines whether **every** file should be chunked,
          * even if the file size is below chunkSize. This means, that the additional chunk
-         * form data will be submitted and the `chunksUploaded` callback will be invoked.
+         * form data will be submitted and the chunksUploaded callback will be invoked.
          */
         forceChunking: false,
 
         /**
-         * If `chunking` is `true`, then this defines the chunk size in bytes.
+         * If chunking is true, then this defines the chunk size in bytes.
          */
         chunkSize: 2000000,
 
         /**
-         * If `true`, the individual chunks of a file are being uploaded simultaneously.
+         * If true, the individual chunks of a file are being uploaded simultaneously.
          */
         parallelChunkUploads: false,
 
@@ -38306,21 +38306,21 @@ var Dropzone = function (_Emitter) {
         retryChunks: false,
 
         /**
-         * If `retryChunks` is true, how many times should it be retried.
+         * If retryChunks is true, how many times should it be retried.
          */
         retryChunksLimit: 3,
 
         /**
-         * If not `null` defines how many files this Dropzone handles. If it exceeds,
-         * the event `maxfilesexceeded` will be called. The dropzone element gets the
-         * class `dz-max-files-reached` accordingly so you can provide visual feedback.
+         * If not null defines how many files this Dropzone handles. If it exceeds,
+         * the event maxfilesexceeded will be called. The dropzone element gets the
+         * class dz-max-files-reached accordingly so you can provide visual feedback.
          */
         maxFilesize: 256,
 
         /**
          * The name of the file param that gets transferred.
-         * **NOTE**: If you have the option  `uploadMultiple` set to `true`, then
-         * Dropzone will append `[]` to the name.
+         * **NOTE**: If you have the option  uploadMultiple set to true, then
+         * Dropzone will append [] to the name.
          */
         paramName: "file",
 
@@ -38335,59 +38335,59 @@ var Dropzone = function (_Emitter) {
         maxThumbnailFilesize: 10,
 
         /**
-         * If `null`, the ratio of the image will be used to calculate it.
+         * If null, the ratio of the image will be used to calculate it.
          */
         thumbnailWidth: 120,
 
         /**
-         * The same as `thumbnailWidth`. If both are null, images will not be resized.
+         * The same as thumbnailWidth. If both are null, images will not be resized.
          */
         thumbnailHeight: 120,
 
         /**
-         * How the images should be scaled down in case both, `thumbnailWidth` and `thumbnailHeight` are provided.
-         * Can be either `contain` or `crop`.
+         * How the images should be scaled down in case both, thumbnailWidth and thumbnailHeight are provided.
+         * Can be either contain or crop.
          */
         thumbnailMethod: 'crop',
 
         /**
          * If set, images will be resized to these dimensions before being **uploaded**.
-         * If only one, `resizeWidth` **or** `resizeHeight` is provided, the original aspect
+         * If only one, resizeWidth **or** resizeHeight is provided, the original aspect
          * ratio of the file will be preserved.
          *
-         * The `options.transformFile` function uses these options, so if the `transformFile` function
+         * The options.transformFile function uses these options, so if the transformFile function
          * is overridden, these options don't do anything.
          */
         resizeWidth: null,
 
         /**
-         * See `resizeWidth`.
+         * See resizeWidth.
          */
         resizeHeight: null,
 
         /**
          * The mime type of the resized image (before it gets uploaded to the server).
-         * If `null` the original mime type will be used. To force jpeg, for example, use `image/jpeg`.
-         * See `resizeWidth` for more information.
+         * If null the original mime type will be used. To force jpeg, for example, use image/jpeg.
+         * See resizeWidth for more information.
          */
         resizeMimeType: null,
 
         /**
-         * The quality of the resized images. See `resizeWidth`.
+         * The quality of the resized images. See resizeWidth.
          */
         resizeQuality: 0.8,
 
         /**
-         * How the images should be scaled down in case both, `resizeWidth` and `resizeHeight` are provided.
-         * Can be either `contain` or `crop`.
+         * How the images should be scaled down in case both, resizeWidth and resizeHeight are provided.
+         * Can be either contain or crop.
          */
         resizeMethod: 'contain',
 
         /**
          * The base that is used to calculate the filesize. You can change this to
          * 1024 if you would rather display kibibytes, mebibytes, etc...
-         * 1024 is technically incorrect, because `1024 bytes` are `1 kibibyte` not `1 kilobyte`.
-         * You can change this to `1024` if you don't care about validity.
+         * 1024 is technically incorrect, because 1024 bytes are 1 kibibyte not 1 kilobyte.
+         * You can change this to 1024 if you don't care about validity.
          */
         filesizeBase: 1000,
 
@@ -38398,12 +38398,12 @@ var Dropzone = function (_Emitter) {
 
         /**
          * An optional object to send additional headers to the server. Eg:
-         * `{ "My-Awesome-Header": "header value" }`
+         * { "My-Awesome-Header": "header value" }
          */
         headers: null,
 
         /**
-         * If `true`, the dropzone element itself will be clickable, if `false`
+         * If true, the dropzone element itself will be clickable, if false
          * nothing will be clickable.
          *
          * You can also pass an HTML element, a CSS selector (for multiple elements)
@@ -38418,14 +38418,14 @@ var Dropzone = function (_Emitter) {
         ignoreHiddenFiles: true,
 
         /**
-         * The default implementation of `accept` checks the file's mime type or
+         * The default implementation of accept checks the file's mime type or
          * extension against this list. This is a comma separated list of mime
          * types or file extensions.
          *
-         * Eg.: `image/*,application/pdf,.psd`
+         * Eg.: image/*,application/pdf,.psd
          *
-         * If the Dropzone is `clickable` this option will also be used as
-         * [`accept`](https://developer.mozilla.org/en-US/docs/HTML/Element/input#attr-accept)
+         * If the Dropzone is clickable this option will also be used as
+         * [accept](https://developer.mozilla.org/en-US/docs/HTML/Element/input#attr-accept)
          * parameter on the hidden file input as well.
          */
         acceptedFiles: null,
@@ -38441,7 +38441,7 @@ var Dropzone = function (_Emitter) {
          * processed automatically.
          * This can be useful if you need some additional user input before sending
          * files (or if you want want all files sent at once).
-         * If you're ready to send the file simply call `myDropzone.processQueue()`.
+         * If you're ready to send the file simply call myDropzone.processQueue().
          *
          * See the [enqueuing file uploads](#enqueuing-file-uploads) documentation
          * section for more information.
@@ -38450,21 +38450,21 @@ var Dropzone = function (_Emitter) {
 
         /**
          * If false, files added to the dropzone will not be queued by default.
-         * You'll have to call `enqueueFile(file)` manually.
+         * You'll have to call enqueueFile(file) manually.
          */
         autoQueue: true,
 
         /**
-         * If `true`, this will add a link to every file preview to remove or cancel (if
-         * already uploading) the file. The `dictCancelUpload`, `dictCancelUploadConfirmation`
-         * and `dictRemoveFile` options are used for the wording.
+         * If true, this will add a link to every file preview to remove or cancel (if
+         * already uploading) the file. The dictCancelUpload, dictCancelUploadConfirmation
+         * and dictRemoveFile options are used for the wording.
          */
         addRemoveLinks: false,
 
         /**
-         * Defines where to display the file previews – if `null` the
-         * Dropzone element itself is used. Can be a plain `HTMLElement` or a CSS
-         * selector. The element should have the `dropzone-previews` class so
+         * Defines where to display the file previews – if null the
+         * Dropzone element itself is used. Can be a plain HTMLElement or a CSS
+         * selector. The element should have the dropzone-previews class so
          * the previews are displayed properly.
          */
         previewsContainer: null,
@@ -38487,19 +38487,19 @@ var Dropzone = function (_Emitter) {
         capture: null,
 
         /**
-         * **Deprecated**. Use `renameFile` instead.
+         * **Deprecated**. Use renameFile instead.
          */
         renameFilename: null,
 
         /**
          * A function that is invoked before the file is uploaded to the server and renames the file.
-         * This function gets the `File` as argument and can use the `file.name`. The actual name of the
-         * file that gets used during the upload can be accessed through `file.upload.filename`.
+         * This function gets the File as argument and can use the file.name. The actual name of the
+         * file that gets used during the upload can be accessed through file.upload.filename.
          */
         renameFile: null,
 
         /**
-         * If `true` the fallback will be forced. This is very useful to test your server
+         * If true the fallback will be forced. This is very useful to test your server
          * implementations first and make sure that everything works as
          * expected without dropzone if you experience problems, and to test
          * how your fallbacks will look.
@@ -38518,14 +38518,14 @@ var Dropzone = function (_Emitter) {
 
         /**
          * The text that will be added before the fallback form.
-         * If you provide a  fallback element yourself, or if this option is `null` this will
+         * If you provide a  fallback element yourself, or if this option is null this will
          * be ignored.
          */
         dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
 
         /**
          * If the filesize is too big.
-         * `{{filesize}}` and `{{maxFilesize}}` will be replaced with the respective configuration values.
+         * {{filesize}} and {{maxFilesize}} will be replaced with the respective configuration values.
          */
         dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
 
@@ -38536,22 +38536,22 @@ var Dropzone = function (_Emitter) {
 
         /**
          * If the server response was invalid.
-         * `{{statusCode}}` will be replaced with the servers status code.
+         * {{statusCode}} will be replaced with the servers status code.
          */
         dictResponseError: "Server responded with {{statusCode}} code.",
 
         /**
-         * If `addRemoveLinks` is true, the text to be used for the cancel upload link.
+         * If addRemoveLinks is true, the text to be used for the cancel upload link.
          */
         dictCancelUpload: "Cancel upload",
 
         /**
-         * If `addRemoveLinks` is true, the text to be used for confirmation when cancelling upload.
+         * If addRemoveLinks is true, the text to be used for confirmation when cancelling upload.
          */
         dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
 
         /**
-         * If `addRemoveLinks` is true, the text to be used to remove a file.
+         * If addRemoveLinks is true, the text to be used to remove a file.
          */
         dictRemoveFile: "Remove file",
 
@@ -38561,14 +38561,14 @@ var Dropzone = function (_Emitter) {
         dictRemoveFileConfirmation: null,
 
         /**
-         * Displayed if `maxFiles` is st and exceeded.
-         * The string `{{maxFiles}}` will be replaced by the configuration value.
+         * Displayed if maxFiles is st and exceeded.
+         * The string {{maxFiles}} will be replaced by the configuration value.
          */
         dictMaxFilesExceeded: "You can not upload any more files.",
 
         /**
-         * Allows you to translate the different units. Starting with `tb` for terabytes and going down to
-         * `b` for bytes.
+         * Allows you to translate the different units. Starting with tb for terabytes and going down to
+         * b for bytes.
          */
         dictFileSizeUnits: { tb: "TB", gb: "GB", mb: "MB", kb: "KB", b: "b" },
 
@@ -38580,8 +38580,8 @@ var Dropzone = function (_Emitter) {
 
 
         /**
-         * Can be an **object** of additional parameters to transfer to the server, **or** a `Function`
-         * that gets invoked with the `files`, `xhr` and, if it's a chunked upload, `chunk` arguments. In case
+         * Can be an **object** of additional parameters to transfer to the server, **or** a Function
+         * that gets invoked with the files, xhr and, if it's a chunked upload, chunk arguments. In case
          * of a function, this needs to return a map.
          *
          * The default implementation does nothing for normal uploads, but adds relevant information for
@@ -38605,7 +38605,7 @@ var Dropzone = function (_Emitter) {
 
         /**
          * A function that gets a [file](https://developer.mozilla.org/en-US/docs/DOM/File)
-         * and a `done` function as parameters.
+         * and a done function as parameters.
          *
          * If the done function is invoked without arguments, the file is "accepted" and will
          * be processed. If you pass an error message, the file is rejected, and the error
@@ -38620,7 +38620,7 @@ var Dropzone = function (_Emitter) {
         /**
          * The callback that will be invoked when all chunks have been uploaded for a file.
          * It gets the file for which the chunks have been uploaded as the first parameter,
-         * and the `done` function as second. `done()` needs to be invoked when everything
+         * and the done function as second. done() needs to be invoked when everything
          * needed to finish the upload process is done.
          */
         chunksUploaded: function chunksUploaded(file, done) {
@@ -38678,14 +38678,14 @@ var Dropzone = function (_Emitter) {
         /**
          * Gets called to calculate the thumbnail dimensions.
          *
-         * It gets `file`, `width` and `height` (both may be `null`) as parameters and must return an object containing:
+         * It gets file, width and height (both may be null) as parameters and must return an object containing:
          *
-         *  - `srcWidth` & `srcHeight` (required)
-         *  - `trgWidth` & `trgHeight` (required)
-         *  - `srcX` & `srcY` (optional, default `0`)
-         *  - `trgX` & `trgY` (optional, default `0`)
+         *  - srcWidth & srcHeight (required)
+         *  - trgWidth & trgHeight (required)
+         *  - srcX & srcY (optional, default 0)
+         *  - trgX & trgY (optional, default 0)
          *
-         * Those values are going to be used by `ctx.drawImage()`.
+         * Those values are going to be used by ctx.drawImage().
          */
         resize: function resize(file, width, height, resizeMethod) {
           var info = {
@@ -38748,10 +38748,10 @@ var Dropzone = function (_Emitter) {
         /**
          * Can be used to transform the file (for example, resize an image if necessary).
          *
-         * The default implementation uses `resizeWidth` and `resizeHeight` (if provided) and resizes
+         * The default implementation uses resizeWidth and resizeHeight (if provided) and resizes
          * images according to those dimensions.
          *
-         * Gets the `file` as the first parameter, and a `done()` function as the second, that needs
+         * Gets the file as the first parameter, and a done() function as the second, that needs
          * to be invoked with the file when the transformation is done.
          */
         transformFile: function transformFile(file, done) {
@@ -38769,7 +38769,7 @@ var Dropzone = function (_Emitter) {
          * provide all elements.
          *
          * If you want to use an actual HTML element instead of providing a String
-         * as a config option, you could create a div with the id `tpl`,
+         * as a config option, you could create a div with the id tpl,
          * put the template inside it and provide the element like this:
          *
          *     document
@@ -38820,7 +38820,7 @@ var Dropzone = function (_Emitter) {
 
 
         // Called when a file is added to the queue
-        // Receives `file`
+        // Receives file
         addedfile: function addedfile(file) {
           var _this2 = this;
 
@@ -38915,7 +38915,7 @@ var Dropzone = function (_Emitter) {
 
 
         // Called when a thumbnail has been generated
-        // Receives `file` and `dataUrl`
+        // Receives file and dataUrl
         thumbnail: function thumbnail(file, dataUrl) {
           if (file.previewElement) {
             file.previewElement.classList.remove("dz-file-preview");
@@ -38945,7 +38945,7 @@ var Dropzone = function (_Emitter) {
 
 
         // Called whenever an error occurs
-        // Receives `file` and `message`
+        // Receives file and message
         error: function error(file, message) {
           if (file.previewElement) {
             file.previewElement.classList.add("dz-error");
@@ -38975,7 +38975,7 @@ var Dropzone = function (_Emitter) {
 
         // Called when a file gets processed. Since there is a cue, not all added
         // files are processed immediately.
-        // Receives `file`
+        // Receives file
         processing: function processing(file) {
           if (file.previewElement) {
             file.previewElement.classList.add("dz-processing");
@@ -38988,8 +38988,8 @@ var Dropzone = function (_Emitter) {
 
 
         // Called whenever the upload progress gets updated.
-        // Receives `file`, `progress` (percentage 0-100) and `bytesSent`.
-        // To get the total number of bytes of the file, use `file.size`
+        // Receives file, progress (percentage 0-100) and bytesSent.
+        // To get the total number of bytes of the file, use file.size
         uploadprogress: function uploadprogress(file, progress, bytesSent) {
           if (file.previewElement) {
             for (var _iterator8 = file.previewElement.querySelectorAll("[data-dz-uploadprogress]"), _isArray8 = true, _i8 = 0, _iterator8 = _isArray8 ? _iterator8 : _iterator8[Symbol.iterator]();;) {
@@ -39017,15 +39017,15 @@ var Dropzone = function (_Emitter) {
         totaluploadprogress: function totaluploadprogress() {},
 
 
-        // Called just before the file is sent. Gets the `xhr` object as second
+        // Called just before the file is sent. Gets the xhr object as second
         // parameter, so you can modify it (for example to add a CSRF token) and a
-        // `formData` object to add additional information.
+        // formData object to add additional information.
         sending: function sending() {},
         sendingmultiple: function sendingmultiple() {},
 
 
         // When the complete upload is finished and successful
-        // Receives `file`
+        // Receives file
         success: function success(file) {
           if (file.previewElement) {
             return file.previewElement.classList.add("dz-success");
@@ -39042,7 +39042,7 @@ var Dropzone = function (_Emitter) {
 
 
         // When the upload is finished, either with success or an error.
-        // Receives `file`
+        // Receives file
         complete: function complete(file) {
           if (file._removeLink) {
             file._removeLink.textContent = this.options.dictRemoveFile;
@@ -39300,7 +39300,7 @@ var Dropzone = function (_Emitter) {
             _this3.hiddenFileInput.setAttribute("capture", _this3.options.capture);
           }
 
-          // Not setting `display="none"` because some browsers don't accept clicks
+          // Not setting display="none" because some browsers don't accept clicks
           // on elements that aren't displayed.
           _this3.hiddenFileInput.style.visibility = "hidden";
           _this3.hiddenFileInput.style.position = "absolute";
@@ -39371,10 +39371,10 @@ var Dropzone = function (_Emitter) {
         return _this3.emit("complete", file);
       });
 
-      // Emit a `queuecomplete` event if all files finished uploading.
+      // Emit a queuecomplete event if all files finished uploading.
       this.on("complete", function (file) {
         if (_this3.getAddedFiles().length === 0 && _this3.getUploadingFiles().length === 0 && _this3.getQueuedFiles().length === 0) {
-          // This needs to be deferred so that `queuecomplete` really triggers after `complete`
+          // This needs to be deferred so that queuecomplete really triggers after complete
           return setTimeout(function () {
             return _this3.emit("queuecomplete");
           }, 0);
@@ -39682,7 +39682,7 @@ var Dropzone = function (_Emitter) {
       return "<strong>" + selectedSize + "</strong> " + this.options.dictFileSizeUnits[selectedUnit];
     }
 
-    // Adds or removes the `dz-max-files-reached` class from the form.
+    // Adds or removes the dz-max-files-reached class from the form.
 
   }, {
     key: "_updateMaxFilesReachedClass",
@@ -39852,12 +39852,12 @@ var Dropzone = function (_Emitter) {
       return readEntries();
     }
 
-    // If `done()` is called without argument the file is accepted
+    // If done() is called without argument the file is accepted
     // If you call it with an error message, the file is rejected
     // (This allows for asynchronous validation)
     //
     // This function checks the filesize, and if the file.type passes the
-    // `acceptedFiles` check.
+    // acceptedFiles check.
 
   }, {
     key: "accept",
@@ -40027,7 +40027,7 @@ var Dropzone = function (_Emitter) {
     }
 
     // Resizes an image before it gets sent to the server. This function is the default behavior of
-    // `options.transformFile` if `resizeWidth` or `resizeHeight` are set. The callback is invoked with
+    // options.transformFile if resizeWidth or resizeHeight are set. The callback is invoked with
     // the resized blob.
 
   }, {
@@ -40083,7 +40083,7 @@ var Dropzone = function (_Emitter) {
     value: function createThumbnailFromUrl(file, width, height, resizeMethod, fixOrientation, callback, crossOrigin) {
       var _this14 = this;
 
-      // Not using `new Image` here because of a bug in latest Chrome versions.
+      // Not using new Image here because of a bug in latest Chrome versions.
       // See https://github.com/enyo/dropzone/pull/226
       var img = document.createElement("img");
 
@@ -40212,7 +40212,7 @@ var Dropzone = function (_Emitter) {
       }
     }
 
-    // Wrapper for `processFiles`
+    // Wrapper for processFiles
 
   }, {
     key: "processFile",
@@ -40487,7 +40487,7 @@ var Dropzone = function (_Emitter) {
       // Setting the timeout after open because of IE11 issue: https://gitlab.com/meno/dropzone/issues/8
       xhr.timeout = this.resolveOption(this.options.timeout, files);
 
-      // Has to be after `.open()`. See https://github.com/enyo/dropzone/issues/179
+      // Has to be after .open(). See https://github.com/enyo/dropzone/issues/179
       xhr.withCredentials = !!this.options.withCredentials;
 
       xhr.onload = function (e) {
@@ -40937,7 +40937,7 @@ Dropzone.version = "5.3.0";
 //
 //     Dropzone.options.myDropzoneElementId = { maxFilesize: 1 };
 //
-// To disable autoDiscover for a specific element, you can set `false` as an option:
+// To disable autoDiscover for a specific element, you can set false as an option:
 //
 //     Dropzone.options.myDisabledElementId = false;
 //
@@ -40948,7 +40948,7 @@ Dropzone.options = {};
 
 // Returns the options for an element or undefined if none available.
 Dropzone.optionsForElement = function (element) {
-  // Get the `Dropzone.options.elementId` for this element if it exists
+  // Get the Dropzone.options.elementId for this element if it exists
   if (element.getAttribute("id")) {
     return Dropzone.options[camelize(element.getAttribute("id"))];
   } else {
@@ -40965,7 +40965,7 @@ Dropzone.forElement = function (element) {
     element = document.querySelector(element);
   }
   if ((element != null ? element.dropzone : undefined) == null) {
-    throw new Error("No Dropzone found for given element. This is probably because you're trying to access it before Dropzone had the time to initialize. Use the `init` option to setup any additional observers on your Dropzone.");
+    throw new Error("No Dropzone found for given element. This is probably because you're trying to access it before Dropzone had the time to initialize. Use the init option to setup any additional observers on your Dropzone.");
   }
   return element.dropzone;
 };
@@ -41152,7 +41152,7 @@ Dropzone.getElement = function (el, name) {
     element = el;
   }
   if (element == null) {
-    throw new Error("Invalid `" + name + "` option provided. Please provide a CSS selector or a plain HTML element.");
+    throw new Error("Invalid " + name + " option provided. Please provide a CSS selector or a plain HTML element.");
   }
   return element;
 };
@@ -41197,7 +41197,7 @@ Dropzone.getElements = function (els, name) {
   }
 
   if (elements == null || !elements.length) {
-    throw new Error("Invalid `" + name + "` option provided. Please provide a CSS selector, a plain HTML element or a list of those.");
+    throw new Error("Invalid " + name + " option provided. Please provide a CSS selector, a plain HTML element or a list of those.");
   }
 
   return elements;
@@ -41205,7 +41205,7 @@ Dropzone.getElements = function (els, name) {
 
 // Asks the user the question and calls accepted or rejected accordingly
 //
-// The default implementation just uses `window.confirm` and then calls the
+// The default implementation just uses window.confirm and then calls the
 // appropriate callback.
 Dropzone.confirm = function (question, accepted, rejected) {
   if (window.confirm(question)) {
@@ -44027,7 +44027,7 @@ function getParentNode(element) {
  * @returns {Element} scroll parent
  */
 function getScrollParent(element) {
-  // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+  // Return body, getScroll will take care to get the correct scrollTop from it
   if (!element) {
     return document.body;
   }
@@ -44040,7 +44040,7 @@ function getScrollParent(element) {
       return element.body;
   }
 
-  // Firefox want us to check `-x` and `-y` variations as well
+  // Firefox want us to check -x and -y variations as well
 
   var _getStyleComputedProp = getStyleComputedProperty(element),
       overflow = _getStyleComputedProp.overflow,
@@ -44156,7 +44156,7 @@ function findCommonOffsetParent(element1, element2) {
  * @method
  * @memberof Popper.Utils
  * @argument {Element} element
- * @argument {String} side `top` or `left`
+ * @argument {String} side top or left
  * @returns {number} amount of scrolled pixels
  */
 function getScroll(element) {
@@ -44201,8 +44201,8 @@ function includeScroll(rect, element) {
  * @method
  * @memberof Popper.Utils
  * @param {CSSStyleDeclaration} styles
- * Result of `getStyleComputedProperty` on the given element
- * @param {String} axis - `x` or `y`
+ * Result of getStyleComputedProperty on the given element
+ * @param {String} axis - x or y
  * @return {number} borders - The borders size of the given axis
  */
 
@@ -44356,7 +44356,7 @@ function getBoundingClientRect(element) {
   var horizScrollbar = element.offsetWidth - width;
   var vertScrollbar = element.offsetHeight - height;
 
-  // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
+  // if an hypothetical scrollbar is detected, we must be sure it's not a border
   // we make this check conditional for performance reasons
   if (horizScrollbar || vertScrollbar) {
     var styles = getStyleComputedProperty(element);
@@ -44520,7 +44520,7 @@ function getArea(_ref) {
 }
 
 /**
- * Utility used to transform the `auto` placement to the placement with more
+ * Utility used to transform the auto placement to the placement with more
  * available space.
  * @method
  * @memberof Popper.Utils
@@ -44665,7 +44665,7 @@ function getPopperOffsets(popper, referenceOffsets, placement) {
 }
 
 /**
- * Mimics the `find` method of Array
+ * Mimics the find method of Array
  * @method
  * @memberof Popper.Utils
  * @argument {Array} arr
@@ -44679,7 +44679,7 @@ function find(arr, check) {
     return arr.find(check);
   }
 
-  // use `filter` to obtain the same behavior of `find`
+  // use filter to obtain the same behavior of find
   return arr.filter(check)[0];
 }
 
@@ -44700,7 +44700,7 @@ function findIndex(arr, prop, value) {
     });
   }
 
-  // use `find` + `indexOf` if `findIndex` isn't supported
+  // use find + indexOf if findIndex isn't supported
   var match = find(arr, function (obj) {
     return obj[prop] === value;
   });
@@ -44723,7 +44723,7 @@ function runModifiers(modifiers, data, ends) {
   modifiersToRun.forEach(function (modifier) {
     if (modifier['function']) {
       // eslint-disable-line dot-notation
-      console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
+      console.warn('modifier.function is deprecated, use modifier.fn!');
     }
     var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
     if (modifier.enabled && isFunction(fn)) {
@@ -44743,7 +44743,7 @@ function runModifiers(modifiers, data, ends) {
 /**
  * Updates the position of the popper, computing the new offsets and applying
  * the new style.<br />
- * Prefer `scheduleUpdate` over `update` because of performance reasons.
+ * Prefer scheduleUpdate over update because of performance reasons.
  * @method
  * @memberof Popper
  */
@@ -44766,11 +44766,11 @@ function update() {
   data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference);
 
   // compute auto placement, store placement inside the data object,
-  // modifiers will be able to edit `placement` if needed
+  // modifiers will be able to edit placement if needed
   // and refer to originalPlacement to know the original value
   data.placement = computeAutoPlacement(this.options.placement, data.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding);
 
-  // store the computed placement inside `originalPlacement`
+  // store the computed placement inside originalPlacement
   data.originalPlacement = data.placement;
 
   // compute the popper offsets
@@ -44780,8 +44780,8 @@ function update() {
   // run the modifiers
   data = runModifiers(this.modifiers, data);
 
-  // the first `update` will call `onCreate` callback
-  // the other ones will call `onUpdate` callback
+  // the first update will call onCreate callback
+  // the other ones will call onUpdate callback
   if (!this.state.isCreated) {
     this.state.isCreated = true;
     this.options.onCreate(data);
@@ -44833,7 +44833,7 @@ function getSupportedPropertyName(property) {
 function destroy() {
   this.state.isDestroyed = true;
 
-  // touch DOM only if `applyStyle` modifier is enabled
+  // touch DOM only if applyStyle modifier is enabled
   if (isModifierEnabled(this.modifiers, 'applyStyle')) {
     this.popper.removeAttribute('x-placement');
     this.popper.style.left = '';
@@ -44845,7 +44845,7 @@ function destroy() {
   this.disableEventListeners();
 
   // remove the popper if user explicity asked for the deletion on destroy
-  // do not use `remove` because IE11 doesn't support it
+  // do not use remove because IE11 doesn't support it
   if (this.options.removeOnDestroy) {
     this.popper.parentNode.removeChild(this.popper);
   }
@@ -44931,7 +44931,7 @@ function removeEventListeners(reference, state) {
 /**
  * It will remove resize/scroll events and won't recalculate popper position
  * when they are triggered. It also won't trigger onUpdate callback anymore,
- * unless you call `update` method manually.
+ * unless you call update method manually.
  * @method
  * @memberof Popper
  */
@@ -44994,20 +44994,20 @@ function setAttributes(element, attributes) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data - The data object generated by update method
  * @argument {Object} data.styles - List of style properties - values to apply to popper element
  * @argument {Object} data.attributes - List of attribute properties - values to apply to popper element
  * @argument {Object} options - Modifiers configuration and options
  * @returns {Object} The same data object
  */
 function applyStyle(data) {
-  // any property present in `data.styles` will be applied to the popper,
+  // any property present in data.styles will be applied to the popper,
   // in this way we can make the 3rd party modifiers add custom styles to it
   // Be aware, modifiers could override the properties defined in the previous
   // lines of this modifier!
   setStyles(data.instance.popper, data.styles);
 
-  // any property present in `data.attributes` will be applied to the popper,
+  // any property present in data.attributes will be applied to the popper,
   // they will be set as HTML attributes of the element
   setAttributes(data.instance.popper, data.attributes);
 
@@ -45034,13 +45034,13 @@ function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
   var referenceOffsets = getReferenceOffsets(state, popper, reference);
 
   // compute auto placement, store placement inside the data object,
-  // modifiers will be able to edit `placement` if needed
+  // modifiers will be able to edit placement if needed
   // and refer to originalPlacement to know the original value
   var placement = computeAutoPlacement(options.placement, referenceOffsets, popper, reference, options.modifiers.flip.boundariesElement, options.modifiers.flip.padding);
 
   popper.setAttribute('x-placement', placement);
 
-  // Apply `position` to popper before anything else because
+  // Apply position to popper before anything else because
   // without the position applied we can't guarantee correct computations
   setStyles(popper, { position: 'absolute' });
 
@@ -45050,7 +45050,7 @@ function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data - The data object generated by update method
  * @argument {Object} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
@@ -45065,7 +45065,7 @@ function computeStyle(data, options) {
     return modifier.name === 'applyStyle';
   }).gpuAcceleration;
   if (legacyGpuAccelerationOption !== undefined) {
-    console.warn('WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!');
+    console.warn('WARNING: gpuAcceleration option moved to computeStyle modifier and will not be supported in future versions of Popper.js!');
   }
   var gpuAcceleration = legacyGpuAccelerationOption !== undefined ? legacyGpuAccelerationOption : options.gpuAcceleration;
 
@@ -45088,8 +45088,8 @@ function computeStyle(data, options) {
   var sideA = x === 'bottom' ? 'top' : 'bottom';
   var sideB = y === 'right' ? 'left' : 'right';
 
-  // if gpuAcceleration is set to `true` and transform is supported,
-  //  we use `translate3d` to apply the position to the popper we
+  // if gpuAcceleration is set to true and transform is supported,
+  //  we use translate3d to apply the position to the popper we
   // automatically use the supported prefixed version if needed
   var prefixedProperty = getSupportedPropertyName('transform');
 
@@ -45100,7 +45100,7 @@ function computeStyle(data, options) {
   // To avoid this problem, we provide two options (x and y), which allow
   // the consumer to define the offset origin.
   // If we position a popper on top of a reference element, we can set
-  // `x` to `top` to make the popper grow towards its top instead of
+  // x to top to make the popper grow towards its top instead of
   // its bottom.
   var left = void 0,
       top = void 0;
@@ -45120,7 +45120,7 @@ function computeStyle(data, options) {
     styles[sideB] = 0;
     styles.willChange = 'transform';
   } else {
-    // othwerise, we use the standard `top`, `left`, `bottom` and `right` properties
+    // othwerise, we use the standard top, left, bottom and right properties
     var invertTop = sideA === 'bottom' ? -1 : 1;
     var invertLeft = sideB === 'right' ? -1 : 1;
     styles[sideA] = top * invertTop;
@@ -45133,7 +45133,7 @@ function computeStyle(data, options) {
     'x-placement': data.placement
   };
 
-  // Update `data` attributes, styles and arrowStyles
+  // Update data attributes, styles and arrowStyles
   data.attributes = _extends({}, attributes, data.attributes);
   data.styles = _extends({}, styles, data.styles);
   data.arrowStyles = _extends({}, data.offsets.arrow, data.arrowStyles);
@@ -45162,8 +45162,8 @@ function isModifierRequired(modifiers, requestingName, requestedName) {
   });
 
   if (!isRequired) {
-    var _requesting = '`' + requestingName + '`';
-    var requested = '`' + requestedName + '`';
+    var _requesting = '' + requestingName + '';
+    var requested = '' + requestedName + '';
     console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in order to work, be sure to include it before ' + _requesting + '!');
   }
   return isRequired;
@@ -45198,7 +45198,7 @@ function arrow(data, options) {
     // if the arrowElement isn't a query selector we must check that the
     // provided DOM node is child of its popper node
     if (!data.instance.popper.contains(arrowElement)) {
-      console.warn('WARNING: `arrow.element` must be child of its popper element!');
+      console.warn('WARNING: arrow.element must be child of its popper element!');
       return data;
     }
   }
@@ -45268,28 +45268,28 @@ function getOppositeVariation(variation) {
 }
 
 /**
- * List of accepted placements to use as values of the `placement` option.<br />
+ * List of accepted placements to use as values of the placement option.<br />
  * Valid placements are:
- * - `auto`
- * - `top`
- * - `right`
- * - `bottom`
- * - `left`
+ * - auto
+ * - top
+ * - right
+ * - bottom
+ * - left
  *
  * Each placement can have a variation from this list:
- * - `-start`
- * - `-end`
+ * - -start
+ * - -end
  *
  * Variations are interpreted easily if you think of them as the left to right
- * written languages. Horizontally (`top` and `bottom`), `start` is left and `end`
+ * written languages. Horizontally (top and bottom), start is left and end
  * is right.<br />
- * Vertically (`left` and `right`), `start` is top and `end` is bottom.
+ * Vertically (left and right), start is top and end is bottom.
  *
  * Some valid examples are:
- * - `top-end` (on top of reference, right aligned)
- * - `right-start` (on right of reference, top aligned)
- * - `bottom` (on bottom, centered)
- * - `auto-right` (on the side with more space available, alignment depends by placement)
+ * - top-end (on top of reference, right aligned)
+ * - right-start (on right of reference, top aligned)
+ * - bottom (on bottom, centered)
+ * - auto-right (on the side with more space available, alignment depends by placement)
  *
  * @static
  * @type {Array}
@@ -45300,7 +45300,7 @@ function getOppositeVariation(variation) {
  */
 var placements = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
 
-// Get rid of `auto` `auto-start` and `auto-end`
+// Get rid of auto auto-start and auto-end
 var validPlacements = placements.slice(3);
 
 /**
@@ -45335,7 +45335,7 @@ var BEHAVIORS = {
  * @returns {Object} The data object, properly modified
  */
 function flip(data, options) {
-  // if `inner` modifier is enabled, we can't use the `flip` modifier
+  // if inner modifier is enabled, we can't use the flip modifier
   if (isModifierEnabled(data.instance.modifiers, 'inner')) {
     return data;
   }
@@ -45407,7 +45407,7 @@ function flip(data, options) {
 
       data.placement = placement + (variation ? '-' + variation : '');
 
-      // this object contains `position`, we want to preserve it along with
+      // this object contains position, we want to preserve it along with
       // any additional property we may add in the future
       data.offsets.popper = _extends({}, data.offsets.popper, getPopperOffsets(data.instance.popper, data.offsets.reference, data.placement));
 
@@ -45452,7 +45452,7 @@ function keepTogether(data) {
  * @memberof {modifiers~offset}
  * @private
  * @argument {String} str - Value + unit string
- * @argument {String} measurement - `height` or `width`
+ * @argument {String} measurement - height or width
  * @argument {Object} popperOffsets
  * @argument {Object} referenceOffsets
  * @returns {Number|String}
@@ -45500,7 +45500,7 @@ function toValue(str, measurement, popperOffsets, referenceOffsets) {
 }
 
 /**
- * Parse an `offset` string to extrapolate `x` and `y` numeric offsets.
+ * Parse an offset string to extrapolate x and y numeric offsets.
  * @function
  * @memberof {modifiers~offset}
  * @private
@@ -45545,7 +45545,7 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
     var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
     var mergeWithPrevious = false;
     return op
-    // This aggregates any `+` or `-` sign that aren't considered operators
+    // This aggregates any + or - sign that aren't considered operators
     // e.g.: 10 + +5 => [10, +, +5]
     .reduce(function (a, b) {
       if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
@@ -45623,7 +45623,7 @@ function offset(data, _ref) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data - The data object generated by update method
  * @argument {Object} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
@@ -45674,7 +45674,7 @@ function preventOverflow(data, options) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data - The data object generated by update method
  * @argument {Object} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
@@ -45745,7 +45745,7 @@ function hide(data) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data - The data object generated by update method
  * @argument {Object} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
@@ -45770,12 +45770,12 @@ function inner(data) {
 
 /**
  * Modifier function, each modifier can have a function of this type assigned
- * to its `fn` property.<br />
+ * to its fn property.<br />
  * These functions will be called on each update, this means that you must
  * make sure they are performant enough to avoid performance bottlenecks.
  *
  * @function ModifierFn
- * @argument {dataObject} data - The data object generated by `update` method
+ * @argument {dataObject} data - The data object generated by update method
  * @argument {Object} options - Modifiers configuration and options
  * @returns {dataObject} The data object, properly modified
  */
@@ -45785,7 +45785,7 @@ function inner(data) {
  * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
  * needed by the library.
  *
- * Usually you don't want to override the `order`, `fn` and `onLoad` props.
+ * Usually you don't want to override the order, fn and onLoad props.
  * All the other properties are configurations that could be tweaked.
  * @namespace modifiers
  */
@@ -45793,8 +45793,8 @@ var modifiers = {
   /**
    * Modifier used to shift the popper on the start or end of its reference
    * element.<br />
-   * It will read the variation of the `placement` property.<br />
-   * It can be one either `-end` or `-start`.
+   * It will read the variation of the placement property.<br />
+   * It can be one either -end or -start.
    * @memberof modifiers
    * @inner
    */
@@ -45808,28 +45808,28 @@ var modifiers = {
   },
 
   /**
-   * The `offset` modifier can shift your popper on both its axis.
+   * The offset modifier can shift your popper on both its axis.
    *
    * It accepts the following units:
-   * - `px` or unitless, interpreted as pixels
-   * - `%` or `%r`, percentage relative to the length of the reference element
-   * - `%p`, percentage relative to the length of the popper element
-   * - `vw`, CSS viewport width unit
-   * - `vh`, CSS viewport height unit
+   * - px or unitless, interpreted as pixels
+   * - % or %r, percentage relative to the length of the reference element
+   * - %p, percentage relative to the length of the popper element
+   * - vw, CSS viewport width unit
+   * - vh, CSS viewport height unit
    *
    * For length is intended the main axis relative to the placement of the popper.<br />
-   * This means that if the placement is `top` or `bottom`, the length will be the
-   * `width`. In case of `left` or `right`, it will be the height.
+   * This means that if the placement is top or bottom, the length will be the
+   * width. In case of left or right, it will be the height.
    *
-   * You can provide a single value (as `Number` or `String`), or a pair of values
-   * as `String` divided by a comma or one (or more) white spaces.<br />
+   * You can provide a single value (as Number or String), or a pair of values
+   * as String divided by a comma or one (or more) white spaces.<br />
    * The latter is a deprecated method because it leads to confusion and will be
    * removed in v2.<br />
    * Additionally, it accepts additions and subtractions between different units.
    * Note that multiplications and divisions aren't supported.
    *
    * Valid examples are:
-   * ```
+   * 
    * 10
    * '10%'
    * '10, 10'
@@ -45837,9 +45837,9 @@ var modifiers = {
    * '10 + 10%'
    * '10 - 5vh + 3%'
    * '-10px + 5vh, 5px - 6%'
-   * ```
+   * 
    * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
-   * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
+   * > with their reference element, unfortunately, you will have to disable the flip modifier.
    * > More on this [reading this issue](https://github.com/FezVrasta/popper.js/issues/373)
    *
    * @memberof modifiers
@@ -45868,7 +45868,7 @@ var modifiers = {
    * - detach from the reference and remain "trapped" in the boundaries, or
    * - if it should ignore the boundary and "escape with its reference"
    *
-   * When `escapeWithReference` is set to`true` and reference is completely
+   * When escapeWithReference is set totrue and reference is completely
    * outside its boundaries, the popper will overflow (or completely leave)
    * the boundaries in order to remain attached to the edge of the reference.
    *
@@ -45885,7 +45885,7 @@ var modifiers = {
     /**
      * @prop {Array} [priority=['left','right','top','bottom']]
      * Popper will try to prevent overflow following these priorities by default,
-     * then, it could overflow on the left and on top of the `boundariesElement`
+     * then, it could overflow on the left and on top of the boundariesElement
      */
     priority: ['left', 'right', 'top', 'bottom'],
     /**
@@ -45897,8 +45897,8 @@ var modifiers = {
     padding: 5,
     /**
      * @prop {String|HTMLElement} boundariesElement='scrollParent'
-     * Boundaries used by the modifier, can be `scrollParent`, `window`,
-     * `viewport` or any DOM element.
+     * Boundaries used by the modifier, can be scrollParent, window,
+     * viewport or any DOM element.
      */
     boundariesElement: 'scrollParent'
   },
@@ -45922,12 +45922,12 @@ var modifiers = {
   },
 
   /**
-   * This modifier is used to move the `arrowElement` of the popper to make
+   * This modifier is used to move the arrowElement of the popper to make
    * sure it is positioned between the reference element and its popper element.
-   * It will read the outer size of the `arrowElement` node to detect how many
+   * It will read the outer size of the arrowElement node to detect how many
    * pixels of conjuction are needed.
    *
-   * It has no effect if no `arrowElement` is provided.
+   * It has no effect if no arrowElement is provided.
    * @memberof modifiers
    * @inner
    */
@@ -45946,7 +45946,7 @@ var modifiers = {
    * Modifier used to flip the popper's placement when it starts to overlap its
    * reference element.
    *
-   * Requires the `preventOverflow` modifier before it in order to work.
+   * Requires the preventOverflow modifier before it in order to work.
    *
    * **NOTE:** this modifier will interrupt the current update cycle and will
    * restart it if it detects the need to flip the placement.
@@ -45963,13 +45963,13 @@ var modifiers = {
     /**
      * @prop {String|Array} behavior='flip'
      * The behavior used to change the popper's placement. It can be one of
-     * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
+     * flip, clockwise, counterclockwise or an array with a list of valid
      * placements (with optional variations).
      */
     behavior: 'flip',
     /**
      * @prop {number} padding=5
-     * The popper will flip if it hits the edges of the `boundariesElement`
+     * The popper will flip if it hits the edges of the boundariesElement
      */
     padding: 5,
     /**
@@ -45999,11 +45999,11 @@ var modifiers = {
 
   /**
    * Modifier used to hide the popper when its reference element is outside of the
-   * popper boundaries. It will set a `x-out-of-boundaries` attribute which can
+   * popper boundaries. It will set a x-out-of-boundaries attribute which can
    * be used to hide with a CSS selector the popper when its reference is
    * out of boundaries.
    *
-   * Requires the `preventOverflow` modifier before it in order to work.
+   * Requires the preventOverflow modifier before it in order to work.
    * @memberof modifiers
    * @inner
    */
@@ -46021,10 +46021,10 @@ var modifiers = {
    * properly positioned.
    *
    * Note that this modifier will not touch the DOM, it just prepares the styles
-   * so that `applyStyle` modifier can apply it. This separation is useful
-   * in case you need to replace `applyStyle` with a custom implementation.
+   * so that applyStyle modifier can apply it. This separation is useful
+   * in case you need to replace applyStyle with a custom implementation.
    *
-   * This modifier has `850` as `order` value to maintain backward compatibility
+   * This modifier has 850 as order value to maintain backward compatibility
    * with previous versions of Popper.js. Expect the modifiers ordering method
    * to change in future major versions of the library.
    *
@@ -46041,19 +46041,19 @@ var modifiers = {
     /**
      * @prop {Boolean} gpuAcceleration=true
      * If true, it uses the CSS 3d transformation to position the popper.
-     * Otherwise, it will use the `top` and `left` properties.
+     * Otherwise, it will use the top and left properties.
      */
     gpuAcceleration: true,
     /**
      * @prop {string} [x='bottom']
-     * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
-     * Change this if your popper should grow in a direction different from `bottom`
+     * Where to anchor the X axis (bottom or top). AKA X offset origin.
+     * Change this if your popper should grow in a direction different from bottom
      */
     x: 'bottom',
     /**
      * @prop {string} [x='left']
-     * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
-     * Change this if your popper should grow in a direction different from `right`
+     * Where to anchor the Y axis (left or right). AKA Y offset origin.
+     * Change this if your popper should grow in a direction different from right
      */
     y: 'right'
   },
@@ -46066,7 +46066,7 @@ var modifiers = {
    * want to delegate all the DOM manipulations to it.
    *
    * Note that if you disable this modifier, you must make sure the popper element
-   * has its position set to `absolute` before Popper.js can do its work!
+   * has its position set to absolute before Popper.js can do its work!
    *
    * Just disable this modifier and define you own to achieve the desired effect.
    *
@@ -46083,18 +46083,18 @@ var modifiers = {
     /** @prop {Function} */
     onLoad: applyStyleOnLoad,
     /**
-     * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
+     * @deprecated since version 1.10.0, the property moved to computeStyle modifier
      * @prop {Boolean} gpuAcceleration=true
      * If true, it uses the CSS 3d transformation to position the popper.
-     * Otherwise, it will use the `top` and `left` properties.
+     * Otherwise, it will use the top and left properties.
      */
     gpuAcceleration: undefined
   }
 };
 
 /**
- * The `dataObject` is an object containing all the informations used by Popper.js
- * this object get passed to modifiers and to the `onCreate` and `onUpdate` callbacks.
+ * The dataObject is an object containing all the informations used by Popper.js
+ * this object get passed to modifiers and to the onCreate and onUpdate callbacks.
  * @name dataObject
  * @property {Object} data.instance The Popper.js instance
  * @property {String} data.placement Placement applied to popper
@@ -46102,27 +46102,27 @@ var modifiers = {
  * @property {Boolean} data.flipped True if popper has been flipped by flip modifier
  * @property {Boolean} data.hide True if the reference element is out of boundaries, useful to know when to hide the popper.
  * @property {HTMLElement} data.arrowElement Node used as arrow by arrow modifier
- * @property {Object} data.styles Any CSS property defined here will be applied to the popper, it expects the JavaScript nomenclature (eg. `marginBottom`)
- * @property {Object} data.arrowStyles Any CSS property defined here will be applied to the popper arrow, it expects the JavaScript nomenclature (eg. `marginBottom`)
+ * @property {Object} data.styles Any CSS property defined here will be applied to the popper, it expects the JavaScript nomenclature (eg. marginBottom)
+ * @property {Object} data.arrowStyles Any CSS property defined here will be applied to the popper arrow, it expects the JavaScript nomenclature (eg. marginBottom)
  * @property {Object} data.boundaries Offsets of the popper boundaries
  * @property {Object} data.offsets The measurements of popper, reference and arrow elements.
- * @property {Object} data.offsets.popper `top`, `left`, `width`, `height` values
- * @property {Object} data.offsets.reference `top`, `left`, `width`, `height` values
- * @property {Object} data.offsets.arrow] `top` and `left` offsets, only one of them will be different from 0
+ * @property {Object} data.offsets.popper top, left, width, height values
+ * @property {Object} data.offsets.reference top, left, width, height values
+ * @property {Object} data.offsets.arrow] top and left offsets, only one of them will be different from 0
  */
 
 /**
  * Default options provided to Popper.js constructor.<br />
- * These can be overriden using the `options` argument of Popper.js.<br />
+ * These can be overriden using the options argument of Popper.js.<br />
  * To override an option, simply pass as 3rd argument an object with the same
  * structure of this object, example:
- * ```
+ * 
  * new Popper(ref, pop, {
  *   modifiers: {
  *     preventOverflow: { enabled: false }
  *   }
  * })
- * ```
+ * 
  * @type {Object}
  * @static
  * @memberof Popper
@@ -46142,7 +46142,7 @@ var Defaults = {
 
   /**
    * Set to true if you want to automatically remove the popper when
-   * you call the `destroy` method.
+   * you call the destroy method.
    * @prop {Boolean} removeOnDestroy=false
    */
   removeOnDestroy: false,
@@ -46150,7 +46150,7 @@ var Defaults = {
   /**
    * Callback called when the popper is created.<br />
    * By default, is set to no-op.<br />
-   * Access Popper.js instance with `data.instance`.
+   * Access Popper.js instance with data.instance.
    * @prop {onCreate}
    */
   onCreate: function onCreate() {},
@@ -46160,7 +46160,7 @@ var Defaults = {
    * on the initialization/creation of the popper, but only on subsequent
    * updates.<br />
    * By default, is set to no-op.<br />
-   * Access Popper.js instance with `data.instance`.
+   * Access Popper.js instance with data.instance.
    * @prop {onUpdate}
    */
   onUpdate: function onUpdate() {},
@@ -46241,7 +46241,7 @@ var Popper = function () {
     // modifiers have the ability to execute arbitrary code when Popper.js get inited
     // such code is executed in the same order of its modifier
     // they could add new properties to their options configuration
-    // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
+    // BE AWARE: don't add options to options.modifiers.name but to modifierOptions!
     this.modifiers.forEach(function (modifierOptions) {
       if (modifierOptions.enabled && isFunction(modifierOptions.onLoad)) {
         modifierOptions.onLoad(_this.reference, _this.popper, _this.options, modifierOptions, _this.state);
@@ -46295,7 +46295,7 @@ var Popper = function () {
     /**
      * Collection of utilities useful when writing custom modifiers.
      * Starting from version 1.7, this method is available only if you
-     * include `popper-utils.js` before `popper.js`.
+     * include popper-utils.js before popper.js.
      *
      * **DEPRECATION**: This way to access PopperUtils is deprecated
      * and will be removed in v2! Use the PopperUtils module directly instead.
@@ -46314,19 +46314,19 @@ var Popper = function () {
 }();
 
 /**
- * The `referenceObject` is an object that provides an interface compatible with Popper.js
+ * The referenceObject is an object that provides an interface compatible with Popper.js
  * and lets you use it as replacement of a real DOM node.<br />
  * You can use this method to position a popper relatively to a set of coordinates
  * in case you don't have a DOM node to use as reference.
  *
- * ```
+ * 
  * new Popper(referenceObject, popperNode);
- * ```
+ * 
  *
  * NB: This feature isn't supported in Internet Explorer 10
  * @name referenceObject
  * @property {Function} data.getBoundingClientRect
- * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
+ * A function that returns a set of coordinates compatible with the native getBoundingClientRect method.
  * @property {number} data.clientWidth
  * An ES6 getter that will return the width of the virtual reference element.
  * @property {number} data.clientHeight
@@ -47884,7 +47884,7 @@ var Dropdown = function ($$$1) {
           if ($$$1(this._menu).hasClass(ClassName.MENULEFT) || $$$1(this._menu).hasClass(ClassName.MENURIGHT)) {
             element = parent;
           }
-        } // If boundary is not `scrollParent`, then set position to `static`
+        } // If boundary is not scrollParent, then set position to static
         // to allow the menu to "escape" the scroll parent's boundaries
         // https://github.com/twbs/bootstrap/issues/24251
 
@@ -50338,7 +50338,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - all (array) (first 3 or 4 elements in the array are equal to [containerID, width, height] or [x, y, width, height]. The rest are element descriptions in format {type: type, <attributes>}). See @Paper.add.
 	     - callback (function) #optional callback function which is going to be executed in the context of newly created paper
 	     * or
-	     - onReadyCallback (function) function that is going to be called on DOM ready event. You can also subscribe to this event via Eve’s “DOMLoad” event. In this case method returns `undefined`.
+	     - onReadyCallback (function) function that is going to be called on DOM ready event. You can also subscribe to this event via Eve’s “DOMLoad” event. In this case method returns undefined.
 	     = (object) @Paper
 	     > Usage
 	     | // Each of the following examples create a canvas
@@ -50646,13 +50646,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.svg
 	     [ property (boolean) ]
 	     **
-	     * `true` if browser supports SVG.
+	     * true if browser supports SVG.
 	    \*/
 	    /*\
 	     * Raphael.vml
 	     [ property (boolean) ]
 	     **
-	     * `true` if browser supports VML.
+	     * true if browser supports VML.
 	    \*/
 	    R.svg = !(R.vml = R.type == "VML");
 	    R._Paper = Paper;
@@ -50662,7 +50662,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * You can add your own method to the canvas. For example if you want to draw a pie chart,
 	     * you can create your own pie chart function and ship it as a Raphaël plugin. To do this
-	     * you need to extend the `Raphael.fn` object. You should modify the `fn` object before a
+	     * you need to extend the Raphael.fn object. You should modify the fn object before a
 	     * Raphaël instance is created, otherwise it will take no effect. Please note that the
 	     * ability for namespaced plugins was removed in Raphael 2.0. It is up to the plugin to
 	     * ensure any namespacing ensures proper context.
@@ -50688,7 +50688,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.is
 	     [ method ]
 	     **
-	     * Handful of replacements for `typeof` operator.
+	     * Handful of replacements for typeof operator.
 	     > Parameters
 	     - o (…) any object or primitive
 	     - type (string) name of the type, i.e. “string”, “function”, “number”, etc.
@@ -50778,7 +50778,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     > Parameters
 	     - values (array|number) given array of values or step of the grid
 	     - value (number) value to adjust
-	     - tolerance (number) #optional tolerance for snapping. Default is `10`.
+	     - tolerance (number) #optional tolerance for snapping. Default is 10.
 	     = (number) adjusted value.
 	    \*/
 	    R.snapTo = function (values, value, tolerance) {
@@ -50821,7 +50821,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.setWindow
 	     [ method ]
 	     **
-	     * Used when you need to draw in `&lt;iframe>`. Switched window to the iframe one.
+	     * Used when you need to draw in &lt;iframe>. Switched window to the iframe one.
 	     > Parameters
 	     - newwin (window) new window object
 	    \*/
@@ -50926,7 +50926,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     o     g (number) green,
 	     o     b (number) blue,
 	     o     hex (string) color in HTML/CSS format: #••••••,
-	     o     error (boolean) `true` if string can’t be parsed,
+	     o     error (boolean) true if string can’t be parsed,
 	     o     h (number) hue,
 	     o     s (number) saturation,
 	     o     v (number) value (brightness),
@@ -51307,7 +51307,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * On each call returns next colour in the spectrum. To reset it back to red call @Raphael.getColor.reset
 	     > Parameters
-	     - value (number) #optional brightness, default is `0.75`
+	     - value (number) #optional brightness, default is 0.75
 	     = (string) hex representation of the colour.
 	    \*/
 	    R.getColor = function (value) {
@@ -51589,12 +51589,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Utility method
 	     **
-	     * Returns `true` if given point is inside bounding boxes.
+	     * Returns true if given point is inside bounding boxes.
 	     > Parameters
 	     - bbox (string) bounding box
 	     - x (string) x coordinate of the point
 	     - y (string) y coordinate of the point
-	     = (boolean) `true` if point inside
+	     = (boolean) true if point inside
 	    \*/
 	    R.isPointInsideBBox = function (bbox, x, y) {
 	        return x >= bbox.x && x <= bbox.x2 && y >= bbox.y && y <= bbox.y2;
@@ -51605,11 +51605,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Utility method
 	     **
-	     * Returns `true` if two bounding boxes intersect
+	     * Returns true if two bounding boxes intersect
 	     > Parameters
 	     - bbox1 (string) first bounding box
 	     - bbox2 (string) second bounding box
-	     = (boolean) `true` if they intersect
+	     = (boolean) true if they intersect
 	    \*/
 	    R.isBBoxIntersect = function (bbox1, bbox2) {
 	        var i = R.isPointInsideBBox;
@@ -51849,7 +51849,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Utility method
 	     **
-	     * Returns `true` if given point is inside a given closed path.
+	     * Returns true if given point is inside a given closed path.
 	     > Parameters
 	     - path (string) path string
 	     - x (number) x of the point
@@ -53492,9 +53492,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - mcontext (object) #optional context for moving handler
 	     - scontext (object) #optional context for drag start handler
 	     - econtext (object) #optional context for drag end handler
-	     * Additionally following `drag` events will be triggered: `drag.start.<id>` on start,
-	     * `drag.end.<id>` on end and `drag.move.<id>` on every move. When element will be dragged over another element
-	     * `drag.over.<id>` will be fired as well.
+	     * Additionally following drag events will be triggered: drag.start.<id> on start,
+	     * drag.end.<id> on end and drag.move.<id> on every move. When element will be dragged over another element
+	     * drag.over.<id> will be fired as well.
 	     *
 	     * Start event and start handler will be called in specified context or in context of the element with following parameters:
 	     o x (number) x position of the mouse
@@ -53548,7 +53548,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Element.onDragOver
 	     [ method ]
 	     **
-	     * Shortcut for assigning event handler for `drag.over.<id>` event, where id is id of the element (see @Element.id).
+	     * Shortcut for assigning event handler for drag.over.<id> event, where id is id of the element (see @Element.id).
 	     > Parameters
 	     - f (function) handler for event, first argument would be the element you are dragging over
 	    \*/
@@ -53649,7 +53649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - pathString (string) #optional path string in SVG format.
 	     * Path string consists of one-letter commands, followed by comma seprarated arguments in numercal form. Example:
 	     | "M10,20L30,40"
-	     * Here we can see two commands: “M”, with arguments `(10, 20)` and “L” with arguments `(30, 40)`. Upper case letter mean command is absolute, lower case—relative.
+	     * Here we can see two commands: “M”, with arguments (10, 20) and “L” with arguments (30, 40). Upper case letter mean command is absolute, lower case—relative.
 	     *
 	     # <p>Here is short list of commands available, for more details see <a href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path's data attribute's format are described in the SVG specification.">SVG path string format</a>.</p>
 	     # <table><thead><tr><th>Command</th><th>Name</th><th>Parameters</th></tr></thead><tbody>
@@ -53815,11 +53815,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     > Parameters
 	     **
-	     - x (number) new x position, default is `0`
-	     - y (number) new y position, default is `0`
+	     - x (number) new x position, default is 0
+	     - y (number) new y position, default is 0
 	     - w (number) new width of the canvas
 	     - h (number) new height of the canvas
-	     - fit (boolean) `true` if you want graphics to fit into new boundary box
+	     - fit (boolean) true if you want graphics to fit into new boundary box
 	    \*/
 	    paperproto.setViewBox = function (x, y, w, h, fit) {
 	        return R._engine.setViewBox.call(this, x, y, w, h, fit);
@@ -53945,7 +53945,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Executes given function for each element on the paper
 	     *
-	     * If callback function returns `false` it will stop loop running.
+	     * If callback function returns false it will stop loop running.
 	     **
 	     > Parameters
 	     **
@@ -54004,7 +54004,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     - x (number) x coordinate of the point
 	     - y (number) y coordinate of the point
-	     = (boolean) `true` if point inside the shape
+	     = (boolean) true if point inside the shape
 	    \*/
 	    elproto.isPointInside = function (x, y) {
 	        var rp = this.realPath = getPath[this.type](this);
@@ -54021,7 +54021,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     > Parameters
 	     **
-	     - isWithoutTransform (boolean) flag, `true` if you want to have bounding box before transformations. Default is `false`.
+	     - isWithoutTransform (boolean) flag, true if you want to have bounding box before transformations. Default is false.
 	     = (object) Bounding box object:
 	     o {
 	     o     x: (number) top left corner x
@@ -54084,12 +54084,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     - glow (object) #optional parameters object with all properties optional:
 	     o {
-	     o     width (number) size of the glow, default is `10`
-	     o     fill (boolean) will it be filled, default is `false`
-	     o     opacity (number) opacity, default is `0.5`
-	     o     offsetx (number) horizontal offset, default is `0`
-	     o     offsety (number) vertical offset, default is `0`
-	     o     color (string) glow colour, default is `black`
+	     o     width (number) size of the glow, default is 10
+	     o     fill (boolean) will it be filled, default is false
+	     o     opacity (number) opacity, default is 0.5
+	     o     offsetx (number) horizontal offset, default is 0
+	     o     offsety (number) vertical offset, default is 0
+	     o     color (string) glow colour, default is black
 	     o }
 	     = (object) @Paper.set of elements that represents glow
 	    \*/
@@ -54543,7 +54543,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - anim (object) animation to sync with
 	     - params (object) #optional final attributes for the element, see also @Element.attr
 	     - ms (number) #optional number of milliseconds for animation to run
-	     - easing (string) #optional easing type. Accept on of @Raphael.easing_formulas or CSS format: `cubic&#x2010;bezier(XX,&#160;XX,&#160;XX,&#160;XX)`
+	     - easing (string) #optional easing type. Accept on of @Raphael.easing_formulas or CSS format: cubic&#x2010;bezier(XX,&#160;XX,&#160;XX,&#160;XX)
 	     - callback (function) #optional callback function. Will be called at the end of animation.
 	     * or
 	     - element (object) element to sync with
@@ -54675,7 +54675,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     > Parameters
 	     **
-	     - repeat (number) number iterations of animation. For infinite animation pass `Infinity`
+	     - repeat (number) number iterations of animation. For infinite animation pass Infinity
 	     **
 	     = (object) new altered Animation object
 	    \*/
@@ -54902,7 +54902,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     - params (object) final attributes for the element, see also @Element.attr
 	     - ms (number) number of milliseconds for animation to run
-	     - easing (string) #optional easing type. Accept one of @Raphael.easing_formulas or CSS format: `cubic&#x2010;bezier(XX,&#160;XX,&#160;XX,&#160;XX)`
+	     - easing (string) #optional easing type. Accept one of @Raphael.easing_formulas or CSS format: cubic&#x2010;bezier(XX,&#160;XX,&#160;XX,&#160;XX)
 	     - callback (function) #optional callback function. Will be called at the end of animation.
 	     **
 	     = (object) @Animation
@@ -54956,7 +54956,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     - params (object) final attributes for the element, see also @Element.attr
 	     - ms (number) number of milliseconds for animation to run
-	     - easing (string) #optional easing type. Accept one of @Raphael.easing_formulas or CSS format: `cubic&#x2010;bezier(XX,&#160;XX,&#160;XX,&#160;XX)`
+	     - easing (string) #optional easing type. Accept one of @Raphael.easing_formulas or CSS format: cubic&#x2010;bezier(XX,&#160;XX,&#160;XX,&#160;XX)
 	     - callback (function) #optional callback function. Will be called at the end of animation.
 	     * or
 	     - animation (object) animation object, see @Raphael.animation
@@ -54984,10 +54984,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - anim (object) animation object
 	     - value (number) number of milliseconds from the beginning of the animation
 	     **
-	     = (object) original element if `value` is specified
+	     = (object) original element if value is specified
 	     * Note, that during animation following events are triggered:
 	     *
-	     * On each animation frame event `anim.frame.<id>`, on start `anim.start.<id>` and on end `anim.finish.<id>`.
+	     * On each animation frame event anim.frame.<id>, on start anim.start.<id> and on end anim.finish.<id>.
 	    \*/
 	    elproto.setTime = function (anim, value) {
 	        if (anim && value != null) {
@@ -55008,13 +55008,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     = (number) status
 	     * or
-	     = (array) status if `anim` is not specified. Array of objects in format:
+	     = (array) status if anim is not specified. Array of objects in format:
 	     o {
 	     o     anim: (object) animation object
 	     o     status: (number) status
 	     o }
 	     * or
-	     = (object) original element if `value` is specified
+	     = (object) original element if value is specified
 	    \*/
 	    elproto.status = function (anim, value) {
 	        var out = [],
@@ -55169,7 +55169,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Executes given function for each element in the set.
 	     *
-	     * If function returns `false` it will stop loop running.
+	     * If function returns false it will stop loop running.
 	     **
 	     > Parameters
 	     **
@@ -55266,7 +55266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     > Parameters
 	     **
 	     - element (object) element to remove
-	     = (boolean) `true` if object was found & removed from the set
+	     = (boolean) true if object was found & removed from the set
 	    \*/
 	    setproto.exclude = function (el) {
 	        for (var i = 0, ii = this.length; i < ii; i++) if (this[i] == el) {
@@ -55363,7 +55363,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     - x (number) x coordinate of the point
 	     - y (number) y coordinate of the point
-	     = (boolean) `true` if point is inside any of the set's elements
+	     = (boolean) true if point is inside any of the set's elements
 	     \*/
 	    setproto.isPointInside = function (x, y) {
 	        var isPointInside = false;
@@ -55487,10 +55487,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - y (number) y position of the text
 	     - string (string) text to print
 	     - font (object) font object, see @Paper.getFont
-	     - size (number) #optional size of the font, default is `16`
-	     - origin (string) #optional could be `"baseline"` or `"middle"`, default is `"middle"`
-	     - letter_spacing (number) #optional number in range `-1..1`, default is `0`
-	     - line_spacing (number) #optional number in range `1..3`, default is `1`
+	     - size (number) #optional size of the font, default is 16
+	     - origin (string) #optional could be "baseline" or "middle", default is "middle"
+	     - letter_spacing (number) #optional number in range -1..1, default is 0
+	     - line_spacing (number) #optional number in range 1..3, default is 1
 	     = (object) resulting path element, which consist of all letters
 	     > Usage
 	     | var txt = r.print(10, 50, "print", r.getFont("Museo"), 30).attr({fill: "#fff"});
@@ -55539,7 +55539,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Paper.add
 	     [ method ]
 	     **
-	     * Imports elements in JSON array in format `{type: type, <attributes>}`
+	     * Imports elements in JSON array in format {type: type, <attributes>}
 	     **
 	     > Parameters
 	     **
@@ -55581,7 +55581,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.format
 	     [ method ]
 	     **
-	     * Simple format function. Replaces construction of type “`{<number>}`” to the corresponding argument.
+	     * Simple format function. Replaces construction of type “{<number>}” to the corresponding argument.
 	     **
 	     > Parameters
 	     **
@@ -55607,7 +55607,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.fullfill
 	     [ method ]
 	     **
-	     * A little bit more advanced format function than @Raphael.format. Replaces construction of type “`{<name>}`” to the corresponding argument.
+	     * A little bit more advanced format function than @Raphael.format. Replaces construction of type “{<name>}” to the corresponding argument.
 	     **
 	     > Parameters
 	     **
@@ -55653,7 +55653,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.ninja
 	     [ method ]
 	     **
-	     * If you want to leave no trace of Raphaël (Well, Raphaël creates only one global variable `Raphael`, but anyway.) You can use `ninja` method.
+	     * If you want to leave no trace of Raphaël (Well, Raphaël creates only one global variable Raphael, but anyway.) You can use ninja method.
 	     * Beware, that in this case plugins could stop working, because they are depending on global variable existence.
 	     **
 	     = (object) Raphael object
@@ -55780,15 +55780,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * eve
 	     [ method ]
 
-	     * Fires event with given `name`, given scope and other parameters.
+	     * Fires event with given name, given scope and other parameters.
 
 	     > Arguments
 
-	     - name (string) name of the *event*, dot (`.`) or slash (`/`) separated
+	     - name (string) name of the *event*, dot (.) or slash (/) separated
 	     - scope (object) context for the event handlers
 	     - varargs (...) the rest of arguments will be sent to event handlers
 
-	     = (object) array of returned values from the listeners. Array has two methods `.firstDefined()` and `.lastDefined()` to get first or last not `undefined` value.
+	     = (object) array of returned values from the listeners. Array has two methods .firstDefined() and .lastDefined() to get first or last not undefined value.
 	    \*/
 	        eve = function (name, scope) {
 	            var e = events,
@@ -55858,11 +55858,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * eve.listeners
 	     [ method ]
 
-	     * Internal method which gives you array of all event handlers that will be triggered by the given `name`.
+	     * Internal method which gives you array of all event handlers that will be triggered by the given name.
 
 	     > Arguments
 
-	     - name (string) name of the event, dot (`.`) or slash (`/`) separated
+	     - name (string) name of the event, dot (.) or slash (/) separated
 
 	     = (array) array of event handlers
 	    \*/
@@ -55901,11 +55901,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * eve.separator
 	     [ method ]
 
-	     * If for some reasons you don’t like default separators (`.` or `/`) you can specify yours
+	     * If for some reasons you don’t like default separators (. or /) you can specify yours
 	     * here. Be aware that if you pass a string longer than one character it will be treated as
 	     * a list of characters.
 
-	     - separator (string) new separator. Empty string resets to default: `.` or `/`.
+	     - separator (string) new separator. Empty string resets to default: . or /.
 	    \*/
 	    eve.separator = function (sep) {
 	        if (sep) {
@@ -55920,12 +55920,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * eve.on
 	     [ method ]
 	     **
-	     * Binds given event handler with a given name. You can use wildcards “`*`” for the names:
+	     * Binds given event handler with a given name. You can use wildcards “*” for the names:
 	     | eve.on("*.under.*", f);
 	     | eve("mouse.under.floor"); // triggers f
 	     * Use @eve to trigger the listener.
 	     **
-	     - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
+	     - name (string) name of the event, dot (.) or slash (/) separated, with optional wildcards
 	     - f (function) event handler function
 	     **
 	     - name (array) if you don’t want to use separators, you can use array of strings
@@ -55936,7 +55936,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     | eve.on("mouse", eatIt)(2);
 	     | eve.on("mouse", scream);
 	     | eve.on("mouse", catchIt)(1);
-	     * This will ensure that `catchIt` function will be called before `eatIt`.
+	     * This will ensure that catchIt function will be called before eatIt.
 	     *
 	     * If you want to put your handler before non-indexed handlers, specify a negative value.
 	     * Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
@@ -56010,9 +56010,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     - subname (string) #optional subname of the event
 	     **
-	     = (string) name of the event, if `subname` is not specified
+	     = (string) name of the event, if subname is not specified
 	     * or
-	     = (boolean) `true`, if current event’s name contains `subname`
+	     = (boolean) true, if current event’s name contains subname
 	    \*/
 	    eve.nt = function (subname) {
 	        var cur = isArray(current_event) ? current_event.join(".") : current_event;
@@ -56042,7 +56042,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     > Arguments
 	     **
-	     - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
+	     - name (string) name of the event, dot (.) or slash (/) separated, with optional wildcards
 	     - f (function) event handler function
 	    \*/
 	    /*\
@@ -56126,7 +56126,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     > Arguments
 	     **
-	     - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
+	     - name (string) name of the event, dot (.) or slash (/) separated, with optional wildcards
 	     - f (function) event handler function
 	     **
 	     = (function) same return function as @eve.on
@@ -56814,7 +56814,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         [ property (number) ]
 	         **
 	         * Unique id of the element. Especially useful when you want to listen to events of the element,
-	         * because all events are fired in format `<module>.<action>.<id>`. Also useful for @Paper.getById method.
+	         * because all events are fired in format <module>.<action>.<id>. Also useful for @Paper.getById method.
 	        \*/
 	        this.id = guid();
 	        node.raphaelid = this.id;
@@ -56985,13 +56985,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	     [ method ]
 	     **
 	     * Adds transformation to the element which is separate to other attributes,
-	     * i.e. translation doesn’t change `x` or `y` of the rectange. The format
+	     * i.e. translation doesn’t change x or y of the rectange. The format
 	     * of transformation string is similar to the path string syntax:
 	     | "t100,100r30,100,100s2,2,100,100r45s1.5"
-	     * Each letter is a command. There are four commands: `t` is for translate, `r` is for rotate, `s` is for
-	     * scale and `m` is for matrix.
+	     * Each letter is a command. There are four commands: t is for translate, r is for rotate, s is for
+	     * scale and m is for matrix.
 	     *
-	     * There are also alternative “absolute” translation, rotation and scale: `T`, `R` and `S`. They will not take previous transformation into account. For example, `...T100,0` will always move element 100 px horisontally, while `...t100,0` could move it vertically if there is `r90` before. Just compare results of `r90t100,0` and `r90T100,0`.
+	     * There are also alternative “absolute” translation, rotation and scale: T, R and S. They will not take previous transformation into account. For example, ...T100,0 will always move element 100 px horisontally, while ...t100,0 could move it vertically if there is r90 before. Just compare results of r90t100,0 and r90T100,0.
 	     *
 	     * So, the example line above could be read like “translate by 100, 100; rotate 30° around 100, 100; scale twice around 100, 100;
 	     * rotate 45° around centre; scale 1.5 times relative to centre”. As you can see rotate and scale commands have origin
@@ -57144,7 +57144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     = (object) object of attributes if nothing is passed in.
 	     > Possible parameters
 	     # <p>Please refer to the <a href="http://www.w3.org/TR/SVG/" title="The W3C Recommendation for the SVG language describes these properties in detail.">SVG specification</a> for an explanation of these parameters.</p>
-	     o arrow-end (string) arrowhead on the end of the path. The format for string is `<type>[-<width>[-<length>]]`. Possible types: `classic`, `block`, `open`, `oval`, `diamond`, `none`, width: `wide`, `narrow`, `medium`, length: `long`, `short`, `midium`.
+	     o arrow-end (string) arrowhead on the end of the path. The format for string is <type>[-<width>[-<length>]]. Possible types: classic, block, open, oval, diamond, none, width: wide, narrow, medium, length: long, short, midium.
 	     o clip-rect (string) comma or space separated values: x, y, width and height
 	     o cursor (string) CSS type of the cursor
 	     o cx (number) the x-axis coordinate of the center of the circle, or ellipse
@@ -57164,26 +57164,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	     o ry (number) vertical radius of the ellipse
 	     o src (string) image URL, only works for @Element.image element
 	     o stroke (string) stroke colour
-	     o stroke-dasharray (string) [“”, “none”, “`-`”, “`.`”, “`-.`”, “`-..`”, “`. `”, “`- `”, “`--`”, “`- .`”, “`--.`”, “`--..`”]
-	     o stroke-linecap (string) [“`butt`”, “`square`”, “`round`”]
-	     o stroke-linejoin (string) [“`bevel`”, “`round`”, “`miter`”]
+	     o stroke-dasharray (string) [“”, “none”, “-”, “.”, “-.”, “-..”, “. ”, “- ”, “--”, “- .”, “--.”, “--..”]
+	     o stroke-linecap (string) [“butt”, “square”, “round”]
+	     o stroke-linejoin (string) [“bevel”, “round”, “miter”]
 	     o stroke-miterlimit (number)
 	     o stroke-opacity (number)
 	     o stroke-width (number) stroke width in pixels, default is '1'
 	     o target (string) used with href
-	     o text (string) contents of the text element. Use `\n` for multiline text
-	     o text-anchor (string) [“`start`”, “`middle`”, “`end`”], default is “`middle`”
+	     o text (string) contents of the text element. Use \n for multiline text
+	     o text-anchor (string) [“start”, “middle”, “end”], default is “middle”
 	     o title (string) will create tooltip with a given text
 	     o transform (string) see @Element.transform
 	     o width (number)
 	     o x (number)
 	     o y (number)
 	     > Gradients
-	     * Linear gradient format: “`‹angle›-‹colour›[-‹colour›[:‹offset›]]*-‹colour›`”, example: “`90-#fff-#000`” – 90°
-	     * gradient from white to black or “`0-#fff-#f00:20-#000`” – 0° gradient from white via red (at 20%) to black.
+	     * Linear gradient format: “‹angle›-‹colour›[-‹colour›[:‹offset›]]*-‹colour›”, example: “90-#fff-#000” – 90°
+	     * gradient from white to black or “0-#fff-#f00:20-#000” – 0° gradient from white via red (at 20%) to black.
 	     *
-	     * radial gradient: “`r[(‹fx›, ‹fy›)]‹colour›[-‹colour›[:‹offset›]]*-‹colour›`”, example: “`r#fff-#000`” –
-	     * gradient from white to black or “`r(0.25, 0.75)#fff-#000`” – gradient from white to black with focus point
+	     * radial gradient: “r[(‹fx›, ‹fy›)]‹colour›[-‹colour›[:‹offset›]]*-‹colour›”, example: “r#fff-#000” –
+	     * gradient from white to black or “r(0.25, 0.75)#fff-#000” – gradient from white to black with focus point
 	     * at 0.25, 0.75. Focus point coordinates are in 0..1 range. Radial gradients can only be applied to circles and ellipses.
 	     > Path String
 	     # <p>Please refer to <a href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path’s data attribute’s format are described in the SVG specification.">SVG documentation regarding path string</a>. Raphaël fully supports it.</p>

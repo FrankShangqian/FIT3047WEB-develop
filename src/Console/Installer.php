@@ -82,12 +82,12 @@ class Installer
         $appLocalConfigTemplate = $dir . '/config/app_local.example.php';
         if (!file_exists($appLocalConfig)) {
             copy($appLocalConfigTemplate, $appLocalConfig);
-            $io->write('Created `config/app_local.php` file');
+            $io->write('Created config/app_local.php file');
         }
     }
 
     /**
-     * Create the `logs` and `tmp` directories.
+     * Create the logs and tmp directories.
      *
      * @param string $dir The application's root directory.
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
@@ -99,7 +99,7 @@ class Installer
             $path = $dir . '/' . $path;
             if (!file_exists($path)) {
                 mkdir($path);
-                $io->write('Created `' . $path . '` directory');
+                $io->write('Created ' . $path . ' directory');
             }
         }
     }

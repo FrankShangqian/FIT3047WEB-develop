@@ -1553,7 +1553,7 @@
             if (typeof this._config.reference.jquery !== 'undefined') {
               referenceElement = this._config.reference[0];
             }
-          } // If boundary is not `scrollParent`, then set position to `static`
+          } // If boundary is not scrollParent, then set position to static
           // to allow the menu to "escape" the scroll parent's boundaries
           // https://github.com/twbs/bootstrap/issues/24251
 

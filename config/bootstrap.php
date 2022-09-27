@@ -49,8 +49,8 @@ use Cake\Utility\Security;
 /*
  * See https://github.com/josegonzalez/php-dotenv for API details.
  *
- * Uncomment block of code below if you want to use `.env` file during development.
- * You should copy `config/.env.example` to `config/.env` and set/modify the
+ * Uncomment block of code below if you want to use .env file during development.
+ * You should copy config/.env.example to config/.env and set/modify the
  * variables as required.
  *
  * The purpose of the .env file is to emulate the presence of the environment
@@ -141,8 +141,8 @@ if (!$fullBaseUrl) {
     /*
      * When using proxies or load balancers, SSL/TLS connections might
      * get terminated before reaching the server. If you trust the proxy,
-     * you can enable `$trustProxy` to rely on the `X-Forwarded-Proto`
-     * header to determine whether to generate URLs using `https`.
+     * you can enable $trustProxy to rely on the X-Forwarded-Proto
+     * header to determine whether to generate URLs using https.
      *
      * See also https://book.cakephp.org/4/en/controllers/request-response.html#trusting-proxy-headers
      */
@@ -189,7 +189,7 @@ ServerRequest::addDetector('tablet', function ($request) {
 
 /*
  * You can enable default locale format parsing by adding calls
- * to `useLocaleParser()`. This enables the automatic conversion of
+ * to useLocaleParser(). This enables the automatic conversion of
  * locale specific date formats. For details see
  * @link https://book.cakephp.org/4/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */

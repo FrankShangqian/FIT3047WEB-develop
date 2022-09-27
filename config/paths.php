@@ -51,7 +51,7 @@ define('CONFIG', ROOT . DS . 'config' . DS);
  *
  * To derive your webroot from your webserver change this to:
  *
- * `define('WWW_ROOT', rtrim($_SERVER['DOCUMENT_ROOT'], DS) . DS);`
+ * define('WWW_ROOT', rtrim($_SERVER['DOCUMENT_ROOT'], DS) . DS);
  */
 define('WWW_ROOT', ROOT . DS . 'webroot' . DS);
 

@@ -6,8 +6,8 @@
  * Routes are very important mechanism that allows you to freely connect
  * different URLs to chosen controllers and their actions (functions).
  *
- * It's loaded within the context of `Application::routes()` method which
- * receives a `RouteBuilder` instance `$routes` as method argument.
+ * It's loaded within the context of Application::routes() method which
+ * receives a RouteBuilder instance $routes as method argument.
  *
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -35,12 +35,12 @@ return static function (RouteBuilder $routes) {
      * - InflectedRoute
      * - DashedRoute
      *
-     * If no call is made to `Router::defaultRouteClass()`, the class used is
-     * `Route` (`Cake\Routing\Route\Route`)
+     * If no call is made to Router::defaultRouteClass(), the class used is
+     * Route (Cake\Routing\Route\Route)
      *
-     * Note that `Route` does not do any inflections on URLs which will result in
-     * inconsistently cased URLs when used with `{plugin}`, `{controller}` and
-     * `{action}` markers.
+     * Note that Route does not do any inflections on URLs which will result in
+     * inconsistently cased URLs when used with {plugin}, {controller} and
+     * {action} markers.
      */
     $routes->setRouteClass(DashedRoute::class);
 
@@ -60,12 +60,12 @@ return static function (RouteBuilder $routes) {
         /*
          * Connect catchall routes for all controllers.
          *
-         * The `fallbacks` method is a shortcut for
+         * The fallbacks method is a shortcut for
          *
-         * ```
+         * 
          * $builder->connect('/{controller}', ['action' => 'index']);
          * $builder->connect('/{controller}/{action}/*', []);
-         * ```
+         * 
          *
          * You can remove these routes once you've connected the
          * routes you want in your application.
@@ -77,7 +77,7 @@ return static function (RouteBuilder $routes) {
      * If you need a different set of middleware or none at all,
      * open new scope and define routes there.
      *
-     * ```
+     * 
      * $routes->scope('/api', function (RouteBuilder $builder) {
      *     // No $builder->applyMiddleware() here.
      *
@@ -86,6 +86,6 @@ return static function (RouteBuilder $routes) {
      *
      *     // Connect API actions here.
      * });
-     * ```
+     * 
      */
 };

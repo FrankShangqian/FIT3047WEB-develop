@@ -1,6 +1,6 @@
 #
 # Bash completion file for CakePHP console.
-# Copy this file to a file named `cake` under `/etc/bash_completion.d/`.
+# Copy this file to a file named cake under /etc/bash_completion.d/.
 # For more info check https://book.cakephp.org/4/en/console-commands/completion.html#how-to-enable-bash-autocompletion-for-the-cakephp-console
 #
 

@@ -106,9 +106,9 @@
       namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
     }
     /**
-     * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
-     * of new styles we needed to differentiate between them. Prefix `fa` is now an alias
-     * for `fas` so we'll easy the upgrade process for our users by automatically defining
+     * Font Awesome 4 used the prefix of fa for all icons. With the introduction
+     * of new styles we needed to differentiate between them. Prefix fa is now an alias
+     * for fas so we'll easy the upgrade process for our users by automatically defining
      * this as well.
      */
 
@@ -688,9 +688,9 @@
       namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
     }
     /**
-     * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
-     * of new styles we needed to differentiate between them. Prefix `fa` is now an alias
-     * for `fas` so we'll easy the upgrade process for our users by automatically defining
+     * Font Awesome 4 used the prefix of fa for all icons. With the introduction
+     * of new styles we needed to differentiate between them. Prefix fa is now an alias
+     * for fas so we'll easy the upgrade process for our users by automatically defining
      * this as well.
      */
 
@@ -964,9 +964,9 @@
       namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
     }
     /**
-     * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
-     * of new styles we needed to differentiate between them. Prefix `fa` is now an alias
-     * for `fas` so we'll easy the upgrade process for our users by automatically defining
+     * Font Awesome 4 used the prefix of fa for all icons. With the introduction
+     * of new styles we needed to differentiate between them. Prefix fa is now an alias
+     * for fas so we'll easy the upgrade process for our users by automatically defining
      * this as well.
      */
 
@@ -3126,7 +3126,7 @@
   /**
    * # Reduce
    *
-   * A fast object `.reduce()` implementation.
+   * A fast object .reduce() implementation.
    *
    * @param  {Object}   subject      The object to reduce over.
    * @param  {Function} fn           The reducer function.
@@ -3194,9 +3194,9 @@
       namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
     }
     /**
-     * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
-     * of new styles we needed to differentiate between them. Prefix `fa` is now an alias
-     * for `fas` so we'll easy the upgrade process for our users by automatically defining
+     * Font Awesome 4 used the prefix of fa for all icons. With the introduction
+     * of new styles we needed to differentiate between them. Prefix fa is now an alias
+     * for fas so we'll easy the upgrade process for our users by automatically defining
      * this as well.
      */
 
