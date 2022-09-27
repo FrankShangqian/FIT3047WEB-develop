@@ -87,23 +87,6 @@
             </div>
         </li>
 
-        <!-- Nav Item Invoices -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInvoices"
-                aria-expanded="true" aria-controls="collapseInvoices">
-                <i class="fa fa-envelope"></i>
-                <span>Invoices</span>
-            </a>
-            <div id="collapseInvoices" class="collapse" aria-labelledby="headingUtilities"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Invoices functions:</h6>
-                    <a class="collapse-item" href="<?= $this->Url->build('/Invoices') ?>">List</a>
-                    <a class="collapse-item" href="<?= $this->Url->build('/Invoices/add') ?>">New Invoices</a>
-                </div>
-            </div>
-        </li>
-
         <!-- Nav Item Products -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
@@ -125,7 +108,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEnquiry"
                aria-expanded="true" aria-controls="collapseEnquiry">
-                <i class="fa fa-cube"></i>
+                <i class="fa fa-envelope"></i>
                 <span>Enquiry</span>
             </a>
             <div id="collapseEnquiry" class="collapse" aria-labelledby="headingUtilities"
