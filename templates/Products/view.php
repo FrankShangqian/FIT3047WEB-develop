@@ -23,7 +23,7 @@ $this->Form->setTemplates($formTemplate);
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->product_id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->product_id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->product_id), 'class' => 'side-nav-item']) ?>
+            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->product_id], ['confirm' => __('Are you sure you want to delete ?', $product->product_id), 'class' => 'side-nav-item']) ?>
             <div>
                 <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             </div>

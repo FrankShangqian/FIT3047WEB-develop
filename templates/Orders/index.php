@@ -50,7 +50,7 @@ $this->Form->setTemplates($formTemplate);
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $order->order_id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->order_id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $order->order_id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->order_id)]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $order->order_id], ['confirm' => __('Are you sure you want to delete ?', $order->order_id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
