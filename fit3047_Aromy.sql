@@ -1,11 +1,6 @@
 
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
 CREATE TABLE users (
-    users_id INT AUTO_INCREMENT PRIMARY KEY,
+    users_id int(11) AUTO_INCREMENT PRIMARY KEY,
     users_email VARCHAR(255) NOT NULL,
     users_password VARCHAR(255) NOT NULL,
     users_name varchar(255) NOT NULL,
@@ -15,8 +10,17 @@ CREATE TABLE users (
     users_modified DATETIME
 );
 
+CREATE TABLE categories (
+  categories_id int(11) NOT NULL AUTO_INCREMENT,
+  categories_name varchar(65) NOT NULL,
+  categories_image varchar(255) DEFAULT NULL,
+  categories_created datetime DEFAULT NULL,
+  categories_modified datetime DEFAULT NULL,
+  PRIMARY KEY (`categories_id`)
+);
+
 CREATE TABLE customers (
-  customer_id int(11) NOT NULL,
+  customer_id int(11) PRIMARY KEY,
   customer_name varchar(255) NOT NULL,
   customer_address varchar(255) NOT NULL,
   customer_postcode int(11) NOT NULL,
@@ -26,7 +30,7 @@ CREATE TABLE customers (
 );
 
 CREATE TABLE enquiries (
-  enquiries_id int(11) NOT NULL,
+  enquiries_id int(11) PRIMARY KEY,
   enquiries_full_name varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
   enquiries_email varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
   enquiries_body text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  NOT NULL,
@@ -34,41 +38,34 @@ CREATE TABLE enquiries (
   enquiries_email_sent tinyint(1) NOT NULL DEFAULT 0
 );
 
-CREATE TABLE order_line (
-  orderline_id int NOT NULL,
-  product_id int NOT NULL,
-  order_quantity int NOT NULL,
-  order_id int NOT NULL
-);
-
 CREATE TABLE orders (
-  order_id int(11) NOT NULL,
+  order_id int(11) PRIMARY KEY,
   order_date date NOT NULL,
   order_total decimal(9,2) NOT NULL,
   order_status tinyint(1) NOT NULL,
   order_item int(11) NOT NULL,
-  customer_id int(11) NOT NULL
+  customer_id int(11) NOT NULL,
+  FOREIGN KEY customer_key (customer_id) REFERENCES customers (customer_id)
 );
 
 CREATE TABLE products (
-  product_id int(11) NOT NULL,
+  product_id int(11) PRIMARY KEY,
   product_name varchar(255) NOT NULL,
   product_quantity int(11) NOT NULL,
   product_price decimal(9,2) NOT NULL,
-  stock_alert int(11) NOT NULL
+  product_stock_alert int(11) NOT NULL
+  category_id int(11) DEFAULT NULL,
 );
 
-ALTER TABLE enquiries
-  ADD PRIMARY KEY (enquiries_id);
+CREATE TABLE order_line (
+  orderline_id int PRIMARY KEY,
+  product_id int NOT NULL,
+  order_quantity int NOT NULL,
+  order_id int NOT NULL,
+  FOREIGN KEY order_key (order_id) REFERENCES orders (order_id),
+  FOREIGN KEY product_key (product_id) REFERENCES products (product_id)
+);
 
-ALTER TABLE customers
-  ADD PRIMARY KEY (customer_id);
-
-ALTER TABLE products
-  ADD PRIMARY KEY (product_id);
-
-ALTER TABLE order_line
-  MODIFY orderline_id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 ALTER TABLE customers
   MODIFY customer_id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
@@ -76,14 +73,8 @@ ALTER TABLE customers
 ALTER TABLE enquiries
   MODIFY enquiries_id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
-ALTER TABLE orders
-  ADD PRIMARY KEY (order_id),
-  ADD CONSTRAINT customer_id FOREIGN KEY (customer_id) REFERENCES customers (customer_id);
-
 ALTER TABLE order_line
-  ADD PRIMARY KEY (orderline_id),
-  ADD CONSTRAINT order_id FOREIGN KEY (order_id) REFERENCES orders (order_id),
-  ADD CONSTRAINT product_id FOREIGN KEY (product_id) REFERENCES products (product_id);
+  MODIFY orderline_id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 
 INSERT INTO products (product_id, product_name, product_quantity, product_price, stock_alert) VALUES
@@ -121,6 +112,11 @@ INSERT INTO enquiries (enquiries_id, enquiries_full_name, enquiries_email, enqui
 
 INSERT INTO users (users_email, users_password, users_name, users_created, users_modified, users_role) VALUES
 ('root@example.com', '$2y$10$g/gbftSdcZpuFYbwqYD5de4AWFuwG1pXykGo1Qc..hVZcEN/96ryG', 'Arthur', NOW(), NOW(), 3);
+
+INSERT INTO `categories` (`id`, `name`, `image`, `created`, `modified`) VALUES
+  (1, 'Armor', 'https://i.imgur.com/tzLmOMs.png', '2018-07-02 02:30:14', '2018-07-02 02:30:14'),
+  (2, 'Weapons', 'https://i.imgur.com/q8kyH1H.png', '2018-07-02 03:14:37', '2018-07-02 03:14:37');
+
 
 COMMIT;
 
