@@ -176,7 +176,7 @@ var conversions = createCommonjsModule(function (module) {
 
 
 // NOTE: conversions should only return primitive values (i.e. arrays, or
-//       values that give correct `typeof` results).
+//       values that give correct typeof results).
 //       do not use box values types (i.e. Number(), String(), etc.)
 
 var reverseKeywords = {};
@@ -1060,7 +1060,7 @@ var conversions_15 = conversions.gray;
 /*
 	this function routes a model to all other models.
 
-	all functions that are routed have a property `.conversion` attached
+	all functions that are routed have a property .conversion attached
 	to the returned synthetic function. This property is an array
 	of strings, each with the steps in between the 'from' and 'to'
 	color models (inclusive).
@@ -2129,7 +2129,7 @@ var helpers = {
 	}()),
 
 	/**
-	 * Returns true if `value` is neither null nor undefined, else returns false.
+	 * Returns true if value is neither null nor undefined, else returns false.
 	 * @param {*} value - The value to test.
 	 * @returns {boolean}
 	 * @since 2.7.0
@@ -2139,7 +2139,7 @@ var helpers = {
 	},
 
 	/**
-	 * Returns true if `value` is an array (including typed arrays), else returns false.
+	 * Returns true if value is an array (including typed arrays), else returns false.
 	 * @param {*} value - The value to test.
 	 * @returns {boolean}
 	 * @function
@@ -2156,7 +2156,7 @@ var helpers = {
 	},
 
 	/**
-	 * Returns true if `value` is an object (excluding null), else returns false.
+	 * Returns true if value is an object (excluding null), else returns false.
 	 * @param {*} value - The value to test.
 	 * @returns {boolean}
 	 * @since 2.7.0
@@ -2166,7 +2166,7 @@ var helpers = {
 	},
 
 	/**
-	 * Returns true if `value` is a finite number, else returns false
+	 * Returns true if value is a finite number, else returns false
 	 * @param {*} value  - The value to test.
 	 * @returns {boolean}
 	 */
@@ -2175,9 +2175,9 @@ var helpers = {
 	},
 
 	/**
-	 * Returns `value` if defined, else returns `defaultValue`.
+	 * Returns value if defined, else returns defaultValue.
 	 * @param {*} value - The value to return if defined.
-	 * @param {*} defaultValue - The value to return if `value` is undefined.
+	 * @param {*} defaultValue - The value to return if value is undefined.
 	 * @returns {*}
 	 */
 	valueOrDefault: function(value, defaultValue) {
@@ -2185,10 +2185,10 @@ var helpers = {
 	},
 
 	/**
-	 * Returns value at the given `index` in array if defined, else returns `defaultValue`.
-	 * @param {Array} value - The array to lookup for value at `index`.
-	 * @param {number} index - The index in `value` to lookup for value.
-	 * @param {*} defaultValue - The value to return if `value[index]` is undefined.
+	 * Returns value at the given index in array if defined, else returns defaultValue.
+	 * @param {Array} value - The array to lookup for value at index.
+	 * @param {number} index - The index in value to lookup for value.
+	 * @param {*} defaultValue - The value to return if value[index] is undefined.
 	 * @returns {*}
 	 */
 	valueAtIndexOrDefault: function(value, index, defaultValue) {
@@ -2196,11 +2196,11 @@ var helpers = {
 	},
 
 	/**
-	 * Calls `fn` with the given `args` in the scope defined by `thisArg` and returns the
-	 * value returned by `fn`. If `fn` is not a function, this method returns undefined.
+	 * Calls fn with the given args in the scope defined by thisArg and returns the
+	 * value returned by fn. If fn is not a function, this method returns undefined.
 	 * @param {function} fn - The function to call.
-	 * @param {Array|undefined|null} args - The arguments with which `fn` should be called.
-	 * @param {object} [thisArg] - The value of `this` provided for the call to `fn`.
+	 * @param {Array|undefined|null} args - The arguments with which fn should be called.
+	 * @param {object} [thisArg] - The value of this provided for the call to fn.
 	 * @returns {*}
 	 */
 	callback: function(fn, args, thisArg) {
@@ -2215,7 +2215,7 @@ var helpers = {
 	 * it's preferable to use a regular for() loop and save extra function calls.
 	 * @param {object|Array} loopable - The object or array to be iterated.
 	 * @param {function} fn - The function to call for each item.
-	 * @param {object} [thisArg] - The value of `this` provided for the call to `fn`.
+	 * @param {object} [thisArg] - The value of this provided for the call to fn.
 	 * @param {boolean} [reverse] - If true, iterates backward on the loopable.
 	 */
 	each: function(loopable, fn, thisArg, reverse) {
@@ -2241,7 +2241,7 @@ var helpers = {
 	},
 
 	/**
-	 * Returns true if the `a0` and `a1` arrays have the same content, else returns false.
+	 * Returns true if the a0 and a1 arrays have the same content, else returns false.
 	 * @see https://stackoverflow.com/a/14853974
 	 * @param {Array} a0 - The array to compare
 	 * @param {Array} a1 - The array to compare
@@ -2272,7 +2272,7 @@ var helpers = {
 	},
 
 	/**
-	 * Returns a deep copy of `source` without keeping references on objects and arrays.
+	 * Returns a deep copy of source without keeping references on objects and arrays.
 	 * @param {*} source - The value to clone.
 	 * @returns {*}
 	 */
@@ -2341,13 +2341,13 @@ var helpers = {
 	},
 
 	/**
-	 * Recursively deep copies `source` properties into `target` with the given `options`.
-	 * IMPORTANT: `target` is not cloned and will be updated with `source` properties.
+	 * Recursively deep copies source properties into target with the given options.
+	 * IMPORTANT: target is not cloned and will be updated with source properties.
 	 * @param {object} target - The target object in which all sources are merged into.
-	 * @param {object|object[]} source - Object(s) to merge into `target`.
+	 * @param {object|object[]} source - Object(s) to merge into target.
 	 * @param {object} [options] - Merging options:
 	 * @param {function} [options.merger] - The merge method (key, target, source, options)
-	 * @returns {object} The `target` object.
+	 * @returns {object} The target object.
 	 */
 	merge: function(target, source, options) {
 		var sources = helpers.isArray(source) ? source : [source];
@@ -2377,11 +2377,11 @@ var helpers = {
 	},
 
 	/**
-	 * Recursively deep copies `source` properties into `target` *only* if not defined in target.
-	 * IMPORTANT: `target` is not cloned and will be updated with `source` properties.
+	 * Recursively deep copies source properties into target *only* if not defined in target.
+	 * IMPORTANT: target is not cloned and will be updated with source properties.
 	 * @param {object} target - The target object in which all sources are merged into.
-	 * @param {object|object[]} source - Object(s) to merge into `target`.
-	 * @returns {object} The `target` object.
+	 * @param {object|object[]} source - Object(s) to merge into target.
+	 * @returns {object} The target object.
 	 */
 	mergeIf: function(target, source) {
 		return helpers.merge(target, source, {merger: helpers._mergerIf});
@@ -2392,7 +2392,7 @@ var helpers = {
 	 * @param {object} target - The target object in which all objects are merged into.
 	 * @param {object} arg1 - Object containing additional properties to merge in target.
 	 * @param {object} argN - Additional objects containing properties to merge in target.
-	 * @returns {object} The `target` object.
+	 * @returns {object} The target object.
 	 */
 	extend: Object.assign || function(target) {
 		return helpers.merge(target, [].slice.call(arguments, 1), {
@@ -2737,7 +2737,7 @@ var TWO_THIRDS_PI = PI * 2 / 3;
  */
 var exports$1 = {
 	/**
-	 * Clears the entire canvas associated to the given `chart`.
+	 * Clears the entire canvas associated to the given chart.
 	 * @param {Chart} chart - The chart for which to clear the canvas.
 	 */
 	clear: function(chart) {
@@ -2746,14 +2746,14 @@ var exports$1 = {
 
 	/**
 	 * Creates a "path" for a rectangle with rounded corners at position (x, y) with a
-	 * given size (width, height) and the same `radius` for all corners.
+	 * given size (width, height) and the same radius for all corners.
 	 * @param {CanvasRenderingContext2D} ctx - The canvas 2D Context.
 	 * @param {number} x - The x axis of the coordinate for the rectangle starting point.
 	 * @param {number} y - The y axis of the coordinate for the rectangle starting point.
 	 * @param {number} width - The rectangle's width.
 	 * @param {number} height - The rectangle's height.
 	 * @param {number} radius - The rounded amount (in pixels) for the four corners.
-	 * @todo handle `radius` as top-left, top-right, bottom-right, bottom-left array/object?
+	 * @todo handle radius as top-left, top-right, bottom-right, bottom-left array/object?
 	 */
 	roundedRect: function(ctx, x, y, width, height, radius) {
 		if (radius) {
@@ -2823,11 +2823,11 @@ var exports$1 = {
 			ctx.closePath();
 			break;
 		case 'rectRounded':
-			// NOTE: the rounded rect implementation changed to use `arc` instead of
-			// `quadraticCurveTo` since it generates better results when rect is
+			// NOTE: the rounded rect implementation changed to use arc instead of
+			// quadraticCurveTo since it generates better results when rect is
 			// almost a circle. 0.516 (instead of 0.5) produces results with visually
 			// closer proportion to the previous impl and it is inscribed in the
-			// circle with `radius`. For more details, see the following PRs:
+			// circle with radius. For more details, see the following PRs:
 			// https://github.com/chartjs/Chart.js/issues/5597
 			// https://github.com/chartjs/Chart.js/issues/5858
 			cornerRadius = radius * 0.516;
@@ -3028,9 +3028,9 @@ function toFontString(font) {
  */
 var helpers_options = {
 	/**
-	 * Converts the given line height `value` in pixels for a specific font `size`.
+	 * Converts the given line height value in pixels for a specific font size.
 	 * @param {number|string} value - The lineHeight to parse (eg. 1.6, '14px', '75%', '1.6em').
-	 * @param {number} size - The font size (in pixels) used to resolve relative `value`.
+	 * @param {number} size - The font size (in pixels) used to resolve relative value.
 	 * @returns {number} The effective line height in pixels (size * 1.2 if value is invalid).
 	 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
 	 * @since 2.7.0
@@ -3107,14 +3107,14 @@ var helpers_options = {
 	},
 
 	/**
-	 * Evaluates the given `inputs` sequentially and returns the first defined value.
+	 * Evaluates the given inputs sequentially and returns the first defined value.
 	 * @param {Array} inputs - An array of values, falling back to the last value.
 	 * @param {object} [context] - If defined and the current value is a function, the value
-	 * is called with `context` as first argument and the result becomes the new input.
+	 * is called with context as first argument and the result becomes the new input.
 	 * @param {number} [index] - If defined and the current value is an array, the value
-	 * at `index` become the new input.
+	 * at index become the new input.
 	 * @param {object} [info] - object to return information about resolution in
-	 * @param {boolean} [info.cacheable] - Will be set to `false` if option is not cacheable.
+	 * @param {boolean} [info.cacheable] - Will be set to false if option is not cacheable.
 	 * @since 2.7.0
 	 */
 	resolve: function(inputs, context, index, info) {
@@ -3964,7 +3964,7 @@ helpers$1.extend(DatasetController.prototype, {
 			datasetIndex: me.index
 		};
 
-		// `resolve` sets cacheable to `false` if any option is indexed or scripted
+		// resolve sets cacheable to false if any option is indexed or scripted
 		var info = {cacheable: !custom};
 
 		var keys, i, ilen, key;
@@ -6688,7 +6688,7 @@ var controller_scatter = controller_line;
 
 // NOTE export a map in which the key represents the controller type, not
 // the class, and so must be CamelCase in order to be correctly retrieved
-// by the controller in core.controller.js (`controllers[meta.type]`).
+// by the controller in core.controller.js (controllers[meta.type]).
 
 var controllers = {
 	bar: controller_bar,
@@ -7266,7 +7266,7 @@ var core_layouts = {
 	},
 
 	/**
-	 * Sets (or updates) options on the given `item`.
+	 * Sets (or updates) options on the given item.
 	 * @param {Chart} chart - the chart in which the item lives (or will be added to)
 	 * @param {ILayoutItem} item - the item to configure with the given options
 	 * @param {object} options - the new item options.
@@ -7438,10 +7438,10 @@ var EVENT_TYPES = {
 
 /**
  * The "used" size is the final value of a dimension property after all calculations have
- * been performed. This method uses the computed style of `element` but returns undefined
+ * been performed. This method uses the computed style of element but returns undefined
  * if the computed style is not expressed in pixels. That can happen in some cases where
- * `element` has a size relative to its parent and this last one is not yet displayed,
- * for example because of `display: none` on a parent node.
+ * element has a size relative to its parent and this last one is not yet displayed,
+ * for example because of display: none on a parent node.
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/used_value
  * @returns {number} Size in pixels or undefined if unknown.
  */
@@ -7627,7 +7627,7 @@ function watchForRender(node, handler) {
 
 	// #4737: Chrome might skip the CSS animation when the CSS_RENDER_MONITOR class
 	// is removed then added back immediately (same animation frame?). Accessing the
-	// `offsetParent` property will force a reflow and re-evaluate the CSS animation.
+	// offsetParent property will force a reflow and re-evaluate the CSS animation.
 	// https://gist.github.com/paulirish/5d52fb081b3570c81e3a#box-metrics
 	// https://github.com/chartjs/Chart.js/issues/4737
 	expando.reflow = !!node.offsetParent;
@@ -7663,7 +7663,7 @@ function addResizeListener(node, listener, chart) {
 				// If the container size shrank during chart resize, let's assume
 				// scrollbar appeared. So we resize again with the scrollbar visible -
 				// effectively making chart smaller and the scrollbar hidden again.
-				// Because we are inside `throttled`, and currently `ticking`, scroll
+				// Because we are inside throttled, and currently ticking, scroll
 				// events are ignored during this whole 2 resize process.
 				// If we assumed wrong and something else happened, we are resizing
 				// twice in a frame (potential performance issue)
@@ -7673,7 +7673,7 @@ function addResizeListener(node, listener, chart) {
 	}));
 
 	// The resizer needs to be attached to the node parent, so we first need to be
-	// sure that `node` is attached to the DOM before injecting the resizer element.
+	// sure that node is attached to the DOM before injecting the resizer element.
 	watchForRender(node, function() {
 		if (expando.resizer) {
 			var container = node.parentNode;
@@ -7719,9 +7719,9 @@ function injectCSS(rootNode, css) {
 
 var platform_dom$2 = {
 	/**
-	 * When `true`, prevents the automatic injection of the stylesheet required to
+	 * When true, prevents the automatic injection of the stylesheet required to
 	 * correctly detect when the chart is added to the DOM and then resized. This
-	 * switch has been added to allow external stylesheet (`dist/Chart(.min)?.js`)
+	 * switch has been added to allow external stylesheet (dist/Chart(.min)?.js)
 	 * to be manually imported to make this library compatible with any CSP.
 	 * See https://github.com/chartjs/Chart.js/issues/5208
 	 */
@@ -7768,10 +7768,10 @@ var platform_dom$2 = {
 		// https://github.com/chartjs/Chart.js/issues/2807
 		var context = item && item.getContext && item.getContext('2d');
 
-		// `instanceof HTMLCanvasElement/CanvasRenderingContext2D` fails when the item is
+		// instanceof HTMLCanvasElement/CanvasRenderingContext2D fails when the item is
 		// inside an iframe or when running in a protected environment. We could guess the
 		// types from their toString() value but let's keep things flexible and assume it's
-		// a sufficient condition if the item has a context2D which has item as `canvas`.
+		// a sufficient condition if the item has a context2D which has item as canvas.
 		// https://github.com/chartjs/Chart.js/issues/3887
 		// https://github.com/chartjs/Chart.js/issues/4102
 		// https://github.com/chartjs/Chart.js/issues/4152
@@ -8009,7 +8009,7 @@ var core_plugins = {
 	},
 
 	/**
-	 * Calls enabled plugins for `chart` on the specified hook and with the given args.
+	 * Calls enabled plugins for chart on the specified hook and with the given args.
 	 * This method immediately returns as soon as a plugin explicitly returns false. The
 	 * returned value can be used, for instance, to interrupt the current action.
 	 * @param {Chart} chart - The chart instance for which plugins should be called.
@@ -9181,8 +9181,8 @@ core_defaults._set('global', {
 });
 
 /**
- * Recursively merge the given config objects representing the `scales` option
- * by incorporating scale defaults in `xAxes` and `yAxes` array items, then
+ * Recursively merge the given config objects representing the scales option
+ * by incorporating scale defaults in xAxes and yAxes array items, then
  * returns a deep copy of the result, thus doesn't alter inputs.
  */
 function mergeScaleConfig(/* config objects ... */) {
@@ -9222,7 +9222,7 @@ function mergeScaleConfig(/* config objects ... */) {
 
 /**
  * Recursively merge the given config objects as the root options by handling
- * default scale options for the `scales` and `scale` properties, then returns
+ * default scale options for the scales and scale properties, then returns
  * a deep copy of the result, thus doesn't alter inputs.
  */
 function mergeConfig(/* config objects ... */) {
@@ -9351,7 +9351,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		// Add the chart instance to the global namespace
 		Chart.instances[me.id] = me;
 
-		// Define alias to the config data: `chart.data === chart.config.data`
+		// Define alias to the config data: chart.data === chart.config.data
 		Object.defineProperty(me, 'data', {
 			get: function() {
 				return me.config.data;
@@ -9683,8 +9683,8 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Updates the chart layout unless a plugin returns `false` to the `beforeLayout`
-	 * hook, in which case, plugins will not be called on `afterLayout`.
+	 * Updates the chart layout unless a plugin returns false to the beforeLayout
+	 * hook, in which case, plugins will not be called on afterLayout.
 	 * @private
 	 */
 	updateLayout: function() {
@@ -9711,7 +9711,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		});
 
 		/**
-		 * Provided for backward compatibility, use `afterLayout` instead.
+		 * Provided for backward compatibility, use afterLayout instead.
 		 * @method IPlugin#afterScaleUpdate
 		 * @deprecated since version 2.5.0
 		 * @todo remove at version 3
@@ -9722,8 +9722,8 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Updates all datasets unless a plugin returns `false` to the `beforeDatasetsUpdate`
-	 * hook, in which case, plugins will not be called on `afterDatasetsUpdate`.
+	 * Updates all datasets unless a plugin returns false to the beforeDatasetsUpdate
+	 * hook, in which case, plugins will not be called on afterDatasetsUpdate.
 	 * @private
 	 */
 	updateDatasets: function() {
@@ -9741,8 +9741,8 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Updates dataset at index unless a plugin returns `false` to the `beforeDatasetUpdate`
-	 * hook, in which case, plugins will not be called on `afterDatasetUpdate`.
+	 * Updates dataset at index unless a plugin returns false to the beforeDatasetUpdate
+	 * hook, in which case, plugins will not be called on afterDatasetUpdate.
 	 * @private
 	 */
 	updateDataset: function(index) {
@@ -9897,8 +9897,8 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Draws all datasets unless a plugin returns `false` to the `beforeDatasetsDraw`
-	 * hook, in which case, plugins will not be called on `afterDatasetsDraw`.
+	 * Draws all datasets unless a plugin returns false to the beforeDatasetsDraw
+	 * hook, in which case, plugins will not be called on afterDatasetsDraw.
 	 * @private
 	 */
 	drawDatasets: function(easingValue) {
@@ -9918,8 +9918,8 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Draws dataset at index unless a plugin returns `false` to the `beforeDatasetDraw`
-	 * hook, in which case, plugins will not be called on `afterDatasetDraw`.
+	 * Draws dataset at index unless a plugin returns false to the beforeDatasetDraw
+	 * hook, in which case, plugins will not be called on afterDatasetDraw.
 	 * @private
 	 */
 	drawDataset: function(meta, easingValue) {
@@ -9940,8 +9940,8 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Draws tooltip unless a plugin returns `false` to the `beforeTooltipDraw`
-	 * hook, in which case, plugins will not be called on `afterTooltipDraw`.
+	 * Draws tooltip unless a plugin returns false to the beforeTooltipDraw
+	 * hook, in which case, plugins will not be called on afterTooltipDraw.
 	 * @private
 	 */
 	_drawTooltip: function(easingValue) {
@@ -10947,7 +10947,7 @@ helpers$1.extend(DateAdapter.prototype, /** @lends DateAdapter */ {
 	formats: abstract,
 
 	/**
-	 * Parses the given `value` and return the associated timestamp.
+	 * Parses the given value and return the associated timestamp.
 	 * @param {any} value - the value to parse (usually comes from the data)
 	 * @param {string} [format] - the expected data format
 	 * @returns {(number|null)}
@@ -10956,7 +10956,7 @@ helpers$1.extend(DateAdapter.prototype, /** @lends DateAdapter */ {
 	parse: abstract,
 
 	/**
-	 * Returns the formatted date in the specified `format` for a given `timestamp`.
+	 * Returns the formatted date in the specified format for a given timestamp.
 	 * @param {number} timestamp - the timestamp to format
 	 * @param {string} format - the date/time token
 	 * @return {string}
@@ -10965,7 +10965,7 @@ helpers$1.extend(DateAdapter.prototype, /** @lends DateAdapter */ {
 	format: abstract,
 
 	/**
-	 * Adds the specified `amount` of `unit` to the given `timestamp`.
+	 * Adds the specified amount of unit to the given timestamp.
 	 * @param {number} timestamp - the input timestamp
 	 * @param {number} amount - the amount to add
 	 * @param {Unit} unit - the unit as string
@@ -10975,7 +10975,7 @@ helpers$1.extend(DateAdapter.prototype, /** @lends DateAdapter */ {
 	add: abstract,
 
 	/**
-	 * Returns the number of `unit` between the given timestamps.
+	 * Returns the number of unit between the given timestamps.
 	 * @param {number} max - the input timestamp (reference)
 	 * @param {number} min - the timestamp to substract
 	 * @param {Unit} unit - the unit as string
@@ -10985,17 +10985,17 @@ helpers$1.extend(DateAdapter.prototype, /** @lends DateAdapter */ {
 	diff: abstract,
 
 	/**
-	 * Returns start of `unit` for the given `timestamp`.
+	 * Returns start of unit for the given timestamp.
 	 * @param {number} timestamp - the input timestamp
 	 * @param {Unit} unit - the unit as string
 	 * @param {number} [weekday] - the ISO day of the week with 1 being Monday
-	 * and 7 being Sunday (only needed if param *unit* is `isoWeek`).
+	 * and 7 being Sunday (only needed if param *unit* is isoWeek).
 	 * @function
 	 */
 	startOf: abstract,
 
 	/**
-	 * Returns end of `unit` for the given `timestamp`.
+	 * Returns end of unit for the given timestamp.
 	 * @param {number} timestamp - the input timestamp
 	 * @param {Unit} unit - the unit as string
 	 * @function
@@ -11523,9 +11523,9 @@ var Scale = core_element.extend({
 		me.determineDataLimits();
 		me.afterDataLimits();
 
-		// Ticks - `this.ticks` is now DEPRECATED!
-		// Internal ticks are now stored as objects in the PRIVATE `this._ticks` member
-		// and must not be accessed directly from outside this class. `this.ticks` being
+		// Ticks - this.ticks is now DEPRECATED!
+		// Internal ticks are now stored as objects in the PRIVATE this._ticks member
+		// and must not be accessed directly from outside this class. this.ticks being
 		// around for long time and not marked as private, we can't change its structure
 		// without unexpected breaking changes. If you need to access the scale ticks,
 		// use scale.getTicks() instead.
@@ -11533,7 +11533,7 @@ var Scale = core_element.extend({
 		me.beforeBuildTicks();
 
 		// New implementations should return an array of objects but for BACKWARD COMPAT,
-		// we still support no return (`this.ticks` internally set by calling this method).
+		// we still support no return (this.ticks internally set by calling this method).
 		ticks = me.buildTicks() || [];
 
 		// Allow modification of ticks in callback.
@@ -11582,7 +11582,7 @@ var Scale = core_element.extend({
 
 		me.ticks = labels;   // BACKWARD COMPATIBILITY
 
-		// IMPORTANT: after this point, we consider that `this.ticks` will NEVER change!
+		// IMPORTANT: after this point, we consider that this.ticks will NEVER change!
 
 		me.afterUpdate();
 
@@ -11669,7 +11669,7 @@ var Scale = core_element.extend({
 		if (isArray(ticks) && ticks.length) {
 			return helpers$1.callback(me.options.afterBuildTicks, [me, ticks]);
 		}
-		// Support old implementations (that modified `this.ticks` directly in buildTicks)
+		// Support old implementations (that modified this.ticks directly in buildTicks)
 		me.ticks = helpers$1.callback(me.options.afterBuildTicks, [me, me.ticks]) || me.ticks;
 		return ticks;
 	},
@@ -11907,13 +11907,13 @@ var Scale = core_element.extend({
 		me.beforeTickToLabelConversion();
 
 		// New implementations should return the formatted tick labels but for BACKWARD
-		// COMPAT, we still support no return (`this.ticks` internally changed by calling
+		// COMPAT, we still support no return (this.ticks internally changed by calling
 		// this method and supposed to contain only string values).
 		labels = me.convertTicksToLabels(ticks) || me.ticks;
 
 		me.afterTickToLabelConversion();
 
-		// BACKWARD COMPAT: synchronize `_ticks` with labels (so potentially `this.ticks`)
+		// BACKWARD COMPAT: synchronize _ticks with labels (so potentially this.ticks)
 		for (i = 0, ilen = ticks.length; i < ilen; ++i) {
 			ticks[i].label = labels[i];
 		}
@@ -14025,8 +14025,8 @@ function getMax(options) {
 }
 
 /**
- * Returns an array of {time, pos} objects used to interpolate a specific `time` or position
- * (`pos`) on the scale, by searching entries before and after the requested value. `pos` is
+ * Returns an array of {time, pos} objects used to interpolate a specific time or position
+ * (pos) on the scale, by searching entries before and after the requested value. pos is
  * a decimal between 0 and 1: 0 being the start of the scale (left or top) and 1 the other
  * extremity (left + width or top + height). Note that it would be more optimized to directly
  * store pre-computed pixels, but the scale dimensions are not guaranteed at the time we need
@@ -14102,8 +14102,8 @@ function lookup(table, key, value) {
 }
 
 /**
- * Linearly interpolates the given source `value` using the table items `skey` values and
- * returns the associated `tkey` value. For example, interpolate(table, 'time', 42, 'pos')
+ * Linearly interpolates the given source value using the table items skey values and
+ * returns the associated tkey value. For example, interpolate(table, 'time', 42, 'pos')
  * returns the position for a timestamp equal to 42. If value is out of bounds, values at
  * index [0, 1] or [n - 1, n] are used for the interpolation.
  */
@@ -14143,12 +14143,12 @@ function toTimestamp(scale, input) {
 		return +value;
 	}
 
-	// Labels are in an incompatible format and no `parser` has been provided.
-	// The user might still use the deprecated `format` option for parsing.
+	// Labels are in an incompatible format and no parser has been provided.
+	// The user might still use the deprecated format option for parsing.
 	if (!parser && typeof format === 'function') {
 		value = format(input);
 
-		// `format` could return something else than a timestamp, if so, parse it
+		// format could return something else than a timestamp, if so, parse it
 		if (!helpers$1.isFinite(value)) {
 			value = adapter.parse(value);
 		}
@@ -14219,8 +14219,8 @@ function determineMajorUnit(unit) {
 }
 
 /**
- * Generates a maximum of `capacity` timestamps between min and max, rounded to the
- * `minor` unit using the given scale time `options`.
+ * Generates a maximum of capacity timestamps between min and max, rounded to the
+ * minor unit using the given scale time options.
  * Important: this method can return ticks outside the min and max range, it's the
  * responsibility of the calling code to clamp values if needed.
  */
@@ -14263,7 +14263,7 @@ function generate(scale, min, max, capacity) {
  * Returns the start and end offsets from edges in the form of {start, end}
  * where each value is a relative width to the scale and ranges between 0 and 1.
  * They add extra margins on the both sides by scaling down the original scale.
- * Offsets are added when the `offset` option is true.
+ * Offsets are added when the offset option is true.
  */
 function computeOffsets(table, ticks, min, max, options) {
 	var start = 0;
@@ -14338,8 +14338,8 @@ var defaultConfig$4 = {
 
 	/**
 	 * Scale boundary strategy (bypassed by min/max time options)
-	 * - `data`: make sure data are fully visible, ticks outside are removed
-	 * - `ticks`: make sure ticks are fully visible, data outside are truncated
+	 * - data: make sure data are fully visible, ticks outside are removed
+	 * - ticks: make sure ticks are fully visible, data outside are truncated
 	 * @see https://github.com/chartjs/Chart.js/pull/4556
 	 * @since 2.7.0
 	 */
@@ -14362,7 +14362,7 @@ var defaultConfig$4 = {
 		 * Ticks generation input values:
 		 * - 'auto': generates "optimal" ticks based on scale size and time options.
 		 * - 'data': generates ticks from data (including labels from data {t|x|y} objects).
-		 * - 'labels': generates ticks from user given `data.labels` values ONLY.
+		 * - 'labels': generates ticks from user given data.labels values ONLY.
 		 * @see https://github.com/chartjs/Chart.js/pull/4507
 		 * @since 2.7.0
 		 */
@@ -14391,7 +14391,7 @@ var scale_time = core_scale.extend({
 		deprecated$1('time scale', time.min, 'time.min', 'ticks.min');
 		deprecated$1('time scale', time.max, 'time.max', 'ticks.max');
 
-		// Backward compatibility: before introducing adapter, `displayFormats` was
+		// Backward compatibility: before introducing adapter, displayFormats was
 		// supposed to contain *all* unit/string pairs but this can't be resolved
 		// when loading the scale (adapters are loaded afterward), so let's populate
 		// missing formats on update
@@ -15412,7 +15412,7 @@ var Legend = core_element.extend({
 					lineWidths[lineWidths.length - (i > 0 ? 0 : 1)] = 0;
 				}
 
-				// Store the hitbox width and height here. Final position will be updated in `draw`
+				// Store the hitbox width and height here. Final position will be updated in draw
 				hitboxes[i] = {
 					left: 0,
 					top: 0,
@@ -15450,7 +15450,7 @@ var Legend = core_element.extend({
 				currentColWidth = Math.max(currentColWidth, itemWidth);
 				currentColHeight += fontSize + vPadding;
 
-				// Store the hitbox width and height here. Final position will be updated in `draw`
+				// Store the hitbox width and height here. Final position will be updated in draw
 				hitboxes[i] = {
 					left: 0,
 					top: 0,
@@ -16144,7 +16144,7 @@ core_controller.LinearScaleBase = scale_linearbase;
 
 /**
  * Provided for backward compatibility, instead we should create a new Chart
- * by setting the type in the config (`new Chart(id, {type: '{chart-type}'}`).
+ * by setting the type in the config (new Chart(id, {type: '{chart-type}'}).
  * @deprecated since version 2.8.0
  * @todo remove at version 3
  */

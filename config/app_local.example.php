@@ -44,10 +44,17 @@ return [
              */
             //'port' => 'non_standard_port_number',
 
+<<<<<<< HEAD
             'username' => 'fit3047',
             'password' => 'fit3047',
 
             'database' => 'fit3047',
+=======
+            'username' => 'my_app',
+            'password' => 'secret',
+
+            'database' => 'my_app',
+>>>>>>> origin/main
             /*
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.

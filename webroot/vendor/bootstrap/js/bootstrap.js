@@ -1677,7 +1677,7 @@
           if (typeof this._config.reference.jquery !== 'undefined') {
             referenceElement = this._config.reference[0];
           }
-        } // If boundary is not `scrollParent`, then set position to `static`
+        } // If boundary is not scrollParent, then set position to static
         // to allow the menu to "escape" the scroll parent's boundaries
         // https://github.com/twbs/bootstrap/issues/24251
 
@@ -2220,9 +2220,9 @@
         return $__default['default'](htmlElement).off(EVENT_KEY$5);
       });
       /**
-       * `document` has 2 events `EVENT_FOCUSIN` and `EVENT_CLICK_DATA_API`
-       * Do not move `document` in `htmlElements` array
-       * It will remove `EVENT_CLICK_DATA_API` event that should remain
+       * document has 2 events EVENT_FOCUSIN and EVENT_CLICK_DATA_API
+       * Do not move document in htmlElements array
+       * It will remove EVENT_CLICK_DATA_API event that should remain
        */
 
       $__default['default'](document).off(EVENT_FOCUSIN);
