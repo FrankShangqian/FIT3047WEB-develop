@@ -2,20 +2,17 @@
 declare(strict_types=1);
 
 namespace App\Model\Entity;
-
 use Cake\ORM\Entity;
-use Authentication\PasswordHasher\DefaultPasswordHasher;
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * User Entity
  *
- * @property int $users_id
- * @property string $users_email
- * @property string $users_password
- * @property string $users_name
- * @property string|null $users_mobile_phone
- * @property int $users_role
- * @property \Cake\I18n\FrozenTime|null $users_created
- * @property \Cake\I18n\FrozenTime|null $users_modified
+ * @property int $id
+ * @property string|null $username
+ * @property string|null $password
+ * @property string|null $role
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property \Cake\I18n\FrozenTime|null $modified
  */
 class User extends Entity
 {
@@ -28,19 +25,26 @@ class User extends Entity
      *
      * @var array<string, bool>
      */
+    protected $_accessible = [
+        'username' => true,
+        'password' => true,
+        'role' => true,
+        'created' => true,
+        'modified' => true,
+    ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array<string>
+     */
+    protected $_hidden = [
+        'password',
+    ];
     protected function _setPassword(string $password) : ?string
     {
         if (strlen($password) > 0) {
             return (new DefaultPasswordHasher())->hash($password);
         }
     }
-    protected $_accessible = [
-        'users_email' => true,
-        'users_password' => true,
-        'users_name' => true,
-        'users_mobile_phone' => true,
-        'users_role' => true,
-        'users_created' => true,
-        'users_modified' => true,
-    ];
 }

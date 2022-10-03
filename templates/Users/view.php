@@ -19,36 +19,24 @@
             <h3><?= h($user->id) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Users Email') ?></th>
-                    <td><?= h($user->users_email) ?></td>
+                    <th><?= __('Username') ?></th>
+                    <td><?= h($user->username) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Users Password') ?></th>
-                    <td><?= h($user->users_password) ?></td>
+                    <th><?= __('Role') ?></th>
+                    <td><?= h($user->role) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Users Name') ?></th>
-                    <td><?= h($user->users_name) ?></td>
+                    <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($user->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Users Mobile Phone') ?></th>
-                    <td><?= h($user->users_mobile_phone) ?></td>
+                    <th><?= __('Created') ?></th>
+                    <td><?= h($user->created) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Users Id') ?></th>
-                    <td><?= $this->Number->format($user->users_id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Role') ?></th>
-                    <td><?= $this->Number->format($user->users_role) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Created') ?></th>
-                    <td><?= h($user->users_created) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Modified') ?></th>
-                    <td><?= h($user->users_modified) ?></td>
+                    <th><?= __('Modified') ?></th>
+                    <td><?= h($user->modified) ?></td>
                 </tr>
             </table>
         </div>
