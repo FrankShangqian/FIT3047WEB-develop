@@ -18,17 +18,12 @@ class ProductsController extends AppController
      */
     public function index()
     {
-        $products = ($this->Products->find());
-        $this->set(compact('products'));
-    }
+        $this->paginate = [
+            'contain' => ['Categories'],
+        ];
+        $products = $this->paginate($this->Products);
 
-    public function pdf()
-    {
-        $products = $this->Products->find('all',[
-            'conditions' => ['Products.product_quantity < Products.stock_alert'],
-        ]);
         $this->set(compact('products'));
-
     }
 
     /**
@@ -41,7 +36,7 @@ class ProductsController extends AppController
     public function view($id = null)
     {
         $product = $this->Products->get($id, [
-            'contain' => [],
+            'contain' => ['Categories'],
         ]);
 
         $this->set(compact('product'));
@@ -64,7 +59,8 @@ class ProductsController extends AppController
             }
             $this->Flash->error(__('The product could not be saved. Please, try again.'));
         }
-        $this->set(compact('product'));
+        $categories = $this->Products->Categories->find('list', ['limit' => 200])->all();
+        $this->set(compact('product', 'categories'));
     }
 
     /**
@@ -88,7 +84,8 @@ class ProductsController extends AppController
             }
             $this->Flash->error(__('The product could not be saved. Please, try again.'));
         }
-        $this->set(compact('product'));
+        $categories = $this->Products->Categories->find('list', ['limit' => 200])->all();
+        $this->set(compact('product', 'categories'));
     }
 
     /**
@@ -110,7 +107,4 @@ class ProductsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-
 }
-
