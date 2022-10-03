@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ProductsTable;
+use App\Model\Table\CategoriesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ProductsTable Test Case
+ * App\Model\Table\CategoriesTable Test Case
  */
-class ProductsTableTest extends TestCase
+class CategoriesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ProductsTable
+     * @var \App\Model\Table\CategoriesTable
      */
-    protected $Products;
+    protected $Categories;
 
     /**
      * Fixtures
@@ -24,7 +24,6 @@ class ProductsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Products',
         'app.Categories',
     ];
 
@@ -36,8 +35,8 @@ class ProductsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Products') ? [] : ['className' => ProductsTable::class];
-        $this->Products = $this->getTableLocator()->get('Products', $config);
+        $config = $this->getTableLocator()->exists('Categories') ? [] : ['className' => CategoriesTable::class];
+        $this->Categories = $this->getTableLocator()->get('Categories', $config);
     }
 
     /**
@@ -47,7 +46,7 @@ class ProductsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Products);
+        unset($this->Categories);
 
         parent::tearDown();
     }
@@ -56,20 +55,9 @@ class ProductsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\ProductsTable::validationDefault()
+     * @uses \App\Model\Table\CategoriesTable::validationDefault()
      */
     public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     * @uses \App\Model\Table\ProductsTable::buildRules()
-     */
-    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

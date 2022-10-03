@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Products Model
  *
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
+ *
  * @method \App\Model\Entity\Product newEmptyEntity()
  * @method \App\Model\Entity\Product newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Product[] newEntities(array $data, array $options = [])
@@ -40,6 +42,10 @@ class ProductsTable extends Table
         $this->setTable('products');
         $this->setDisplayField('product_id');
         $this->setPrimaryKey('product_id');
+
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'category_id',
+        ]);
     }
 
     /**
@@ -64,13 +70,33 @@ class ProductsTable extends Table
         $validator
             ->decimal('product_price')
             ->requirePresence('product_price', 'create')
-            ->notEmptyString('product_price');
+            ->notEmptyString('product_price')
+            ->add('product_price', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->integer('stock_alert')
             ->requirePresence('stock_alert', 'create')
             ->notEmptyString('stock_alert');
 
+        $validator
+            ->integer('category_id')
+            ->allowEmptyString('category_id');
+
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->isUnique(['product_price']), ['errorField' => 'product_price']);
+        $rules->add($rules->existsIn('category_id', 'Categories'), ['errorField' => 'category_id']);
+
+        return $rules;
     }
 }

@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\ProductsController;
+use App\Controller\OrderLineController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\ProductsController Test Case
+ * App\Controller\OrderLineController Test Case
  *
- * @uses \App\Controller\ProductsController
+ * @uses \App\Controller\OrderLineController
  */
-class ProductsControllerTest extends TestCase
+class OrderLineControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,15 +22,16 @@ class ProductsControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
+        'app.OrderLine',
         'app.Products',
-        'app.Categories',
+        'app.Orders',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\ProductsController::index()
+     * @uses \App\Controller\OrderLineController::index()
      */
     public function testIndex(): void
     {
@@ -41,7 +42,7 @@ class ProductsControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\ProductsController::view()
+     * @uses \App\Controller\OrderLineController::view()
      */
     public function testView(): void
     {
@@ -52,7 +53,7 @@ class ProductsControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\ProductsController::add()
+     * @uses \App\Controller\OrderLineController::add()
      */
     public function testAdd(): void
     {
@@ -63,7 +64,7 @@ class ProductsControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\ProductsController::edit()
+     * @uses \App\Controller\OrderLineController::edit()
      */
     public function testEdit(): void
     {
@@ -74,7 +75,7 @@ class ProductsControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\ProductsController::delete()
+     * @uses \App\Controller\OrderLineController::delete()
      */
     public function testDelete(): void
     {

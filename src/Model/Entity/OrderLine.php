@@ -6,18 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Product Entity
+ * OrderLine Entity
  *
+ * @property int $orderline_id
  * @property int $product_id
- * @property string $product_name
- * @property int $product_quantity
- * @property string $product_price
- * @property int $stock_alert
- * @property int|null $category_id
+ * @property int $order_quantity
+ * @property int $order_id
  *
- * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Product $product
+ * @property \App\Model\Entity\Order $order
  */
-class Product extends Entity
+class OrderLine extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,11 +28,10 @@ class Product extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'product_name' => true,
-        'product_quantity' => true,
-        'product_price' => true,
-        'stock_alert' => true,
-        'category_id' => true,
-        'category' => true,
+        'product_id' => true,
+        'order_quantity' => true,
+        'order_id' => true,
+        'product' => true,
+        'order' => true,
     ];
 }
