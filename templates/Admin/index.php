@@ -19,41 +19,42 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
             <div class="container-fluid">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Admin Insights</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Aromy Admin Dashboard</h1>
                 </div>
                 <!-- Content Row -->
                 <div class="row">
-                    <!-- Orders (Monthly) Card Example -->
+                    <!-- Orders  Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Orders (Monthly)
+                                            Orders
                                         </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class="fas fa-bar-chart fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Customers (Monthly) Card Example -->
+                    <!-- Customers  Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-success shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Customers (Monthly)</div>
+                                            Customers </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class="fas fa-user-circle fa-2x text-gray-300"></i>
                                     </div>
+                                    <!-- link customers page -->
                                 </div>
                             </div>
                         </div>
@@ -69,7 +70,7 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        <i class="fas fa-cart-arrow-down fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -92,11 +93,11 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-header">Specify Recent Orders:</div>
+                                        <a class="dropdown-item" href="#">Show More Orders</a>
+                                        <a class="dropdown-item" href="#">Show 10 More Orders</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Show Products Only</a>
                                     </div>
                                 </div>
                             </div>
