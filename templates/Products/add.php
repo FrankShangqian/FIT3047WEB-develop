@@ -19,15 +19,32 @@ $formTemplate = [
 $this->Form->setTemplates($formTemplate);
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Add New Product</h1>
-<div class="form-group">
-    <?= $this->Form->create($product) ?>
-        <?php
+<div class="title-block">
+    <div class="title">
+        Add New Product
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="indicatorDefault">
+
+            </div>
+            <?= $this->Form->create($product) ?>
+            <?php
             echo $this->Form->control('product_name');
             echo $this->Form->control('product_quantity');
             echo $this->Form->control('product_price');
             echo $this->Form->control('stock_alert');
-        ?>
+            ?>
+        </div>
+    </div>
 </div>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
-<?= $this->Form->end() ?>
+<div class="row">
+    <div class="col-md-12">
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary'], ['class' => 'btn btn-primary']) ?>
+            <?= $this->Form->end() ?>
+    </div>
+</div>
