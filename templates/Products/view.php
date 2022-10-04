@@ -40,6 +40,10 @@ $this->Form->setTemplates($formTemplate);
                         <td><?= h($product->product_name) ?></td>
                     </tr>
                     <tr>
+                        <th><?= __('Category') ?></th>
+                        <td><?= $product->has('category') ? $this->Html->link($product->category->category_id, ['controller' => 'Categories', 'action' => 'view', $product->category->category_id]) : '' ?></td>
+                    </tr>
+                    <tr>
                         <th><?= __('Product Id') ?></th>
                         <td><?= $this->Number->format($product->product_id) ?></td>
                     </tr>
@@ -55,7 +59,7 @@ $this->Form->setTemplates($formTemplate);
                         <th><?= __('Stock Alert') ?></th>
                         <td><?= $this->Number->format($product->stock_alert) ?></td>
                     </tr>
-                </table>
+            </table>
             </div>
         </div>
     </div>

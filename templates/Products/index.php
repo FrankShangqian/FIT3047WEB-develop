@@ -22,11 +22,12 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('quantity') ?></th>
-                    <th><?= $this->Paginator->sort('price') ?></th>
+                    <th><?= $this->Paginator->sort('product_id') ?></th>
+                    <th><?= $this->Paginator->sort('product_name') ?></th>
+                    <th><?= $this->Paginator->sort('product_quantity') ?></th>
+                    <th><?= $this->Paginator->sort('product_price') ?></th>
                     <th><?= $this->Paginator->sort('stock_alert') ?></th>
+                    <th><?= $this->Paginator->sort('category_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -38,10 +39,11 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                     <td><?= $this->Number->format($product->product_quantity) ?></td>
                     <td><?= $this->Number->format($product->product_price) ?></td>
                     <td><?= $this->Number->format($product->stock_alert) ?></td>
+                    <td><?= $product->has('category') ? $this->Html->link($product->category->category_id, ['controller' => 'Categories', 'action' => 'view', $product->category->category_id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $product->product_id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->product_id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->product_id], ['confirm' => __('Are you sure you want to delete ?', $product->product_id)]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->product_id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->product_id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
