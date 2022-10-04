@@ -27,7 +27,7 @@
                 <?= $this->Form->submit(__('Login',['class' => 'btn-login'])); ?>
                 <?= $this->Form->end() ?>
 
-                <?= $this->Html->link("Add User", ['action' => 'add'],['class' => 'btn-new']) ?>
+                <?= $this->Html->link("CREATE ACCOUNT", ['action' => 'add'],['class' => 'btn-new']) ?>
 
             </div>
         </div>
