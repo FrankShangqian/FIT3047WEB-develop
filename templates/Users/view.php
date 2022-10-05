@@ -19,17 +19,12 @@
             <h3><?= h($user->users_id) ?></h3>
             <table>
                 <tr>
-<<<<<<< HEAD
                     <th><?= __('Users Email') ?></th>
                     <td><?= h($user->users_email) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Users Password') ?></th>
                     <td><?= h($user->users_password) ?></td>
-=======
-                    <th><?= __('Email') ?></th>
-                    <td><?= h($user->email) ?></td>
->>>>>>> c0ea659d6275c076954bf40185d147f695db343c
                 </tr>
                 <tr>
                     <th><?= __('Users Id') ?></th>
