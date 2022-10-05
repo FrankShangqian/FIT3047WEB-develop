@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
+ * @var iterable<\App\Model\Entity\User> $users
  */
 ?>
 <div class="users index content">
@@ -17,8 +17,6 @@
                     <th><?= $this->Paginator->sort('users_name') ?></th>
                     <th><?= $this->Paginator->sort('users_mobile_phone') ?></th>
                     <th><?= $this->Paginator->sort('users_role') ?></th>
-                    <th><?= $this->Paginator->sort('users_created') ?></th>
-                    <th><?= $this->Paginator->sort('users_modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -31,12 +29,10 @@
                     <td><?= h($user->users_name) ?></td>
                     <td><?= h($user->users_mobile_phone) ?></td>
                     <td><?= $this->Number->format($user->users_role) ?></td>
-                    <td><?= h($user->users_created) ?></td>
-                    <td><?= h($user->users_modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $user->users_id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->users_id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->users_id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

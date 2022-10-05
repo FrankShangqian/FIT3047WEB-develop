@@ -42,14 +42,6 @@
                     <th><?= __('Users Role') ?></th>
                     <td><?= $this->Number->format($user->users_role) ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Users Created') ?></th>
-                    <td><?= h($user->users_created) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Modified') ?></th>
-                    <td><?= h($user->users_modified) ?></td>
-                </tr>
             </table>
         </div>
     </div>

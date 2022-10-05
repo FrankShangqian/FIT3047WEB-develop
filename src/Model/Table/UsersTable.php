@@ -38,8 +38,8 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->setDisplayField('users_id');
+        $this->setPrimaryKey('users_id');
     }
 
     /**
