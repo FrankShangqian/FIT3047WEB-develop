@@ -17,9 +17,8 @@
             <fieldset>
                 <legend><?= __('Add User') ?></legend>
                 <?php
-
-                    echo $this->Form->control('users_email');
-                    echo $this->Form->control('users_password');
+                    echo $this->Form->control('email');
+                    echo $this->Form->control('password');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

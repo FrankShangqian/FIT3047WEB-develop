@@ -109,24 +109,16 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
     public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
     {
         $authenticationService = new AuthenticationService([
-            'unauthenticatedRedirect' => Router::url([
-                    'controller' => 'Users',
-                    'action' => 'login',
-                ]
-            ),
+            'unauthenticatedRedirect' => Router::url('/users/login'),
             'queryParam' => 'redirect',
         ]);
 
         // Load identifiers, ensure we check email and password fields
         $authenticationService->loadIdentifier('Authentication.Password', [
             'fields' => [
-                'username' => 'users_email',
-                'password' => 'users_password',
-            ],
-            'resolver' => [
-                'className' => 'Authentication.Orm',
-                'userModel' => 'Users'
-            ],
+                'username' => 'email',
+                'password' => 'password',
+            ]
         ]);
 
         // Load the authenticators, you want session first
@@ -134,13 +126,10 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         // Configure form data check to pick email and password
         $authenticationService->loadAuthenticator('Authentication.Form', [
             'fields' => [
-                'username' => 'users_email',
-                'password' => 'users_password',
+                'username' => 'email',
+                'password' => 'password',
             ],
-            'loginUrl' => Router::url([
-                'controller' => 'Users',
-                'action' => 'login',
-            ]),
+            'loginUrl' => Router::url('/users/login'),
         ]);
 
         return $authenticationService;
