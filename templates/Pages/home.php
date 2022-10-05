@@ -52,7 +52,7 @@ endif;
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -123,13 +123,13 @@ endif;
                 </li>
                 <?php if ($this->request->getSession()->read('Auth.User')): ?>
                     <?php if ($this->request->getSession()->read('Auth.User.role') > 2 ) { ?>
-                    <li class="nav-item">
-                        <?= $this->Html->link('Dashboard', ['controller' => 'admin', 'action' => 'index'], ['class' => 'nav-link']) ?>
-                    </li>
+                        <li class="nav-item">
+                            <?= $this->Html->link('Dashboard', ['controller' => 'admin', 'action' => 'index'], ['class' => 'nav-link']) ?>
+                        </li>
                     <?php } else { ?>
-                    <li class="nav-item">
-                        <?= $this->Html->link('Dashboard', ['controller' => 'customer', 'action' => 'index'], ['class' => 'nav-link']) ?>
-                </li>
+                        <li class="nav-item">
+                            <?= $this->Html->link('Dashboard', ['controller' => 'customer', 'action' => 'index'], ['class' => 'nav-link']) ?>
+                        </li>
                     <?php }?>
                     <li class="nav-item">
                         <?= $this->Html->link(
