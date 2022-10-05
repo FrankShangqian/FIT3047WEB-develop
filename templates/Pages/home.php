@@ -52,41 +52,100 @@ endif;
 <!DOCTYPE html>
 <html>
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        CakePHP: the rapid development PHP framework:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <?php echo $this->Html->meta('favicon.ico','img/favicon.ico',array('type' => 'icon')); ?>
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'home','styles_clean.css']) ?>
-    <?= $this->Html->script(['script_clean']) ?>
+    <title>Aromy</title>
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles_clean.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <?= $this->Html->css('lib/bootstrap.min.css') ?>
+
+    <!-- Custom fonts for this template -->
+    <?= $this->Html->css('lib/font-awesome/css/fontawesome-all.min.css') ?>
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <?= $this->Html->css('lib/template/public/clean-blog.min.css') ?>
+    <?= $this->Html->css('home.css') ?>
 </head>
 <body>
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container px-4 px-lg-5">
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="<?= $this->Url->build('/') ?>">Home</a></li>
+        </ul>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                <?= $this->Html->link('Login',['controller'=>'Users','action'=>'login'],['class'=>'btn btn-primary'])?>
+
+            <ul class="navbar-nav ml-auto">
+                <li id="search-wrapper" class="nav-item" style="display: none">
+                    <?= $this->Form->create(null, ['url' => ['controller' => 'articles', 'action' => 'simpleSearch'], 'method' => 'GET']) ?>
+                    <input class="search form-control" type="text" name="query" />
+                    <?= $this->Form->end() ?>
+                </li>
+                <li class="nav-item">
+                    <a id="search-show" class="nav-link" href="#">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li class="dropdown nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" >
+                        Product
+                    </a>
+                    <div class = "dropdown-menu">
+                        <?= $this->Html->link(
+                            'Store Home',
+                            ['controller' => 'products', 'action' => 'storeIndex'],
+                            ['class' => 'dropdown-item'])
+                        ?>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Category Pages</a>
+                        <a class="dropdown-item" href="#">Coming Soon</a>
+                        <div style="text-align: center"><img src="https://i.imgur.com/9SYjjER.png" >
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <?= $this->Html->link(
+                        'Send Enquiry',
+                        ['controller' => 'enquiries', 'action' => 'add'],
+                        ['class' => 'nav-link'])
+                    ?>
+                </li>
+                <?php if ($this->request->getSession()->read('Auth.User')): ?>
+                    <?php if ($this->request->getSession()->read('Auth.User.role') > 2 ) { ?>
+                    <li class="nav-item">
+                        <?= $this->Html->link('Dashboard', ['controller' => 'admin', 'action' => 'index'], ['class' => 'nav-link']) ?>
+                    </li>
+                    <?php } else { ?>
+                    <li class="nav-item">
+                        <?= $this->Html->link('Dashboard', ['controller' => 'customer', 'action' => 'index'], ['class' => 'nav-link']) ?>
+                </li>
+                    <?php }?>
+                    <li class="nav-item">
+                        <?= $this->Html->link(
+                            'My Profile',
+                            ['controller' => 'users', 'action' => 'edit', $this->request->getSession()->read('Auth.User.id')],
+                            ['class' => 'nav-link'])
+                        ?>
+                    </li>
+                    <li class="nav-item">
+                        <?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link']) ?>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <?= $this->Html->link('Login/ Register', ['controller' => 'users', 'action' => 'login', '?' => ['redirect' => '/admin']], ['class' => 'nav-link']) ?>
+                    </li>
+                <?php endif ?>
             </ul>
         </div>
     </div>
@@ -97,8 +156,7 @@ endif;
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1>Clean Blog</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <h1>Aromy</h1>
                 </div>
             </div>
         </div>

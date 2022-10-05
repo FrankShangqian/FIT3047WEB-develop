@@ -11,8 +11,8 @@ use Cake\ORM\Entity;
  * @property int $customer_id
  * @property string $customer_name
  * @property string $customer_address
- * @property int $customer_postcode
- * @property string $customer_city
+ * @property int $customer_postal
+ * @property string $customer_suburb
  * @property string $customer_phonenumber
  * @property string $customer_email
  */
@@ -30,9 +30,13 @@ class Customer extends Entity
     protected $_accessible = [
         'customer_name' => true,
         'customer_address' => true,
-        'customer_postcode' => true,
-        'customer_city' => true,
+        'customer_postal' => true,
+        'customer_suburb' => true,
         'customer_phonenumber' => true,
         'customer_email' => true,
     ];
+
+    public array $virtualFields = array(
+        'customer_id'=>'CONCAT(Customers.customer_id," ", Customers.customer_name)'
+    );
 }

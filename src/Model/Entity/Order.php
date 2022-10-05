@@ -34,5 +34,7 @@ class Order extends Entity
         'order_item' => true,
         'customer_id' => true,
         'customer' => true,
+        'OrderLine'=>true,
+
     ];
 }

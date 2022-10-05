@@ -70,5 +70,18 @@ $this->Form->setTemplates($formTemplate);
         </div>
     </div>
 </div>
-<?= $this->Html->link(__('Send Invoice'), ['action' => 'email'], ['class' => 'side-nav-item'])?>
+<style>
+    table {
+        border-collapse: collapse;
+        max-width: 90vw;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+</style>
 

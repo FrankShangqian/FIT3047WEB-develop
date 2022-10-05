@@ -105,19 +105,18 @@ CREATE TABLE `orders` (
   `order_id` int NOT NULL,
   `order_date` date NOT NULL,
   `order_total` decimal(9,2) DEFAULT NULL,
-  `progress_status` tinyint(1) DEFAULT NULL,
-  `customer_id` int NOT NULL,
-  `order_paid` tinyint(1) DEFAULT NULL
+  `customer_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `order_date`, `order_total`, `progress_status`, `customer_id`, `order_paid`) VALUES
-(1, '2022-09-01', '38.90', 0, 1, 0),
-(2, '2022-09-03', '177.00', 0, 21, 0),
-(114, '2022-09-16', '122.00', NULL, 2, NULL);
+INSERT INTO `orders` (`order_id`, `order_date`, `order_total`, `customer_id`) VALUES
+(1, '2022-09-01', '38.90', 1),
+(2, '2022-09-03', '177.00', 21),
+(3, '2022-10-01', NULL, 5),
+(4, '2022-10-01', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -137,10 +136,7 @@ CREATE TABLE `order_line` (
 --
 
 INSERT INTO `order_line` (`orderline_id`, `product_id`, `order_quantity`, `order_id`) VALUES
-(1, 1, 1, 1),
-(2, 3, 2, 1),
-(3, 2, 3, 2);
-
+(6, 2, 2, 1);
 -- --------------------------------------------------------
 
 --
@@ -174,20 +170,15 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_quantity`, `produ
 CREATE TABLE `users` (
   `users_id` int NOT NULL,
   `users_email` varchar(255) NOT NULL,
-  `users_password` varchar(255) NOT NULL,
-  `users_name` varchar(255) NOT NULL,
-  `users_mobile_phone` varchar(30) DEFAULT '',
-  `users_role` int NOT NULL DEFAULT '0',
-  `users_created` datetime DEFAULT NULL,
-  `users_modified` datetime DEFAULT NULL
+  `users_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`users_id`, `users_email`, `users_password`, `users_name`, `users_mobile_phone`, `users_role`, `users_created`, `users_modified`) VALUES
-(1, 'root@example.com', '$2y$10$g/gbftSdcZpuFYbwqYD5de4AWFuwG1pXykGo1Qc..hVZcEN/96ryG', 'Arthur', '', 3, '2022-10-03 15:41:54', '2022-10-03 15:41:54');
+INSERT INTO `users` (`users_id`, `users_email`, `users_password`) VALUES
+(1, 'root@example.com', 'team110');
 
 --
 -- Indexes for dumped tables
@@ -231,7 +222,6 @@ ALTER TABLE `order_line`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD UNIQUE KEY `product_price` (`product_price`),
   ADD KEY `category_id` (`category_id`);
 
 --

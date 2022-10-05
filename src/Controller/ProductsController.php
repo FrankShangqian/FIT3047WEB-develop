@@ -25,7 +25,14 @@ class ProductsController extends AppController
 
         $this->set(compact('products'));
     }
+    public function pdf()
+    {
+        $products = $this->Products->find('all',[
+            'conditions' => ['Products.product_quantity < Products.stock_alert'],
+        ]);
+        $this->set(compact('products'));
 
+    }
     /**
      * View method
      *
@@ -59,7 +66,8 @@ class ProductsController extends AppController
             }
             $this->Flash->error(__('The product could not be saved. Please, try again.'));
         }
-        $categories = $this->Products->Categories->find('list', ['limit' => 200])->all();
+
+        $categories = $this->Products->Categories->find('list',['keyField'=> 'category_id', 'valueField'=>'category_name']);
         $this->set(compact('product', 'categories'));
     }
 

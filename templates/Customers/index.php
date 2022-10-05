@@ -32,8 +32,8 @@ $this->Form->setTemplates($formTemplate);
                     <th><?= $this->Paginator->sort('newid') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('address') ?></th>
-                    <th><?= $this->Paginator->sort('postcode') ?></th>
-                    <th><?= $this->Paginator->sort('city') ?></th>
+                    <th><?= $this->Paginator->sort('postal') ?></th>
+                    <th><?= $this->Paginator->sort('suburb') ?></th>
                     <th><?= $this->Paginator->sort('phonenumber') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -45,8 +45,8 @@ $this->Form->setTemplates($formTemplate);
                     <td><?= $this->Number->format($customer->customer_id) ?></td>
                     <td><?= h($customer->customer_name) ?></td>
                     <td><?= h($customer->customer_address) ?></td>
-                    <td><?= $this->Number->format($customer->customer_postcode) ?></td>
-                    <td><?= h($customer->customer_city) ?></td>
+                    <td><?= $this->Number->format($customer->customer_postal) ?></td>
+                    <td><?= h($customer->customer_suburb) ?></td>
                     <td><?= h($customer->customer_phonenumber) ?></td>
                     <td><?= h($customer->customer_email) ?></td>
                     <td class="actions">
@@ -65,3 +65,17 @@ $this->Form->setTemplates($formTemplate);
           });
     </script>
 </div>
+<style>
+    table {
+        border-collapse: collapse;
+        max-width: 90vw;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+</style>
