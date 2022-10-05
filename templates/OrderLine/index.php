@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var iterable<\App\Model\Entity\OrderLine> $orderLine
+ * @var \App\Model\Entity\OrderLine[]|\Cake\Collection\CollectionInterface $orderLine
  */
 ?>
 <div class="orderLine index content">

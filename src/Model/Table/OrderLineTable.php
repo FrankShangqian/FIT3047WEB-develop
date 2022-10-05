@@ -64,6 +64,7 @@ class OrderLineTable extends Table
     {
         $validator
             ->integer('product_id')
+            ->requirePresence('product_id', 'create')
             ->notEmptyString('product_id');
 
         $validator
@@ -73,6 +74,7 @@ class OrderLineTable extends Table
 
         $validator
             ->integer('order_id')
+            ->requirePresence('order_id', 'create')
             ->notEmptyString('order_id');
 
         return $validator;

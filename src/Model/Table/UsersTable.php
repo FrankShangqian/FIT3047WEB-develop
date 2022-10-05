@@ -24,8 +24,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class UsersTable extends Table
 {
@@ -42,8 +40,6 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-
-        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -55,34 +51,40 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('username')
-            ->maxLength('username', 50)
-            ->allowEmptyString('username');
+            ->scalar('users_email')
+            ->maxLength('users_email', 255)
+            ->requirePresence('users_email', 'create')
+            ->notEmptyString('users_email');
 
         $validator
-            ->scalar('password')
-            ->maxLength('password', 255)
-            ->allowEmptyString('password');
+            ->scalar('users_password')
+            ->maxLength('users_password', 255)
+            ->requirePresence('users_password', 'create')
+            ->notEmptyString('users_password');
 
         $validator
-            ->scalar('role')
-            ->maxLength('role', 20)
-            ->allowEmptyString('role');
+            ->scalar('users_name')
+            ->maxLength('users_name', 255)
+            ->requirePresence('users_name', 'create')
+            ->notEmptyString('users_name');
+
+        $validator
+            ->scalar('users_mobile_phone')
+            ->maxLength('users_mobile_phone', 30)
+            ->allowEmptyString('users_mobile_phone');
+
+        $validator
+            ->integer('users_role')
+            ->notEmptyString('users_role');
+
+        $validator
+            ->dateTime('users_created')
+            ->allowEmptyDateTime('users_created');
+
+        $validator
+            ->dateTime('users_modified')
+            ->allowEmptyDateTime('users_modified');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
-        $rules->add($rules->isUnique(['username']), ['errorField' => 'username']);
-
-        return $rules;
     }
 }
