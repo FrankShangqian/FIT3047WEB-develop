@@ -20,8 +20,8 @@
             <div class="form-container">
                 <?= $this->Form->create() ?>
                 <fieldset>
-                    <?= $this->Form->control('email', ['required' => true]) ?>
-                    <?= $this->Form->control('password', ['required' => true]) ?>
+                    <?= $this->Form->control('users_email', ['required' => true]) ?>
+                    <?= $this->Form->control('users_password', ['required' => true]) ?>
                 </fieldset>
                 <?= $this->Form->submit(__('Login',['class' => 'btn-login'])); ?>
                 <?= $this->Form->end() ?>

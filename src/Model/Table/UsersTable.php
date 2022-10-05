@@ -75,15 +75,8 @@ class UsersTable extends Table
 
         $validator
             ->integer('users_role')
+            ->requirePresence('users_role', 'create')
             ->notEmptyString('users_role');
-
-        $validator
-            ->dateTime('users_created')
-            ->allowEmptyDateTime('users_created');
-
-        $validator
-            ->dateTime('users_modified')
-            ->allowEmptyDateTime('users_modified');
 
         return $validator;
     }
