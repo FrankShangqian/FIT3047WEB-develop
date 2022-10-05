@@ -28,8 +28,6 @@
                     echo $this->Form->control('users_name');
                     echo $this->Form->control('users_mobile_phone');
                     echo $this->Form->control('users_role');
-                    echo $this->Form->control('users_created', ['empty' => true]);
-                    echo $this->Form->control('users_modified', ['empty' => true]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

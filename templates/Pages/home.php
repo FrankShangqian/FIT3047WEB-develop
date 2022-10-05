@@ -51,7 +51,7 @@ endif;
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -122,13 +122,13 @@ endif;
                 </li>
                 <?php if ($this->request->getSession()->read('Auth.User')): ?>
                     <?php if ($this->request->getSession()->read('Auth.User.role') > 2 ) { ?>
-                    <li class="nav-item">
-                        <?= $this->Html->link('Dashboard', ['controller' => 'admin', 'action' => 'index'], ['class' => 'nav-link']) ?>
-                    </li>
+                        <li class="nav-item">
+                            <?= $this->Html->link('Dashboard', ['controller' => 'admin', 'action' => 'index'], ['class' => 'nav-link']) ?>
+                        </li>
                     <?php } else { ?>
-                    <li class="nav-item">
-                        <?= $this->Html->link('Dashboard', ['controller' => 'customer', 'action' => 'index'], ['class' => 'nav-link']) ?>
-                </li>
+                        <li class="nav-item">
+                            <?= $this->Html->link('Dashboard', ['controller' => 'customer', 'action' => 'index'], ['class' => 'nav-link']) ?>
+                        </li>
                     <?php }?>
                     <li class="nav-item">
                         <?= $this->Html->link(
@@ -150,7 +150,7 @@ endif;
     </div>
 </nav>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('webroot/img/home-bg.jpg')">
+<header class="masthead" style="background-image: url('assets/img/pic-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">

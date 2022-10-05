@@ -25,8 +25,6 @@ class UsersFixture extends TestFixture
                 'users_name' => 'Lorem ipsum dolor sit amet',
                 'users_mobile_phone' => 'Lorem ipsum dolor sit amet',
                 'users_role' => 1,
-                'users_created' => '2022-10-05 18:09:15',
-                'users_modified' => '2022-10-05 18:09:15',
             ],
         ];
         parent::init();

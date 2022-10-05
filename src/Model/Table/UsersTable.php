@@ -38,8 +38,8 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->setDisplayField('users_id');
+        $this->setPrimaryKey('users_id');
     }
 
     /**
@@ -75,15 +75,8 @@ class UsersTable extends Table
 
         $validator
             ->integer('users_role')
+            ->requirePresence('users_role', 'create')
             ->notEmptyString('users_role');
-
-        $validator
-            ->dateTime('users_created')
-            ->allowEmptyDateTime('users_created');
-
-        $validator
-            ->dateTime('users_modified')
-            ->allowEmptyDateTime('users_modified');
 
         return $validator;
     }

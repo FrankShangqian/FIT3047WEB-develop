@@ -94,8 +94,8 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             // Parse various types of encoded request bodies so that they are
             // available as array through $request->getData()
             // https://book.cakephp.org/4/en/controllers/middleware.html#body-parser-middleware
-            ->add(new BodyParserMiddleware())
             ->add(new RoutingMiddleware($this))
+            ->add(new BodyParserMiddleware())
             ->add(new AuthenticationMiddleware($this))
 
         // Cross Site Request Forgery (CSRF) Protection Middleware
@@ -109,16 +109,24 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
     public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
     {
         $authenticationService = new AuthenticationService([
-            'unauthenticatedRedirect' => Router::url('/users/login'),
+            'unauthenticatedRedirect' => Router::url([
+                    'controller' => 'Users',
+                    'action' => 'login',
+                ]
+            ),
             'queryParam' => 'redirect',
         ]);
 
         // Load identifiers, ensure we check email and password fields
         $authenticationService->loadIdentifier('Authentication.Password', [
             'fields' => [
-                'username' => 'users_name',
+                'username' => 'users_email',
                 'password' => 'users_password',
-            ]
+            ],
+            'resolver' => [
+                'className' => 'Authentication.Orm',
+                'userModel' => 'Users'
+            ],
         ]);
 
         // Load the authenticators, you want session first
@@ -126,10 +134,13 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         // Configure form data check to pick email and password
         $authenticationService->loadAuthenticator('Authentication.Form', [
             'fields' => [
-                'username' => 'users_name',
+                'username' => 'users_email',
                 'password' => 'users_password',
             ],
-            'loginUrl' => Router::url('/users/login'),
+            'loginUrl' => Router::url([
+                'controller' => 'Users',
+                'action' => 'login',
+            ]),
         ]);
 
         return $authenticationService;
