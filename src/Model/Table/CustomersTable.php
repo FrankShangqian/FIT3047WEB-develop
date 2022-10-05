@@ -63,19 +63,19 @@ class CustomersTable extends Table
             ->notEmptyString('customer_address');
 
         $validator
-            ->integer('customer_postcode')
-            ->requirePresence('customer_postcode', 'create')
-            ->notEmptyString('customer_postcode');
+            ->integer('customer_postal')
+            ->requirePresence('customer_postal', 'create')
+            ->notEmptyString('customer_postal');
 
         $validator
-            ->scalar('customer_city')
-            ->maxLength('customer_city', 255)
-            ->requirePresence('customer_city', 'create')
-            ->notEmptyString('customer_city');
+            ->scalar('customer_suburb')
+            ->maxLength('customer_suburb', 255)
+            ->requirePresence('customer_suburb', 'create')
+            ->notEmptyString('customer_suburb');
 
         $validator
             ->scalar('customer_phonenumber')
-            ->maxLength('customer_phonenumber', 20)
+            ->maxLength('customer_phonenumber', 10)
             ->requirePresence('customer_phonenumber', 'create')
             ->notEmptyString('customer_phonenumber');
 

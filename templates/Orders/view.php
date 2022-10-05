@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Order $order
  * @var \Cake\Collection\CollectionInterface|string[] $customers
  * @var \Cake\Collection\CollectionInterface|string[] $products
+ * @var \Cake\Collection\CollectionInterface|string[] $OrderLine
 echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
 echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
 echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
@@ -18,6 +19,12 @@ $formTemplate = [
 ];
 $this->Form->setTemplates($formTemplate);
 ?>
+<div class="orders index content">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="<?= $this->Url->build(['action' => 'index'])?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1"><i
+                class="fas fa-sm text-white-50"></i> Back</a>
+    </div>
+
 <div class="row">
     <div class="col-md-1 container-fluid">
         <div class="side-nav">
@@ -36,34 +43,57 @@ $this->Form->setTemplates($formTemplate);
     <div class="container">
         <div class="col-md-9">
         <div class="orders view content">
-            <h3><?= h($order->order_id) ?></h3>
+            <h3>Order ID <?= h($order->order_id) ?></h3>
             <table>
-                <tr>
-                    <th><?= __('Customer') ?></th>
-                    <td><?= $order->has('customer') ? $this->Html->link($order->customer->customer_id, ['controller' => 'Customers', 'action' => 'view', $order->customer->customer_id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Order Id') ?></th>
-                    <td><?= $this->Number->format($order->order_id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Order Total') ?></th>
-                    <td><?= $this->Number->format($order->order_total) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Order Item') ?></th>
-                    <td><?= $this->Number->format($order->order_item) ?></td>
-                </tr>
                 <tr>
                     <th><?= __('Order Date') ?></th>
                     <td><?= h($order->order_date) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Order Status') ?></th>
-                    <td><?= $order->order_status ? __('Processing') : __('Shipped'); ?></td>
+                    <th><?= __('Customer Name') ?></th>
+                    <td><?= $order->has('customer') ? $this->Html->link($order->customer->customer_name, ['controller' => 'Customers', 'action' => 'view', $order->customer->customer_id]) : '' ?></td>
                 </tr>
+
+                <tr>
+                    <th><?= __('Order Total') ?></th>
+                    <td>$ <?= $this->Number->format($order->order_total) ?></td>
+                </tr>
+                <table class="table"><br>
+                    <header>Purchased Items: </header>
+                    <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Order Quantity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($OrderLine as $orderLine):
+                        if ($orderLine['order_id'] == $order->order_id):?>
+                        <tr>
+                            <td><?php echo $orderLine['product_id'];?></td>
+                            <td><?php echo $orderLine['order_quantity'];?></td>
+                        </tr>
+                    <?php  endif;
+                    endforeach;?>
+                    </tbody>
+                </table>
             </table>
         </div>
     </div>
 </div>
 </div>
+
+<style>
+    table {
+        border-collapse: collapse;
+        max-width: 90vw;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+</style>

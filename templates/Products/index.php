@@ -24,7 +24,7 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                 <tr>
                     <th><?= $this->Paginator->sort('product_id') ?></th>
                     <th><?= $this->Paginator->sort('product_name') ?></th>
-                    <th><?= $this->Paginator->sort('product_quantity') ?></th>
+                    <th><?= $this->Paginator->sort('product_quantity') ?> (Available)</th>
                     <th><?= $this->Paginator->sort('product_price') ?></th>
                     <th><?= $this->Paginator->sort('stock_alert') ?></th>
                     <th><?= $this->Paginator->sort('category_id') ?></th>
@@ -37,9 +37,9 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                     <td><?= $this->Number->format($product->product_id) ?></td>
                     <td><?= h($product->product_name) ?></td>
                     <td><?= $this->Number->format($product->product_quantity) ?></td>
-                    <td><?= $this->Number->format($product->product_price) ?></td>
+                    <td>$ <?= $this->Number->format($product->product_price) ?></td>
                     <td><?= $this->Number->format($product->stock_alert) ?></td>
-                    <td><?= $product->has('category') ? $this->Html->link($product->category->category_id, ['controller' => 'Categories', 'action' => 'view', $product->category->category_id]) : '' ?></td>
+                    <td><?= $product->has('category') ? $this->Html->link($product->category->category_name, ['controller' => 'Categories', 'action' => 'view', $product->category->category_id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $product->product_id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->product_id]) ?>

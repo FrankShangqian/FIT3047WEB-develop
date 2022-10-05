@@ -46,6 +46,7 @@ class ProductsTable extends Table
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id',
         ]);
+
     }
 
     /**
@@ -70,8 +71,7 @@ class ProductsTable extends Table
         $validator
             ->decimal('product_price')
             ->requirePresence('product_price', 'create')
-            ->notEmptyString('product_price')
-            ->add('product_price', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->notEmptyString('product_price');
 
         $validator
             ->integer('stock_alert')
@@ -94,7 +94,6 @@ class ProductsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->isUnique(['product_price']), ['errorField' => 'product_price']);
         $rules->add($rules->existsIn('category_id', 'Categories'), ['errorField' => 'category_id']);
 
         return $rules;

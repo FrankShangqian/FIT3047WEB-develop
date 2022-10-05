@@ -18,6 +18,10 @@ $formTemplate = [
 ];
 $this->Form->setTemplates($formTemplate);
 ?>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <a href="<?= $this->Url->build(['action' => 'index'])?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1"><i
+            class="fas fa-sm text-white-50"></i> Back</a>
+</div>
 <div class="row">
     <div class="col-md-1 container-fluid">
         <div class="side-nav">
@@ -41,7 +45,7 @@ $this->Form->setTemplates($formTemplate);
                     </tr>
                     <tr>
                         <th><?= __('Category') ?></th>
-                        <td><?= $product->has('category') ? $this->Html->link($product->category->category_id, ['controller' => 'Categories', 'action' => 'view', $product->category->category_id]) : '' ?></td>
+                        <td><?= $product->has('category') ? $this->Html->link($product->category->category_name, ['controller' => 'Categories', 'action' => 'view', $product->category->category_id]) : '' ?></td>
                     </tr>
                     <tr>
                         <th><?= __('Product Id') ?></th>
@@ -53,7 +57,7 @@ $this->Form->setTemplates($formTemplate);
                     </tr>
                     <tr>
                         <th><?= __('Product Price') ?></th>
-                        <td><?= $this->Number->format($product->product_price) ?></td>
+                        <td>$<?= $this->Number->format($product->product_price) ?></td>
                     </tr>
                     <tr>
                         <th><?= __('Stock Alert') ?></th>
@@ -64,3 +68,18 @@ $this->Form->setTemplates($formTemplate);
         </div>
     </div>
 </div>
+
+<style>
+    table {
+        border-collapse: collapse;
+        max-width: 90vw;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+</style>
