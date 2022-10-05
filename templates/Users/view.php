@@ -25,23 +25,6 @@
                 <tr>
                     <th><?= __('Users Password') ?></th>
                     <td><?= h($user->users_password) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Name') ?></th>
-                    <td><?= h($user->users_name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Mobile Phone') ?></th>
-                    <td><?= h($user->users_mobile_phone) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Id') ?></th>
-                    <td><?= $this->Number->format($user->users_id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Users Role') ?></th>
-                    <td><?= $this->Number->format($user->users_role) ?></td>
-                </tr>
             </table>
         </div>
     </div>

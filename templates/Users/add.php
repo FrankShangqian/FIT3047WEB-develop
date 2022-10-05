@@ -20,9 +20,6 @@
 
                     echo $this->Form->control('users_email');
                     echo $this->Form->control('users_password');
-                    echo $this->Form->control('users_name');
-                    echo $this->Form->control('users_mobile_phone');
-                    echo $this->Form->control('users_role');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
