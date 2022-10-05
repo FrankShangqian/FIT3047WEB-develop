@@ -6,6 +6,7 @@
 echo $this->Html->css("/vendor/datatables/dataTables.bootstrap4.min.css");
 echo $this->Html->script("/vendor/datatables/jquery.dataTables.min.js");
 echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
+
 ?>
 
 
@@ -29,11 +30,14 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Orders
-                                        </div>
+                                        <!-- Link and Icon Directing to orders -->
+                                        <div
+                                        <a class="btn btn-primary" href=
+                                        "https://devroot.u22s2110.monash-ie.me/orders">Orders</a>
+                                    </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                     </div>
+                                <!-- Icon for orders -->
                                     <div class="col-auto">
                                         <i class="fas fa-bar-chart fa-2x text-gray-300"></i>
                                     </div>
@@ -47,14 +51,17 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Customers </div>
+                                        <!-- Button Link to Customers Page -->
+                                        <div
+                                        <a class="btn btn-primary" href=
+                                        "https://devroot.u22s2110.monash-ie.me/customers">Customers</a>
+                                    </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                     </div>
+                                    <!-- Icon for Customers -->
                                     <div class="col-auto">
                                         <i class="fas fa-user-circle fa-2x text-gray-300"></i>
                                     </div>
-                                    <!-- link customers page -->
                                 </div>
                             </div>
                         </div>
@@ -65,13 +72,17 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Low Stock</div>
+                                        <!-- Link to Re-Order Report -->
+                                        <div
+                                        <a class="btn btn-primary" href=
+                                        "https://devroot.u22s2110.monash-ie.me/products/pdf">Low Stock Report</a>
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-cart-arrow-down fa-2x text-gray-300"></i>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -85,19 +96,21 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Customers Overview</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Orders Overview</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                     </a>
+                                    <!-- Dropdown Elipsis to sort Orders Overview into smaller specific segments -->
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                         aria-labelledby="dropdownMenuLink">
                                         <div class="dropdown-header">Specify Recent Orders:</div>
                                         <a class="dropdown-item" href="#">Show More Orders</a>
                                         <a class="dropdown-item" href="#">Show 10 More Orders</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Show Products Only</a>
+                                        <a class="dropdown-item" href="#">Date range</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -105,6 +118,10 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                             <div class="card-body">
                                 <div class="chart-area">
                                     <canvas id="myAreaChart"></canvas>
+                                    <!-- Order Overview: Show Recent Orders Pull from orders page/form -->
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -112,6 +129,5 @@ echo $this->Html->script("/vendor/datatables/dataTables.bootstrap4.min.js");
                 </div>
             </div>
             <!-- /.container-fluid -->
-
         </div>
     </div>
