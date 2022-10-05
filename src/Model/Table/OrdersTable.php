@@ -64,23 +64,19 @@ class OrdersTable extends Table
 
         $validator
             ->decimal('order_total')
-            ->requirePresence('order_total', 'create')
-            ->notEmptyString('order_total');
+            ->allowEmptyString('order_total');
 
         $validator
-            ->boolean('order_status')
-            ->requirePresence('order_status', 'create')
-            ->notEmptyString('order_status');
-
-        $validator
-            ->integer('order_item')
-            ->requirePresence('order_item', 'create')
-            ->notEmptyString('order_item');
+            ->boolean('progress_status')
+            ->allowEmptyString('progress_status');
 
         $validator
             ->integer('customer_id')
-            ->requirePresence('customer_id', 'create')
             ->notEmptyString('customer_id');
+
+        $validator
+            ->boolean('order_paid')
+            ->allowEmptyString('order_paid');
 
         return $validator;
     }

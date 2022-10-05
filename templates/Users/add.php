@@ -17,14 +17,8 @@
             <fieldset>
                 <legend><?= __('Add User') ?></legend>
                 <?php
-                    echo $this->Form->control('users_id');
                     echo $this->Form->control('users_email');
                     echo $this->Form->control('users_password');
-                    echo $this->Form->control('users_name');
-                    echo $this->Form->control('users_mobile_phone');
-                    echo $this->Form->control('users_role');
-                    echo $this->Form->control('users_created', ['empty' => true]);
-                    echo $this->Form->control('users_modified', ['empty' => true]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

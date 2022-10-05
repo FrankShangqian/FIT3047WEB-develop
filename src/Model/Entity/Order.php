@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Model\Entity;
+
 use Cake\ORM\Entity;
 
 /**
@@ -9,12 +10,13 @@ use Cake\ORM\Entity;
  *
  * @property int $order_id
  * @property \Cake\I18n\FrozenDate $order_date
- * @property string $order_total
- * @property bool $order_status
- * @property int $order_item
+ * @property string|null $order_total
+ * @property bool|null $progress_status
  * @property int $customer_id
+ * @property bool|null $order_paid
  *
  * @property \App\Model\Entity\Customer $customer
+ * @property \App\Model\Entity\User $user
  */
 class Order extends Entity
 {
@@ -30,9 +32,10 @@ class Order extends Entity
     protected $_accessible = [
         'order_date' => true,
         'order_total' => true,
-        'order_status' => true,
-        'order_item' => true,
+        'progress_status' => true,
         'customer_id' => true,
+        'order_paid' => true,
         'customer' => true,
+        'user' => true,
     ];
 }

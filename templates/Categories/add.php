@@ -4,6 +4,13 @@
  * @var \App\Model\Entity\Category $category
  */
 ?>
+<div class="orders index content">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="<?= $this->Url->build(['action' => 'index'])?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1"><i
+                class="fas fa-sm text-white-50"></i> Back</a>
+    </div>
+
+</div>
 <div class="row">
     <aside class="column">
         <div class="side-nav">

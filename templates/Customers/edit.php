@@ -43,8 +43,8 @@ $this->Form->setTemplates($formTemplate);
                     <?php
                         echo $this->Form->control('customer_name');
                         echo $this->Form->control('customer_address');
-                        echo $this->Form->control('customer_postcode');
-                        echo $this->Form->control('customer_city');
+                        echo $this->Form->control('customer_postal');
+                        echo $this->Form->control('customer_suburb');
                         echo $this->Form->control('customer_phonenumber');
                         echo $this->Form->control('customer_email');
                     ?>

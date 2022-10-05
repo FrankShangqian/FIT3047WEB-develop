@@ -20,11 +20,11 @@ class OrdersFixture extends TestFixture
         $this->records = [
             [
                 'order_id' => 1,
-                'order_date' => '2022-09-09',
+                'order_date' => '2022-10-05',
                 'order_total' => 1.5,
-                'order_status' => 1,
-                'order_item' => 1,
+                'progress_status' => 1,
                 'customer_id' => 1,
+                'order_paid' => 1,
             ],
         ];
         parent::init();

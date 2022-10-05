@@ -28,13 +28,15 @@ $this->Form->setTemplates($formTemplate);
 <body>
     <h1>Reorder Stock List</h1>
     <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="dataTable">
             <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('quantity') ?></th>
                 <th><?= $this->Paginator->sort('stock_alert') ?></th>
+                <th><?= __('Edit SOH') ?></th>
+
             </tr>
             </thead>
             <tbody>
@@ -44,6 +46,8 @@ $this->Form->setTemplates($formTemplate);
                     <td><?= h($product->product_name) ?></td>
                     <td><?= $this->Number->format($product->product_quantity) ?></td>
                     <td><?= $this->Number->format($product->stock_alert) ?></td>
+                    <td><?= $this->Html->link(__('Update'), ['action' => 'edit', $product->product_id], ['class' => 'side-nav-item']) ?>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

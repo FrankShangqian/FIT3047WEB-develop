@@ -99,6 +99,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Products functions:</h6>
                     <a class="collapse-item" href="<?= $this->Url->build('/Products') ?>">List</a>
+                    <a class="collapse-item" href="<?= $this->Url->build('/Categories') ?>">Categories</a>
                     <a class="collapse-item" href="<?= $this->Url->build('/Products/add') ?>">New Products</a>
                 </div>
             </div>
