@@ -62,22 +62,6 @@ class UsersTable extends Table
             ->requirePresence('users_password', 'create')
             ->notEmptyString('users_password');
 
-        $validator
-            ->scalar('users_name')
-            ->maxLength('users_name', 255)
-            ->requirePresence('users_name', 'create')
-            ->notEmptyString('users_name');
-
-        $validator
-            ->scalar('users_mobile_phone')
-            ->maxLength('users_mobile_phone', 30)
-            ->allowEmptyString('users_mobile_phone');
-
-        $validator
-            ->integer('users_role')
-            ->requirePresence('users_role', 'create')
-            ->notEmptyString('users_role');
-
         return $validator;
     }
 }
