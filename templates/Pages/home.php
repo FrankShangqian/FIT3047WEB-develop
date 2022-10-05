@@ -37,7 +37,6 @@ $checkConnection = function (string $name) {
             }
         }
     }
-
     return compact('connected', 'error');
 };
 
@@ -162,6 +161,7 @@ endif;
         </div>
     </div>
 </header>
+
 <!-- Main Content-->
 <div class="container px-4 px-lg-5" style="background-image: url('webroot/img/about-bg.jpg')">
     <div class="row gx-4 gx-lg-5 justify-content-center">
