@@ -2,15 +2,24 @@
 declare(strict_types=1);
 
 namespace App\Model\Entity;
+<<<<<<< HEAD
+
+=======
 use Authentication\PasswordHasher\DefaultPasswordHasher;
+>>>>>>> c0ea659d6275c076954bf40185d147f695db343c
 use Cake\ORM\Entity;
 
 /**
  * User Entity
  *
  * @property int $users_id
+<<<<<<< HEAD
+ * @property string $users_email
+ * @property string $users_password
+=======
  * @property string $email
  * @property string $password
+>>>>>>> c0ea659d6275c076954bf40185d147f695db343c
  */
 class User extends Entity
 {
@@ -24,6 +33,11 @@ class User extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
+<<<<<<< HEAD
+        'users_email' => true,
+        'users_password' => true,
+    ];
+=======
         'email' => true,
         'password' => true,
     ];
@@ -43,4 +57,5 @@ class User extends Entity
             return (new DefaultPasswordHasher())->hash($password);
         }
     }
+>>>>>>> c0ea659d6275c076954bf40185d147f695db343c
 }
