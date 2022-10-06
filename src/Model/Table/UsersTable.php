@@ -38,8 +38,8 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->setDisplayField('users_id');
+        $this->setPrimaryKey('users_id');
     }
 
     /**
@@ -61,29 +61,6 @@ class UsersTable extends Table
             ->maxLength('users_password', 255)
             ->requirePresence('users_password', 'create')
             ->notEmptyString('users_password');
-
-        $validator
-            ->scalar('users_name')
-            ->maxLength('users_name', 255)
-            ->requirePresence('users_name', 'create')
-            ->notEmptyString('users_name');
-
-        $validator
-            ->scalar('users_mobile_phone')
-            ->maxLength('users_mobile_phone', 30)
-            ->allowEmptyString('users_mobile_phone');
-
-        $validator
-            ->integer('users_role')
-            ->notEmptyString('users_role');
-
-        $validator
-            ->dateTime('users_created')
-            ->allowEmptyDateTime('users_created');
-
-        $validator
-            ->dateTime('users_modified')
-            ->allowEmptyDateTime('users_modified');
 
         return $validator;
     }
