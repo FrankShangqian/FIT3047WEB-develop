@@ -4,23 +4,22 @@
  * @var \App\Model\Entity\OrderLine $orderLine
  */
 ?>
+<div class="orders index content">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="<?= $this->Url->build(['action' => 'index'])?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1"><i
+                class="fas fa-sm text-white-50"></i> Back</a></div>
+
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Order Line'), ['action' => 'edit', $orderLine->orderline_id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Order Line'), ['action' => 'delete', $orderLine->orderline_id], ['confirm' => __('Are you sure you want to delete # {0}?', $orderLine->orderline_id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Order Line'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Order Line'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column-responsive column-80">
         <div class="orderLine view content">
-            <h3><?= h($orderLine->orderline_id) ?></h3>
+            <h3>Purchased ID <?= h($orderLine->orderline_id) ?></h3>
             <table>
+                <th class="heading"><?= __('Actions') ?></th>
+                <td><?= $this->Html->link(__('Edit'), ['action' => 'edit', $orderLine->orderline_id], ['class' => 'side-nav-item']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $orderLine->orderline_id], ['confirm' => __('Are you sure you want to delete # {0}?', $orderLine->orderline_id), 'class' => 'side-nav-item']) ?>
                 <tr>
                     <th><?= __('Product') ?></th>
-                    <td><?= $orderLine->has('product') ? $this->Html->link($orderLine->product->product_id, ['controller' => 'Products', 'action' => 'view', $orderLine->product->product_id]) : '' ?></td>
+                    <td><?= $orderLine->has('product') ? $this->Html->link($orderLine->product->product_name, ['controller' => 'Products', 'action' => 'view', $orderLine->product->product_id]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Order') ?></th>
@@ -38,3 +37,15 @@
         </div>
     </div>
 </div>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+</style>

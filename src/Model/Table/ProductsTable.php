@@ -40,11 +40,15 @@ class ProductsTable extends Table
         parent::initialize($config);
 
         $this->setTable('products');
-        $this->setDisplayField('product_id');
+        $this->setDisplayField('product_name');
         $this->setPrimaryKey('product_id');
 
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id',
+        ]);
+
+        $this->hasMany('OrderLine',[
+            'foreignKey'=>'product_id'
         ]);
 
     }

@@ -44,8 +44,13 @@ class OrdersController extends AppController
         $order = $this->Orders->get($id, [
             'contain' => ['Customers', 'OrderLine'],
         ]);
+        $this->paginate=[
+            'contain'=>['Products']
+        ];
         $this->set(compact('order'));
         $this->set('OrderLine', $this->Orders->OrderLine->find('all'));
+        $products = $this->Orders->Products->find('all', ['valueFields'=>'product_name']);
+        $this->set(compact('order','products'));
     }
 
     /**
@@ -57,21 +62,24 @@ class OrdersController extends AppController
     {
         $order = $this->Orders->newEmptyEntity();
         if ($this->request->is('post')) {
-            $order = $this->Orders->patchEntity($order, $this->request->getData());
-
+            $order = $this->Orders->patchEntity($order, $this->request->getData(),[
+                'associated'=>['OrderLine']
+            ]);
             if ($this->Orders->save($order)) {
+                $this->Flash->success(__('The user has been saved.'));
 
-                $this->Flash->success(__('The order has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The order could not be saved. Please, try again.'));
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
 
         $this->set(compact('order'));
+        $this->set('_serialize',['order']);
+
         $customers = $this->Orders->Customers->find('list',['keyField'=> 'customer_id', 'valueField'=>'customer_name']);
         $this->set(compact('order','customers'));
 
-        $this->set('products', $this->Orders->OrderLine->Products->find('all'));
+        $this->set('products', $this->Orders->OrderLine->Products->find('all', ['keyFields'=>'product_id']));
 
     }
 
@@ -90,8 +98,8 @@ class OrdersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $order = $this->Orders->patchEntity($order, $this->request->getData());
             if ($this->Orders->save($order)) {
-                $this->Flash->success(__('The order has been saved.'));
 
+                $this->Flash->success(__('The order has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The order could not be saved. Please, try again.'));
@@ -102,6 +110,9 @@ class OrdersController extends AppController
         $OrderLine = $this->Orders->OrderLine->find('all', ['conditions'=>['Orders.order_id' == 'OrderLine.order_id']
         ]);
         $this->set(compact('order', 'OrderLine'));
+
+        $products = $this->Orders->Products->find('all', ['valueFields'=>'product_name']);
+        $this->set(compact('order','products'));
 
     }
 

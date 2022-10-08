@@ -53,35 +53,60 @@ $this->Form->setTemplates($formTemplate);
                     <th><?= __('Customer Name') ?></th>
                     <td><?= $order->has('customer') ? $this->Html->link($order->customer->customer_name, ['controller' => 'Customers', 'action' => 'view', $order->customer->customer_id]) : '' ?></td>
                 </tr>
-
-                <tr>
-                    <th><?= __('Order Total') ?></th>
-                    <td>$ <?= $this->Number->format($order->order_total) ?></td>
-                </tr>
                 <table class="table"><br>
                     <header>Purchased Items: </header>
                     <thead>
                     <tr>
-                        <th>Product ID</th>
+                        <th>Product Name</th>
                         <th>Order Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php $sum = 0 ?>
                     <?php foreach ($OrderLine as $orderLine):
-                        if ($orderLine['order_id'] == $order->order_id):?>
-                        <tr>
-                            <td><?php echo $orderLine['product_id'];?></td>
-                            <td><?php echo $orderLine['order_quantity'];?></td>
-                        </tr>
+                        foreach ($products as $product):
+                            if ($orderLine['order_id'] == $order->order_id):
+                                if($product['product_id']== $orderLine['product_id']):?>
+                                    <tr>
+                                        <td><?php echo $product['product_name'];?></td>
+                                        <td><?php echo $orderLine['order_quantity'];?></td>
+                                        <td>$ <?php echo $product['product_price'];?></td>
+                                        <td>$ <?php $subtotal = [$product['product_price']*$orderLine['order_quantity']];  echo $product['product_price']*$orderLine['order_quantity'];?></td>
+                                    <?php foreach ($subtotal as $total)
+                                                $sum+=$total; ?>
+                                    </tr>
                     <?php  endif;
+                                endif;
+                     endforeach;
                     endforeach;?>
                     </tbody>
+                    <tr>
+                        <th><?= __('Order Total') ?></th>
+                        <td>$ <?php  echo $sum ?></td>
+                    </tr>
                 </table>
             </table>
         </div>
     </div>
 </div>
 </div>
+
+<style>
+    table {
+        border-collapse: collapse;
+        max-width: 90vw;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+</style>
 
 <style>
     table {

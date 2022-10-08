@@ -12,6 +12,8 @@ use Cake\Validation\Validator;
  * Orders Model
  *
  * @property \App\Model\Table\CustomersTable&\Cake\ORM\Association\BelongsTo $Customers
+ * @property \App\Model\Table\ProductsTable&\Cake\ORM\Association\BelongsTo $Products
+ * @property \App\Model\Table\OrderLineTable&\Cake\ORM\Association\HasMany $OrderLine
  *
  * @method \App\Model\Entity\Order newEmptyEntity()
  * @method \App\Model\Entity\Order newEntity(array $data, array $options = [])
@@ -47,6 +49,14 @@ class OrdersTable extends Table
             'foreignKey' => 'customer_id',
             'joinType' => 'INNER',
         ]);
+
+        $this->hasMany('Products', [
+            'className'=>'Products',
+        ]);
+
+        $this->hasMany('OrderLine',[
+            'foreignKey'=>'order_id',
+            'through'=>'OrderLine']);
     }
 
     /**
@@ -63,20 +73,9 @@ class OrdersTable extends Table
             ->notEmptyDate('order_date');
 
         $validator
-            ->decimal('order_total')
-            ->allowEmptyString('order_total');
-
-        $validator
-            ->boolean('progress_status')
-            ->allowEmptyString('progress_status');
-
-        $validator
             ->integer('customer_id')
+            ->requirePresence('customer_id', 'create')
             ->notEmptyString('customer_id');
-
-        $validator
-            ->boolean('order_paid')
-            ->allowEmptyString('order_paid');
 
         return $validator;
     }

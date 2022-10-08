@@ -35,7 +35,7 @@ $this->Form->setTemplates($formTemplate);
                 <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('quantity') ?></th>
                 <th><?= $this->Paginator->sort('stock_alert') ?></th>
-                <th><?= __('Edit SOH') ?></th>
+                <th><?= __('Restock') ?></th>
 
             </tr>
             </thead>

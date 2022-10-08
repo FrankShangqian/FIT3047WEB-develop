@@ -38,7 +38,7 @@ class CustomersTable extends Table
         parent::initialize($config);
 
         $this->setTable('customers');
-        $this->setDisplayField('customer_id');
+        $this->setDisplayField('customer_name');
         $this->setPrimaryKey('customer_id');
     }
 

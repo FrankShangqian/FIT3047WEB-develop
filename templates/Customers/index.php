@@ -79,3 +79,17 @@ $this->Form->setTemplates($formTemplate);
     }
 
 </style>
+<style>
+    table {
+        border-collapse: collapse;
+        max-width: 90vw;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+</style>

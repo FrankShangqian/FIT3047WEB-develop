@@ -22,7 +22,7 @@
                 <?php foreach ($orderLine as $orderLine): ?>
                 <tr>
                     <td><?= $this->Number->format($orderLine->orderline_id) ?></td>
-                    <td><?= $orderLine->has('product') ? $this->Html->link($orderLine->product->product_id, ['controller' => 'Products', 'action' => 'view', $orderLine->product->product_id]) : '' ?></td>
+                    <td><?= $orderLine->has('product') ? $this->Html->link($orderLine->product->product_name, ['controller' => 'Products', 'action' => 'view', $orderLine->product->product_id]) : '' ?></td>
                     <td><?= $this->Number->format($orderLine->order_quantity) ?></td>
                     <td><?= $orderLine->has('order') ? $this->Html->link($orderLine->order->order_id, ['controller' => 'Orders', 'action' => 'view', $orderLine->order->order_id]) : '' ?></td>
                     <td class="actions">
@@ -46,3 +46,15 @@
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+</style>

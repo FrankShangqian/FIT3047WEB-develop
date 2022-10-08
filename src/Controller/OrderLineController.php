@@ -39,7 +39,7 @@ class OrderLineController extends AppController
             'contain' => ['Products', 'Orders'],
         ]);
 
-        $this->set(compact('orderLine'));
+        $this->set('orderLine',$orderLine);
     }
 
     /**

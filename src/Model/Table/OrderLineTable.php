@@ -48,6 +48,7 @@ class OrderLineTable extends Table
             'foreignKey' => 'product_id',
             'joinType' => 'INNER',
         ]);
+
         $this->belongsTo('Orders', [
             'foreignKey' => 'order_id',
             'joinType' => 'INNER',
@@ -72,11 +73,6 @@ class OrderLineTable extends Table
             ->requirePresence('order_quantity', 'create')
             ->notEmptyString('order_quantity');
 
-        $validator
-            ->integer('order_id')
-            ->requirePresence('order_id', 'create')
-            ->notEmptyString('order_id');
-
         return $validator;
     }
 
@@ -90,7 +86,7 @@ class OrderLineTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('product_id', 'Products'), ['errorField' => 'product_id']);
-        $rules->add($rules->existsIn('order_id', 'Orders'), ['errorField' => 'order_id']);
+        $rules->add($rules->existsIn(['order_id'], 'Orders'));
 
         return $rules;
     }
