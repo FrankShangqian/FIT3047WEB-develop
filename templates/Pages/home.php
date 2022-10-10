@@ -40,6 +40,7 @@ $checkConnection = function (string $name) {
     return compact('connected', 'error');
 };
 
+
 if (!Configure::read('debug')) :
     throw new NotFoundException(
         'Please replace templates/Pages/home.php with your own version or re-enable debug mode.'
@@ -165,6 +166,229 @@ endif;
 
 <!-- Main Content-->
 
+<body class ="text center" = "">
+    <main class="inner cover" role ="main";>
+        <div">
+            <style>
+                h1{text-align: center;font-size: x-large;}
+                h2{text-align: center; }
+
+            </style>
+            <h1>About Aromy</h1>
+            <br>
+                <p style="text-align: center; font-size: medium; margin:auto; width: 800px;">
+                Aromy is a leading Australian supplier of aromy therapy based products and
+                massage services for the aged care industry.
+
+                Aromy supplies and focuses on its development of
+                essential oil blends and related products. We supply clients across Australia, in the Aged Care sector,
+                remedial health and at store fronts for personal use.
+             </p>
+        <br>
+        <hr class="solid">
+            <table border="0">
+                <tbody>
+                <tr>
+                    <td>
+
+                            <p style="text-align: center;">
+                                <span style="color: #000000; font-size: large;">
+                                    <strong>Why Aromy?</strong>
+                                </span>
+                            </p>
+
+                        <p style="text-align: center; margin-left: 20px; margin-right: 20px ">
+                            <span style="font-size: small;">
+                                Aromy’s essential oil blends, creams and oils are used in the management of illness,
+                        chronic conditions, pain and anxiety. Aromy has developed its products
+                        and processes over years of experience, built up in the booming eastern suburbs of Melbourne.
+
+                            </span>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <img style="display: block; margin-left: auto;
+                                margin-right; auto;"
+                                 src="https://cdn.shopify.com/s/files/1/0307/0317/products/Aromatherapy.jpg%3fv%3d1571309843"
+                                 width="300px">
+                        </p>
+
+                    </td>
+
+                    <td>
+
+                        <p style="text-align: center;">
+                            <span style="color: #000000; font-size: large;">
+                                <strong>Our Values</strong>
+                            </span>
+                        </p>
+
+
+                        <p style="text-align: center; margin-left: 20px; margin-right: 20px;">
+                            <span style="font-size: small;">
+                                Aromy is focused on delivering incredible
+                                aromatherapy products We strive to capture the essence of nature and all the
+                        scents that derive from the wonderful world we live in and
+                        build a range of products that alleviate an individuals needs.
+
+                            </span>
+                        </p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <br>
+            <!-- Team Member Section -->
+                <hr class="solid">
+                    <p style="text-align: center;font-size: x-large">
+                        <strong>Our Team</strong>
+
+                    </p>
+                    <p style= "text-align: center; font-size: medium;">
+                        <span style=" ">
+                        Meet some of the wonderful Aromy team that strives to deliver
+                        our incredible aromatherapy products.
+                            </span>
+
+                    </p>
+
+            <br>
+
+
+
+
+
+
+                    <!-- Team Member 1 -->
+            <p>
+                <img style="display: block; margin-inline: auto;
+                                margin-bottom; auto;" title="Team Member 1"
+                                src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/4ZrVLdVKeijzurndz/people-emotion-and-facial-expression-concept-face-of-happy-smiling-middle-aged-woman-at-office_rleqp4y7g_thumbnail-1080_09.png"
+                                alt="Team Member 1" width="200px">
+            </p>
+
+            <p style="text-align: center;">
+                                <strong>Team Member 1</strong>
+
+            </p>
+            <p style="text-align: center;">
+                <span style="font-size: medium;" </span>
+                Role
+            </p>
+            <p style="text-align: center;">
+                <span style="font-size: small;" </span>
+                About
+            </p>
+
+
+
+                    <!-- Team Member 2 -->
+
+            <p>
+                <img style="display: block; margin-inline: auto; margin-right; auto;" title="Team Member 2"
+                     src="https://cdn8.dissolve.com/p/D430_40_126/D430_40_126_1200.jpg"
+                     alt="Team Member 2" width="200px">
+            </p>
+
+            <p style="text-align: center;">
+                <strong>Team Member 2</strong>
+
+            </p>
+            </p>
+            <p style="text-align: center;">
+                <span style="font-size: medium;" </span>
+                Role
+            </p>
+            <p style="text-align: center;">
+                <span style="font-size: small;" </span>
+                About
+            </p>
+
+                    <!-- Team Member 3 -->
+
+            <p>
+                <img style="display: block; margin-inline: auto;
+                                margin-right; auto;" title="Team Member 3"
+                                 src="https://mh-1-stockagency.panthermedia.net/media/previews/0015000000/15475000/~warehouse-worker-scanning-box-while-smiling_15475001_high.jpg"
+                                 alt="Team Member 3" width="200px">
+            </p>
+
+            <p style="text-align: center;">
+                <strong>Team Member 3</strong>
+
+            </p>
+            </p>
+            <p style="text-align: center;">
+                <span style="font-size: medium;" </span>
+                Role
+            </p>
+            <p style="text-align: center;">
+                <span style="font-size: small;" </span>
+                About
+            </p>
+        </div>
+        <br>
+        <hr class="solid">
+
+        <!-- get in contact - end of home page -->
+        <div style = "position:relative; left:80px; top:20px;">
+            <h style="font-size: xx-large; color: darkgreen">
+                                <strong>Get in Contact</strong>
+                            </span>
+            </h>
+            <p style="font-size: medium">
+                Have a question?
+
+                Want to learn more about our products?
+                <br>
+
+                Get in touch with our friendly staff using the details below! We will be in touch.
+            </p>
+            <!-- Contact us form -->
+            <div>
+                <!-- Icon for Email -->
+                <div class="col-auto">
+                    <i class="fas fa-envelope"></i>
+                        <h>  enquiries@aromy.com.au </h>
+                    </div>
+
+                <!-- Phone Number -->
+                <div class ="col-auto">
+                    <i class ="fas fa-phone"></i>
+                    <h> 1111 1111 </h>
+                </div>
+
+                <br>
+                <!-- Social Media Links - icon error, remove for now
+                <div class="col-auto">
+
+                    <a class="fa fa-facebook" href="https://facebook.com" ></a>
+                    <h> Aromy</h>
+                </div>
+
+
+                <a  href="https://instagram.com" class="btn btn-primary" >
+                    <i class = "fa fa-twitter"></i>
+
+                </a>
+                    <h> Aromy</h>
+
+
+
+                <div class="col-auto">
+                    <a  href="https://twitter.com"
+                        <i class = "fa fa-twitter" aria-hidden="true" ></i></a>
+                            <h> Aromy</h>
+                </div>
+                -->
+
+            <br>
+            </div>
+        </div>
+    </main>
 <!-- Footer-->
 <footer class="border-top" style="background-image: url('webroot/img/about-bg.jpg')">
     <div class="container px-4 px-lg-5">
